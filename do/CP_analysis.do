@@ -13,11 +13,11 @@ if "`c(username)'" == "Administrator" {
 }
 
 if "`c(username)'" == "jwutw" {
-	global do = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\term_paper\do"
-	global rawData = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\term_paper\rawData"
-	global workData = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\term_paper\workData"
-	global log = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\term_paper\log"
-	global pic = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\term_paper\pic"
+	global do = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\Git\LaborTopicTermPaper\do"
+	global rawData = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\Git\LaborTopicTermPaper\rawData"
+	global workData = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\Git\LaborTopicTermPaper\workData"
+	global log = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\Git\LaborTopicTermPaper\log"
+	global pic = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\Git\LaborTopicTermPaper\pic"
 }
 
 
@@ -79,16 +79,16 @@ recode cp09v08_u (11/99 = .)
 gen public = (cp09v08_u == 1) | (cp09v08_u == 2) | (cp09v08_u == 3) | (cp09v08_u == 4) if cp09v08_u != .
 gen sever_public = (cp09v08_u == 1) if cp09v08_u != .
 
-recode sh09v53 (96/99 = .)
-gen wage_level_2009 = sh09v53 - 1
+recode cp09v23 (96/99 = .)
+gen wage_level_2009 = cp09v23 - 1
 
-recode sh09v55 (12/99 = .) // when to start first job
-recode sh09v51 (12/99 = .) // when to start job(now)
-gen work_year_2009 = 12 - sh09v55
-count if work_year_2009 !=. // 2,055
+recode cp09v25 (7/99 = .) // when to start first job
+recode cp09v21 (7/99 = .) // when to start job(now)
+gen work_year_2009 = 7 - cp09v25
+count if work_year_2009 !=. // 91
 
-replace work_year_2009 = 12 - sh09v51 if (sh09v54 == 1|sh09v54 == 96|sh09v54 == 97|sh09v54 == 98)
-count if work_year_2009 !=. // 6,474
+replace work_year_2009 = 7 - cp09v21 if (cp09v21 == 1|cp09v21 == 96|cp09v21 == 97|cp09v21 == 98)
+count if work_year_2009 !=. // 91
 
 /* 如果現在這份不是第一份工作，但她並沒有第一份工作是什麼時候開始的資料，那要用現在這份工作是什麼時候開始的資料作為工作年份嗎？
 目前先納入
@@ -97,19 +97,21 @@ count if work_year_2009 !=. // 6,474
 keep stud_id university public wage_level_2009 work_year_2009
 
 // Merge with school time data
-merge 1:1 stud_id using "$workData\SH_divorce.dta"
+merge 1:1 stud_id using "$workData\CP_divorce.dta"
 drop _merge
-save "$workData\SH_divorce_Outcome2009.dta", replace
+save "$workData\CP_divorce_Outcome2009.dta", replace
 
 /* 
-merge 1:1 stud_id using "$workData\SH_divorce.dta"
-                 _merge |      Freq.     Percent        Cum.
-------------------------+-----------------------------------
-        master only (1) |        154        0.81        0.81
-            matched (3) |     18,897       99.19      100.00
-------------------------+-----------------------------------
-                  Total |     19,051      100.00
+ merge 1:1 stud_id using "$workData\CP_divorce.dta"
 
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                        15,558
+        from master                         1  (_merge==1)
+        from using                     15,557  (_merge==2)
+
+    matched                             4,260  (_merge==3)
+    -----------------------------------------
 
 */
 

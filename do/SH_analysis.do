@@ -77,6 +77,7 @@ gen university = (sh09v33 == 5) | (sh09v33 == 6) | (sh09v33 == 7) | (sh09v33 == 
 
 recode sh09v37v38_u (5 = .) (10/99 = .)
 gen public = (sh09v37v38_u == 1) | (sh09v37v38_u == 2) | (sh09v37v38_u == 3) | (sh09v37v38_u == 4) | (sh09v37v38_u == 4) if sh09v37v38_u != .
+gen severe_public = (sh09v37v38_u == 1) | (sh09v37v38_u == 2) if sh09v37v38_u != .
 
 recode sh09v53 (96/99 = .)
 gen wage_level_2009 = sh09v53 - 1
@@ -93,7 +94,7 @@ count if work_year_2009 !=. // 6,474
 目前先納入
 */
 
-keep stud_id university public wage_level_2009 work_year_2009
+keep stud_id university public severe_public wage_level_2009 work_year_2009
 
 // Merge with school time data
 merge 1:1 stud_id using "$workData\SH_divorce.dta"
@@ -163,6 +164,9 @@ reg university severe_divorce, r
 
 reg public divorce, r
 reg public severe_divorce, r
+reg severe_public divorce, r
+reg severe_public severe_divorce, r
+
 
 reg wage_level_2009 divorce, r
 reg wage_level_2009 severe_divorce, r
@@ -191,6 +195,10 @@ reg university divorce i.faedu i.moedu, r
 
 * reg public divorce i.faedu i.moedu, r
 * reg public severe_divorce i.faedu i.moedu, r
+* reg severe_public divorce i.faedu i.moedu, r
+* reg severe_public severe_divorce i.faedu i.moedu, r
+
+
 
 reg wage_level_2009 divorce i.faedu i.moedu work_year_2009, r
 * reg wage_level_2009 severe_divorce i.faedu i.moedu work_year_2009, r
