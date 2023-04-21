@@ -5,11 +5,11 @@
 
 * Directory (Xiang Jyun Jhang)
 if "`c(username)'" == "Administrator" {  
-    global do = "G:\我的雲端硬碟\Document\111Spring\2_勞動經濟學專題\termPaper\do"
-    global rawData = "G:\我的雲端硬碟\Document\111Spring\2_勞動經濟學專題\termPaper\rawData"
-    global workData = "G:\我的雲端硬碟\Document\111Spring\2_勞動經濟學專題\termPaper\workData"
-    global log = "G:\我的雲端硬碟\Document\111Spring\2_勞動經濟學專題\termPaper\log"
-    global pic = "G:\我的雲端硬碟\Document\111Spring\2_勞動經濟學專題\termPaper\pic"
+    global do = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\do"
+    global rawData = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\rawData"
+    global workData = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\workData"
+    global log = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\log"
+    global pic = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\pic"
 }
 
 if "`c(username)'" == "jwutw" {
