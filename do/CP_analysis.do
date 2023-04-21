@@ -1,54 +1,55 @@
 ********************************************
-* Senior High School Sample Analysis
+* Junior High School Sample Analysis
 ********************************************
 
 
 * Directory (Xiang Jyun Jhang)
 if "`c(username)'" == "Administrator" {  
-    global do = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\do"
-    global rawData = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\rawData"
-    global workData = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\workData"
-    global log = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\log"
-    global pic = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\pic"
+    global do = "G:\我的雲端硬碟\Document\111Spring\2_勞動經濟學專題\termPaper\do"
+    global rawData = "G:\我的雲端硬碟\Document\111Spring\2_勞動經濟學專題\termPaper\rawData"
+    global workData = "G:\我的雲端硬碟\Document\111Spring\2_勞動經濟學專題\termPaper\workData"
+    global log = "G:\我的雲端硬碟\Document\111Spring\2_勞動經濟學專題\termPaper\log"
+    global pic = "G:\我的雲端硬碟\Document\111Spring\2_勞動經濟學專題\termPaper\pic"
 }
 
 if "`c(username)'" == "jwutw" {
-	global do = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\Git\LaborTopicTermPaper\do"
-	global rawData = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\Git\LaborTopicTermPaper\rawData"
-	global workData = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\Git\LaborTopicTermPaper\workData"
-	global log = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\Git\LaborTopicTermPaper\log"
-	global pic = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\Git\LaborTopicTermPaper\pic"
+	global do = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\term_paper\do"
+	global rawData = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\term_paper\rawData"
+	global workData = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\term_paper\workData"
+	global log = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\term_paper\log"
+	global pic = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\term_paper\pic"
 }
 
 
 
-* Clean SH 2001 data
+* Clean CP 2001 data
 cd "$rawData"
-use "SH\SH_2001_A_student.dta", clear
+use "CP\CP_2001_A_student.dta", clear
 drop if w1s208 == 97 | w1s208 == 99
 gen divorce_2001 = (w1s208 > 1) //specify the divorce status in 2001
 keep stud_id divorce_2001
 
 
-* Merge with SH 2003 data
+* Merge with CP 2007 data, identify divorce in Senior high 
 cd "$rawData"
-merge 1:1 stud_id using "SH\SH_2003_A_student.dta", keepusing(w2s224)
-drop if w2s224 == 97 | w2s224 == 99
-gen divorce_2003 = (w2s224 == 1) //specify the divorce status in 2003
-keep stud_id divorce_2001 divorce_2003
+merge 1:1 stud_id using "CP\CP_2007_A_student.dta", keepusing(w4s2065)
+tab _merge
+gen divorce_2007 = (w4s2065 == 1) //specify the divorce status in 2003
+keep stud_id divorce_2001 divorce_2007
 
 
 /* **********************************************
-merge 1:1 stud_id using "$workData\SH_divorce_Outcome2009.dta"
+merge 1:1 stud_id using "CP\CP_2007_A_student.dta", keepusing(w4s2065)
 
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                           154
-        from master                       154  (_merge==1)
-        from using                          0  (_merge==2)
 
-    matched                            18,897  (_merge==3)
-    -----------------------------------------
+                 _merge |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        master only (1) |     15,654       78.99       78.99
+         using only (2) |         30        0.15       79.14
+            matched (3) |      4,133       20.86      100.00
+------------------------+-----------------------------------
+                  Total |     19,817      100.00
+
 
 ********************************************** */
 
@@ -57,12 +58,12 @@ merge 1:1 stud_id using "$workData\SH_divorce_Outcome2009.dta"
 * Compare the divorce status between 2001 & 2003
 
 // define severe_divorce: divorce in twelve grade
-gen severe_divorce = (divorce_2001 == 0 & divorce_2003 == 1) 
+gen severe_divorce = (divorce_2001 == 0 & divorce_2007 == 1) 
 // define divorce: once divorce in the past
-gen divorce = (divorce_2001 == 1) | (divorce_2003 == 1)
+gen divorce = (divorce_2001 == 1) | (divorce_2007 == 1)
 keep stud_id divorce severe_divorce
 
-save "$workData\SH_divorce.dta", replace
+save "$workData\CP_divorce.dta", replace
 
 
 ********************************************
@@ -70,13 +71,13 @@ save "$workData\SH_divorce.dta", replace
 * Find Y = university, public, wage_level.  
 * And control variable: work_year
 ********************************************
-cd "$rawData"
-use "SH\SH_2009.dta", clear 
-recode sh09v33 (9/99 = .)
-gen university = (sh09v33 == 5) | (sh09v33 == 6) | (sh09v33 == 7) | (sh09v33 == 8) if sh09v33 != .
+use "$rawData\CP\CP_2009.dta", clear 
+recode cp09v06 (7/98 = .)
+gen university = (cp09v06 == 5) | (cp09v06 == 6) if cp09v06 != .
 
-recode sh09v37v38_u (5 = .) (10/99 = .)
-gen public = (sh09v37v38_u == 1) | (sh09v37v38_u == 2) | (sh09v37v38_u == 3) | (sh09v37v38_u == 4) | (sh09v37v38_u == 4) if sh09v37v38_u != .
+recode cp09v08_u (11/99 = .)
+gen public = (cp09v08_u == 1) | (cp09v08_u == 2) | (cp09v08_u == 3) | (cp09v08_u == 4) if cp09v08_u != .
+gen sever_public = (cp09v08_u == 1) if cp09v08_u != .
 
 recode sh09v53 (96/99 = .)
 gen wage_level_2009 = sh09v53 - 1
@@ -100,7 +101,8 @@ merge 1:1 stud_id using "$workData\SH_divorce.dta"
 drop _merge
 save "$workData\SH_divorce_Outcome2009.dta", replace
 
-/*
+/* 
+merge 1:1 stud_id using "$workData\SH_divorce.dta"
                  _merge |      Freq.     Percent        Cum.
 ------------------------+-----------------------------------
         master only (1) |        154        0.81        0.81
@@ -156,7 +158,6 @@ save "$workData\SH_divorce_Outcome2009_2015.dta", replace
 ********************************************
 use "$workData\SH_divorce_Outcome2009_2015.dta", clear
 
-
 // SH: analysis - university on severe_divorce/divorce
 reg university divorce, r
 reg university severe_divorce, r
@@ -202,7 +203,6 @@ reg work_year_2009 divorce i.faedu i.moedu, r
 * reg work_year_2009 severe_divorce i.faedu i.moedu , r
 reg work_year_2015 divorce i.faedu i.moedu, r
 * reg work_year_2015 severe_divorce i.faedu i.moedu, r
-
 
 
 
