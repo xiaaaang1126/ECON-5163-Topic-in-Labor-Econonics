@@ -117,50 +117,85 @@ save "$workData\CP_divorce_Outcome2009.dta", replace
 
 
 ********************************************
-* Merge with 2015 future working data: 
+* Merge with 2013 future working data: 
 * Find Y = university, public, wage_level.  
 * And control variable: work_year
 ********************************************
-use "SH\SH_2015.dta", clear 
+use "$rawData\CP\CP_2013.dta", clear 
 
-recode sh15v57 (93/99 = .)
-gen wage_level_2015 = sh15v57 - 1
+recode cp13v52 (96/99 = .)
+gen wage_level_2013 = cp13v52 - 1
 
-recode sh15v60 (19/99 = .) // when to start first job
-recode sh15v55 (19/99 = .) // when to start job(now)
-gen work_year_2015 = 19 - sh15v60
-count if work_year_2015!=. // 5,344
+recode cp13v54 (12/99 = .) // when to start first job
+recode cp13v50 (12/99 = .) // when to start job(now)
+gen work_year_2013 = 12 - cp13v54
+count if work_year_2013 != . // 712
 
-replace work_year_2015 = 19 - sh15v55 if (sh15v59 == 1|sh15v59 == 96|sh15v59 == 97|sh15v59 == 98) 
-count if work_year_2015!=. // 7,920
+replace work_year_2013 = 12 - cp13v50 if (cp13v53 == 1|cp13v53 == 96|cp13v53 == 97|cp13v53 == 98) 
+count if work_year_2013 != . // 2,138
 
-keep stud_id wage_level_2015 work_year_2015
+keep stud_id wage_level_2013 work_year_2013
 
 // Merge with school time data
-merge 1:1 stud_id using "$workData\SH_divorce_Outcome2009.dta"
+merge 1:1 stud_id using "$workData\CP_divorce_Outcome2009.dta"
 drop _merge
-save "$workData\SH_divorce_Outcome2009_2015.dta", replace
+save "$workData\CP_divorce_Outcome2009_2013.dta", replace
 
 
 /*
-                 _merge |      Freq.     Percent        Cum.
-------------------------+-----------------------------------
-        master only (1) |        643        3.40        3.40
-         using only (2) |      2,975       15.74       19.15
-            matched (3) |     15,279       80.85      100.00
-------------------------+-----------------------------------
-                  Total |     18,897      100.00
+ merge 1:1 stud_id using "$workData\CP_divorce_Outcome2009.dta"
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                        15,557
+        from master                         0  (_merge==1)
+        from using                     15,557  (_merge==2)
+
+    matched                             4,261  (_merge==3)
+    -----------------------------------------
+
 */
 
+********************************************
+* Merge with 2019 future working data: 
+* Find Y = wage_level.  
+********************************************
+use "$rawData\CP\CP_2019.dta", clear 
+
+recode cp19v66 (22/99 = .)
+gen wage_level_2019 = cp19v66 - 1
+
+keep stud_id wage_level_2019
+
+// Merge with school time data
+merge 1:1 stud_id using "$workData\CP_divorce_Outcome2009_2013.dta"
+drop _merge
+save "$workData\CP_divorce_Outcome2009_2019.dta", replace
+
+
+/*
+merge 1:1 stud_id using "$workData\CP_divorce_Outcome2009_2013.dta"
+
+    Result                           # of obs.
+    -----------------------------------------
+    not matched                        15,557
+        from master                         0  (_merge==1)
+        from using                     15,557  (_merge==2)
+
+    matched                             4,261  (_merge==3)
+    -----------------------------------------
+
+
+*/
 
 
 
 ********************************************
 * Regression (2009)
 ********************************************
-use "$workData\SH_divorce_Outcome2009_2015.dta", clear
+use "$workData\CP_divorce_Outcome2009_2019.dta", clear
 
-// SH: analysis - university on severe_divorce/divorce
+// CP: analysis - university on severe_divorce/divorce
 reg university divorce, r
 reg university severe_divorce, r
 
@@ -169,15 +204,18 @@ reg public severe_divorce, r
 
 reg wage_level_2009 divorce, r
 reg wage_level_2009 severe_divorce, r
-reg wage_level_2015 divorce, r
-reg wage_level_2015 severe_divorce, r
+reg wage_level_2013 divorce, r
+reg wage_level_2013 severe_divorce, r
+reg wage_level_2019 divorce, r
+reg wage_level_2019 severe_divorce, r
+
 
 reg work_year_2009 divorce, r
-reg work_year_2015 divorce, r
+reg work_year_2013 divorce, r
 
 
 // SH: parent
-use "$rawData\SH\SH_2001_G_parent.dta", clear
+use "$rawData\CP\CP_2001_G_parent.dta", clear
 recode w1faedu (6/99 = .)
 recode w1moedu (6/99 = .)
 rename w1faedu faedu
@@ -187,24 +225,25 @@ keep stud_id faedu moedu
 
 // SH: analysis - adding counfounder
 cd "$workData"
-merge 1:1 stud_id using "SH_divorce_Outcome2009_2015.dta"
+merge 1:1 stud_id using "CP_divorce_Outcome2009_2019.dta"
 
 reg university divorce i.faedu i.moedu, r
-* reg university severe_divorce i.faedu i.moedu, r
+reg university severe_divorce i.faedu i.moedu, r
 
-* reg public divorce i.faedu i.moedu, r
-* reg public severe_divorce i.faedu i.moedu, r
+reg public divorce i.faedu i.moedu, r
+reg public severe_divorce i.faedu i.moedu, r
 
 reg wage_level_2009 divorce i.faedu i.moedu work_year_2009, r
-* reg wage_level_2009 severe_divorce i.faedu i.moedu work_year_2009, r
-reg wage_level_2015 divorce i.faedu i.moedu work_year_2015, r
-reg wage_level_2015 severe_divorce i.faedu i.moedu work_year_2015, r
-
+reg wage_level_2009 severe_divorce i.faedu i.moedu work_year_2009, r
+reg wage_level_2013 divorce i.faedu i.moedu work_year_2013, r
+reg wage_level_2013 severe_divorce i.faedu i.moedu work_year_2013, r
+reg wage_level_2019 divorce i.faedu i.moedu, r
+reg wage_level_2019 severe_divorce i.faedu i.moedu, r
 
 reg work_year_2009 divorce i.faedu i.moedu, r
-* reg work_year_2009 severe_divorce i.faedu i.moedu , r
-reg work_year_2015 divorce i.faedu i.moedu, r
-* reg work_year_2015 severe_divorce i.faedu i.moedu, r
+reg work_year_2009 severe_divorce i.faedu i.moedu , r
+reg work_year_2013 divorce i.faedu i.moedu, r
+reg work_year_2013 severe_divorce i.faedu i.moedu, r
 
 
 
