@@ -87,5 +87,6 @@ reg work_year_2015 divorce i.faedu i.moedu, r           // t = 0.79
 ********************************************
 ***        Post-Double Selection         ***
 ********************************************
-
-pdslasso university divorce c.($cf_2001), rob
+vl create cf_2001 = (w1s2023 w1s2024 w1s210 w1s211 w1s212 w1s213 w1s219 w1s220 w1s221 w1s222 w1s223 w1s224 w1s225 w1s226 w1s227 w1s2281 w1s2282 w1s2283 w1s2284 w1s2285 w1s2286 w1s229 w1s230 w1s231 w1s232 w1s233 w1s2341 w1s2342 w1s2343 w1s2344 w1s2345 w1s2346 w1s235 w1s236 w1s237 w1s238 w1s241 w1s242 w1s253 w1s254 w1s255 w1s256 w1s508 w1s509 w1s510 w1s511 w1s512 w1s513 w1s514 w1s515 w1s516 w1s517 w1s518 w1s519 w1s520 w1s521 w1s522 w1s523 w1s535 w1s536 w1s537 w1s538 w1s539 w1s540 w1s541 w1s542 w1s543 w1s544 w1s545 w1s546 w1s547 w1s548 w1s549 w1s550 w1s551 w1s552 w1s553b w1s553c w1s554b w1s554c w1s555 w1s556 w1s557 w1s558 w1s559 w1s560)
+pdslasso university divorce $cf_2001, rob
+reg university $cf_2001
