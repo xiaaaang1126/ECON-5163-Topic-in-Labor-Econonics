@@ -17,70 +17,71 @@ if "`c(username)'" == "jwutw" {
 	global pic = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\Git\LaborTopicTermPaper\pic"
 }
 
-
 * Prepare the dataset
 do "$do/SH_clean.do"
+use "$workData\SH_divorce_outcome2009_outcome2015.dta", clear
 
 
 ********************************************
-* Regression (2009)
+***           Baseline Model             ***
 ********************************************
-use "$workData\SH_divorce_Outcome2009_2015.dta", clear
 
+* Outcome Variable (1): University
+reg university divorce, r               // t = -3.81 √
+reg university severe_divorce, r        // t = 0.532
 
-// SH: analysis - university on severe_divorce/divorce
-reg university divorce, r
-reg university severe_divorce, r
+* Outcome Variable (2): Public University
+reg public divorce, r                   // t = -0.84 
+reg public severe_divorce, r            // t = 0.07
+reg severe_public divorce, r            // t = -1.13
+reg severe_public severe_divorce, r     // t = 0.18
 
-reg public divorce, r
-reg public severe_divorce, r
-reg severe_public divorce, r
-reg severe_public severe_divorce, r
+* Outcome Variable (3): Wage Level at 2009
+reg wage_level_2009 divorce, r          // t = 0.97
+reg wage_level_2009 severe_divorce, r   // t = 0.41
 
+* Outcome Variable (4): Wage Level at 2015
+reg wage_level_2015 divorce, r          // t = 0.30
+reg wage_level_2015 severe_divorce, r   // t = 1.90 √
 
-reg wage_level_2009 divorce, r
-reg wage_level_2009 severe_divorce, r
-reg wage_level_2015 divorce, r
-reg wage_level_2015 severe_divorce, r
+* Outcome Variable (5): Working Year at 2009
+reg work_year_2009 divorce, r           // t = 3.13 √
 
-reg work_year_2009 divorce, r
-reg work_year_2015 divorce, r
-
-
-// SH: parent
-use "$rawData\SH\SH_2001_G_parent.dta", clear
-recode w1faedu (6/99 = .)
-recode w1moedu (6/99 = .)
-rename w1faedu faedu
-rename w1moedu moedu
-keep stud_id faedu moedu
-
-
-// SH: analysis - adding counfounder
-cd "$workData"
-merge 1:1 stud_id using "SH_divorce_Outcome2009_2015.dta"
-
-reg university divorce i.faedu i.moedu, r
-* reg university severe_divorce i.faedu i.moedu, r
-
-* reg public divorce i.faedu i.moedu, r
-* reg public severe_divorce i.faedu i.moedu, r
-* reg severe_public divorce i.faedu i.moedu, r
-* reg severe_public severe_divorce i.faedu i.moedu, r
+* Outcome Variable (6): Working Year at 2015
+reg work_year_2015 divorce, r           // t = 1.40
 
 
 
-reg wage_level_2009 divorce i.faedu i.moedu work_year_2009, r
-* reg wage_level_2009 severe_divorce i.faedu i.moedu work_year_2009, r
-reg wage_level_2015 divorce i.faedu i.moedu work_year_2015, r
-reg wage_level_2015 severe_divorce i.faedu i.moedu work_year_2015, r
+********************************************
+***           Adding Confounder          ***
+********************************************
 
+* Import Data
+merge 1:1 stud_id using "$workData\SH_parent2001.dta", nogenerate
 
-reg work_year_2009 divorce i.faedu i.moedu, r
-* reg work_year_2009 severe_divorce i.faedu i.moedu , r
-reg work_year_2015 divorce i.faedu i.moedu, r
-* reg work_year_2015 severe_divorce i.faedu i.moedu, r
+* Outcome Variable (1): University
+reg university divorce i.faedu i.moedu, r               // t = -3.20 √
+reg university severe_divorce i.faedu i.moedu, r        // t = -0.87
 
+* Outcome Variable (2): Public University
+reg public divorce i.faedu i.moedu, r                   // t = 0.24 
+reg public severe_divorce i.faedu i.moedu, r            // t = -0.05
+reg severe_public divorce i.faedu i.moedu, r            // t = -0.16
+reg severe_public severe_divorce i.faedu i.moedu, r     // t = 0.27
+
+* Outcome Variable (3): Wage Level at 2009
+reg wage_level_2009 divorce i.faedu i.moedu, r          // t = 1.35
+reg wage_level_2009 severe_divorce i.faedu i.moedu, r   // t = 0.04
+
+* Outcome Variable (4): Wage Level at 2015
+reg wage_level_2015 divorce i.faedu i.moedu, r          // t = 0.92
+reg wage_level_2015 severe_divorce i.faedu i.moedu, r   // t = 1.81 √
+
+* Outcome Variable (5): Working Year at 2009
+reg work_year_2009 divorce i.faedu i.moedu, r           // t = 3.59 √
+
+* Outcome Variable (6): Working Year at 2015
+reg work_year_2015 divorce i.faedu i.moedu, r           // t = 0.79
 
 
 ********************************************

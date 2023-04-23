@@ -27,7 +27,7 @@ cd "$rawData"
 use "SH\SH_2001_A_student.dta", clear
 merge 1:1 stud_id using "SH\SH_2003_A_student.dta", keepusing(w2s224) nogenerate
 
-* Main Variable: `divorce'
+* Main Variable: `divorce' and `severe_divorce'
 recode w1s208 w2s224 (97/99 = .)
 recode w2s224 (2 = 0)
 gen divorce_2001 = (w1s208 > 1) if w1s208 != .
@@ -66,19 +66,21 @@ recode sh09v37v38_u (5 = .) (11/99 = .)
 gen public = (sh09v37v38_u == 1) | (sh09v37v38_u == 2) | (sh09v37v38_u == 3) | (sh09v37v38_u <= 4) if sh09v37v38_u != .
 gen severe_public = (sh09v37v38_u == 1) | (sh09v37v38_u == 2) if sh09v37v38_u != .
 
-* Outcome Variable (3): Wage Level
-merge 1:1 stud_id using "SH\SH_2015.dta", keepusing(sh15v57) nogenerate
+* Outcome Variable (3): Wage Level at 2009
 recode sh09v53 (96/99 = .)
 gen wage_level_2009 = sh09v53 - 1
+
+* Outcome Variable (4): Wage Level at 2009
+merge 1:1 stud_id using "SH\SH_2015.dta", keepusing(sh15v57) nogenerate
 recode sh15v57 (93/99 = .)
 gen wage_level_2015 = sh15v57 - 1
 
-* Outcome Variable (4): Working Year at 2009
+* Outcome Variable (5): Working Year at 2009
 recode sh09v51 sh09v55 (12/99 = .)
 gen work_year_2009 = 12 - sh09v51
 replace work_year_2009 = 12 - sh09v55 if sh09v54 == 2
 
-* Outcome Variable (5): Working Year at 2015
+* Outcome Variable (6): Working Year at 2015
 merge 1:1 stud_id using "SH\SH_2015.dta", keepusing(sh15v56 sh15v59 sh15v60) nogenerate
 recode sh15v56 sh15v60 (90/999 = .)
 gen work_year_2015 = 19 - sh15v56
@@ -97,3 +99,15 @@ use "$workData\SH_divorce.dta", clear
 merge 1:1 stud_id using "$workData\SH_outcome2009_outcome2015.dta", nogenerate
 save "$workData\SH_divorce_outcome2009_outcome2015.dta", replace
 
+
+********************************************
+***         SH 2001 Parent Data          ***
+********************************************
+
+use "$rawData\SH\SH_2001_G_parent.dta", clear
+recode w1faedu (6/99 = .)
+recode w1moedu (6/99 = .)
+rename w1faedu faedu
+rename w1moedu moedu
+keep stud_id faedu moedu
+save "$workData\SH_parent2001.dta", replace
