@@ -87,4 +87,4 @@ reg work_year_2015 divorce i.faedu i.moedu, r
 ***        Post-Double Selection         ***
 ********************************************
 
-pdslasso university divorce c.($cf_2001)
+pdslasso university divorce c.($cf_2001), rob
