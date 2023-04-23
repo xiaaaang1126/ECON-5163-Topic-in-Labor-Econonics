@@ -1,6 +1,7 @@
 ********************************************
-* Senior High School Sample Cleaning
+***  Senior High School Sample Cleaning  ***
 ********************************************
+
 if "`c(username)'" == "Administrator" {  
     global do = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\do"
     global rawData = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\rawData"
@@ -17,34 +18,65 @@ if "`c(username)'" == "jwutw" {
 }
 
 
-* Clean SH 2001 data
+
+********************************************
+***         SH 2001 & 2003 Data          ***
+********************************************
+
+* Import Dataset (2001 & 2003)
 cd "$rawData"
 use "SH\SH_2001_A_student.dta", clear
-drop if w1s208 == 97 | w1s208 == 99
-gen divorce_2001 = (w1s208 > 1) //specify the divorce status in 2001
-keep stud_id divorce_2001
+merge 1:1 stud_id using "SH\SH_2003_A_student.dta", keepusing(w2s224) nogenerate
 
 
-* Merge with SH 2003 data
-merge 1:1 stud_id using "SH\SH_2003_A_student.dta", keepusing(w2s224)
-drop if w2s224 == 97 | w2s224 == 99
-gen divorce_2003 = (w2s224 == 1) //specify the divorce status in 2003
-keep stud_id divorce_2001 divorce_2003
+* Main Variable: `divorce'
+recode w1s208 w2s224 (97/99 = .)
+recode w2s224 (2 = 0)
+gen divorce_2001 = (w1s208 > 1) if w1s208 != .
+gen divorce_2003 = (w2s224 == 1) if w2s224 != .
+gen divorce = divorce_2001 == 1 & divorce_2003 == 1 if (w1s208 != . & w2s224 != .)
+gen severe_divorce = divorce_2001 == 0 & divorce_2003 == 1 if (w1s208 != . & w2s224 != .)
 
 
-* Define 'severe_divorce' (divorce in 12-th grade) and 'divorce' (once divorced)
-gen severe_divorce = (divorce_2001 == 0 & divorce_2003 == 1) 
-gen divorce = (divorce_2001 == 1) | (divorce_2003 == 1)
-keep stud_id divorce severe_divorce
+* (Potential) Confouder: `cf_2001'
+recode w1s2023 w1s2024 w1s210 w1s211 w1s212 w1s213 w1s219 w1s220 w1s221 w1s222 w1s223 w1s224 w1s225 w1s226 w1s227 w1s2281 w1s2282 w1s2283 w1s2284 w1s2285 w1s2286 w1s229 w1s230 w1s231 w1s232 w1s233 w1s2341 w1s2342 w1s2343 w1s2344 w1s2345 w1s2346 w1s235 w1s236 w1s237 w1s238 w1s241 w1s242 w1s253 w1s254 w1s255 w1s256 (90/99 = .)  // (2) Parent 
+recode w1s508 w1s509 w1s510 w1s511 w1s512 w1s513 w1s514 w1s515 w1s516 w1s517 w1s518 w1s519 w1s520 w1s521 w1s522 w1s523  w1s535 w1s536 w1s537 w1s538 w1s539 w1s540 w1s541 w1s542 w1s543 w1s544 w1s545 w1s546 w1s547 w1s548 w1s549 w1s550 w1s551 w1s552 w1s553b w1s553c w1s554b w1s554c w1s555 w1s556 w1s557 w1s558 w1s559 w1s560 (90/99 = .) // (5) personal characteristic
+global cf_2001 (w1s2023 w1s2024 w1s210 w1s211 w1s212 w1s213 w1s219 w1s220 w1s221 w1s222 w1s223 w1s224 w1s225 w1s226 w1s227 w1s2281 w1s2282 w1s2283 w1s2284 w1s2285 w1s2286 w1s229 w1s230 w1s231 w1s232 w1s233 w1s2341 w1s2342 w1s2343 w1s2344 w1s2345 w1s2346 w1s235 w1s236 w1s237 w1s238 w1s241 w1s242 w1s253 w1s254 w1s255 w1s256 w1s508 w1s509 w1s510 w1s511 w1s512 w1s513 w1s514 w1s515 w1s516 w1s517 w1s518 w1s519 w1s520 w1s521 w1s522 w1s523  w1s535 w1s536 w1s537 w1s538 w1s539 w1s540 w1s541 w1s542 w1s543 w1s544 w1s545 w1s546 w1s547 w1s548 w1s549 w1s550 w1s551 w1s552 w1s553b w1s553c w1s554b w1s554c w1s555 w1s556 w1s557 w1s558 w1s559 w1s560)
 
+
+* Output
+keep stud_id divorce severe_divorce $cf_2001
 save "$workData\SH_divorce.dta", replace
 
 
 
-* Merge with SH 2009 data: Generate outcome variable AND control variable
+********************************************
+***         SH 2009 & 2015 Data          ***
+********************************************
+
+* Import Dataset (2009 & 2003)
 use "SH\SH_2009.dta", clear 
-recode sh09v33 (9/99 = .)
-gen university = (sh09v33 == 5) | (sh09v33 == 6) | (sh09v33 == 7) | (sh09v33 == 8) if sh09v33 != .
+merge 1:1 stud_id using "SH\SH_2015.dta", keepusing(sh15v29 sh15v30) nogenerate
+
+
+* Outcome Variable (1): university degree
+recode sh09v33 sh09v36 sh15v29 sh15v30 (9/99 = .)
+gen university_2009 = (sh09v33 == 5) | (sh09v33 == 6) | (sh09v33 == 7) | (sh09v33 == 8) if sh09v33 != .
+replace university_2009 = 0 if (sh09v36 == 2 | sh09v36 == 3) & (university_2009 != .)
+
+gen university_2015 = (sh15v30 == 5) | (sh15v30 == 6) | (sh15v30 == 7) | (sh15v30 == 8) if sh15v30 != .
+replace university_2009 = 0 if (sh15v29 == 2 | sh15v29 == 3)
+replace university_2009 = 1 if  sh15v29 == 1 
+replace university_2009 = 1 if (university_2015 == 1) & (university_2009 != 1)
+
+
+
+
+replace university_2015 = 0 if (sh15v29 == 2 | sh15v29 == 3) & (university_2015 != .)
+gen university = (university_2009 == 1 | university_2009 == 1) if (university_2009 != . | university_2015 != .)
+
+
+
 
 recode sh09v37v38_u (5 = .) (10/99 = .)
 gen public = (sh09v37v38_u == 1) | (sh09v37v38_u == 2) | (sh09v37v38_u == 3) | (sh09v37v38_u == 4) | (sh09v37v38_u == 4) if sh09v37v38_u != .

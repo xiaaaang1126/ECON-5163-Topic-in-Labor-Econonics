@@ -1,6 +1,7 @@
-********************************************
-* Senior High School Sample Analyzing
-********************************************
+*********************************************
+***  Senior High School Sample Analyzing  ***
+*********************************************
+
 if "`c(username)'" == "Administrator" {  
     global do = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\do"
     global rawData = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\rawData"
@@ -79,3 +80,11 @@ reg work_year_2009 divorce i.faedu i.moedu, r
 * reg work_year_2009 severe_divorce i.faedu i.moedu , r
 reg work_year_2015 divorce i.faedu i.moedu, r
 * reg work_year_2015 severe_divorce i.faedu i.moedu, r
+
+
+
+********************************************
+***        Post-Double Selection         ***
+********************************************
+
+pdslasso university divorce c.($cf_2001)
