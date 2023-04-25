@@ -169,7 +169,7 @@ label define map_w1p511 -1 "從未期待" 0 "看他自己的能力" 1 "非常期
 label value w1p511 map_w1p511
 
 * keep only useful variables
-keep faedu moedu w1p308 w1p309 w1p310 w1p311 w1p312 w1p313   ///
+keep stud_id faedu moedu w1p308 w1p309 w1p310 w1p311 w1p312 w1p313   ///
      w1p401 w1p501 w1p502 w1p503 expect_degree w1p511
 
 * save data
@@ -185,7 +185,7 @@ w1p401 w1p501 w1p502 w1p503 expect_degree w1p511
 
 
 ********************************************
-***        SH 2001 Teacher Data        ***
+***         SH 2001 Teacher Data         ***
 ********************************************
 foreach i in "c" "d" "e" "m"{
     * Import data set
@@ -247,20 +247,22 @@ foreach i in "c" "d" "e" "m"{
 
     * 標記為dt檔案變數
     rename (w1t105 w1t106 w1t109 w1t112 w1t113 w1t114 w1t115 w1t116 w1t201 w1t202        ///
-            w1t308 w1t309 w1t311 w1t315 w1t316 w1t318 w1t319 w1t320 w1t325 w1t326)        ///
-            (w1t105_`i' w1t106_`i' w1t109_`i' w1t112_`i' w1t113_`i' w1t114_`i' w1t115_`i' w1t116_`i'     ///
-            w1t201_`i' w1t202_`i' w1t308_`i' w1t309_`i' w1t311_`i' w1t315_`i' w1t316_`i' w1t318_`i'      ///
-            w1t319_`i' w1t320_`i' w1t325_`i' w1t326_`i')
+            w1t308 w1t309 w1t310 w1t311 w1t315 w1t316 w1t318 w1t319 w1t320 w1t325 w1t326)        ///
+           (w1t105_`i' w1t106_`i' w1t109_`i' w1t112_`i' w1t113_`i' w1t114_`i' w1t115_`i' w1t116_`i'     ///
+            w1t201_`i' w1t202_`i' w1t308_`i' w1t310_`i' w1t309_`i' w1t311_`i' w1t315_`i' w1t316_`i'     ///
+            w1t318_`i' w1t319_`i' w1t320_`i' w1t325_`i' w1t326_`i')
 
     * keep useful variables
-    keep w1t105_`i' w1t106_`i' w1t109_`i' w1t112_`i' w1t113_`i' w1t114_`i' w1t115_`i' w1t116_`i'     ///
-         w1t201_`i' w1t202_`i' w1t308_`i' w1t309_`i' w1t311_`i' w1t315_`i' w1t316_`i' w1t318_`i'      ///
+    keep stud_id                                                                                     ///
+         w1t105_`i' w1t106_`i' w1t109_`i' w1t112_`i' w1t113_`i' w1t114_`i' w1t115_`i' w1t116_`i'     ///
+         w1t201_`i' w1t202_`i' w1t308_`i' w1t309_`i' w1t311_`i' w1t315_`i' w1t316_`i' w1t318_`i'     ///
          w1t319_`i' w1t320_`i' w1t325_`i' w1t326_`i'
 
     * save dataset
     save "$workData\SH_teacher_`i'_2001.dta", replace
 
 }
+
 /* ********************************************
 PDS control variable in 2001
 general_high science hs_private urban
@@ -268,4 +270,53 @@ w1t105_d w1t106_d w1t109_d w1t112_d w1t113_d w1t114_d w1t115_d w1t116_d
 w1t201_d w1t202_d w1t308_d w1t309_d w1t311_d w1t315_d w1t316_d w1t318_d
 w1t319_d w1t320_d w1t325_d w1t326_d
 ********************************************* */
+
+
+
+********************************************
+***    SH 2001 Teacher_d Data (class)    ***
+********************************************
+
+* Import dataset
+use "$rawData\SH\SH_2001_C_dtc.dta", clear
+
+* Teachers' feeling
+forvalues i = 1/8{
+    recode w1dtc0`i' (97/99 = .)
+}
+recode w1dtc08 (5 = .)
+
+* Change values
+replace w1dtc01 = w1dtc01 - 1         // 學生好帶
+replace w1dtc02 = - (w1dtc02) + 3     // 學生程度好
+replace w1dtc03 = w1dtc03 - 1         // 老師見家長數
+replace w1dtc04 = w1dtc04 - 1         // 親師會次數
+replace w1dtc05 = - (w1dtc05) + 4     // 老師家長熟識
+replace w1dtc06 = - (w1dtc06) + 4     // 家長協助班務
+replace w1dtc07 = - (w1dtc07) + 4     // 家長升學壓力
+replace w1dtc08 = - (w1dtc08) + 4      // 家長之間熟識
+
+* label variables
+label define map_w1dtc01 0 "很難帶" 1 "比較難帶" 2 "還算好帶" 4 "很好帶"
+label value w1dtc01 map_w1dtc01
+label define map_w1dtc02 -2 "特別差" -1 "比較差" 0 "差不多" 1 "比較好" 2 "特別好"
+label value w1dtc02 map_w1dtc02
+label define map_w1dtc03 0 "0" 1 "1-5位" 2 "6-10位" 3 "11-15位" 4 "16-20位" 5 "21位以上"
+label value w1dtc03 map_w1dtc03
+label define map_w1dtc04 0 "0" 1 "1" 2 "2" 3 "3" 4 "4次以上"
+label value w1dtc04 map_w1dtc04
+label define map_w1dtc05 0 "幾乎不熟" 1 "熟識少數幾位" 2 "熟識不少位" 3 "大部分都熟"
+label value w1dtc05 map_w1dtc05
+label define map_w1dtc06 0 "幾乎不願意" 1 "少部分願意" 2 "大部分願意" 3 "都很願意"
+label value w1dtc06 map_w1dtc06
+label define map_w1dtc07 0 "完全沒壓力" 1 "壓力不大" 2 "壓力大" 3 "壓力非常大"
+label value w1dtc07 map_w1dtc07
+label define map_w1dtc08 0 "幾乎不熟" 1 "少部分熟識" 2 "熟識不少位" 3 "大部分都熟識"
+label value w1dtc08 map_w1dtc08
+
+* keep data
+keep stud_id w1dtc01 w1dtc02 w1dtc03 w1dtc04 w1dtc05 w1dtc06 w1dtc07 w1dtc08
+
+* save data
+save "$workData\SH_teacher_dc_2001.dta", replace
 
