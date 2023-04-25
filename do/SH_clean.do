@@ -104,10 +104,86 @@ save "$workData\SH_divorce_outcome2009_outcome2015.dta", replace
 ***         SH 2001 Parent Data          ***
 ********************************************
 
+* Father & mother Education
 use "$rawData\SH\SH_2001_G_parent.dta", clear
 recode w1faedu (6/99 = .)
 recode w1moedu (6/99 = .)
 rename w1faedu faedu
 rename w1moedu moedu
-keep stud_id faedu moedu
+
+* Parents conflict
+recode w1p308 (97/99 = .)    // 功課衝突
+recode w1p309 (97/99 = .)    // 交友衝突
+recode w1p310 (97/99 = .)    // 功課聯絡
+recode w1p311 (97/99 = .)    // 心理健康
+recode w1p312 (97/99 = .)    // 品行問題
+recode w1p313 (97/99 = .)    // 同儕家長
+
+label define map_frequency 0 "從未" 1 "偶爾" 2 "有時" 3 "經常"
+forvalues i = 8/9{
+    replace w1p30`i' = w1p30`i' - 1
+    label value w1p30`i' map_frequency
+}
+forvalues i = 10/12{
+    replace w1p3`i' = w1p3`i' - 1
+    label value w1p3`i' map_frequency
+}
+
+label define map_w1p313 0 "都不認識" 1 "認識少部分" 2 "認識一半左右" 3 "大多認識"
+replace w1p313 = w1p313 - 1
+label value w1p313 map_w1p313
+
+* Parents expectation
+recode w1p401 (97/99 = .)    // 功課聯絡
+recode w1p501 (97/99 = .)    // 安排戶籍
+recode w1p502 (97/99 = .)    // 安排班級
+recode w1p503 (97/99 = .)    // 安排出國
+recode w1p510b (97/99 = .)   // 期待學歷(一般高中)
+recode w1p510c (97/99 = .)   // 期待學歷(高職)
+recode w1p511 (97/99 = .)    // 期待出國
+
+label define map_yesno 0 "從來沒有過" 1 "曾經有過"
+
+recode w1p401 (1 = 0) (3 = 0)
+recode w1p401 (2 = 1) 
+label value w1p401 map_yesno
+recode w1p501 (1 = 0)
+recode w1p501 (2 = 1)
+label value w1p501 map_yesno
+recode w1p502 (1 = 0)
+recode w1p502 (2 = 1)
+label value w1p502 map_yesno
+recode w1p503 (1 = 0)
+recode w1p503 (2 = 1)
+label value w1p503 map_yesno
+
+label define map_degree 0 "沒想過/不知道" 1 "高中同等學歷" 2 "大學同等學歷" 3 "研究所學歷" 
+gen expect_degree = 0 if (w1p510b ==5 | w1p510c ==5)
+replace expect_degree = 1 if (w1p510b == 1 | w1p510c == 1)
+replace expect_degree = 2 if (w1p510b == 2 | w1p510b == 3 | w1p510c == 2 | w1p510c == 3)
+replace expect_degree = 3 if (w1p510b == 4 | w1p510c == 4 )
+count if expect_degree ==. // 68
+label value expect_degree map_degree
+
+
+label define map_w1p511 -1 "從未期待" 0 "看他自己的能力" 1 "非常期待"
+recode w1p511 (2 = 0) (3 = -1)
+label value w1p511 map_w1p511
+
+
+* save data
 save "$workData\SH_parent2001.dta", replace
+
+/* ********************************************
+PDS control variable in 2001
+faedu moedu
+w1p308 w1p309 w1p310 w1p311 w1p312 w1p313
+w1p401 w1p501 w1p502 w1p503 expect_degree w1p511
+********************************************* */
+
+
+
+********************************************
+***         SH 2001 Teacher Data          ***
+********************************************
+
