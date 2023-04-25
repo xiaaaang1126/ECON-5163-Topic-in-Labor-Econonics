@@ -197,22 +197,33 @@ use "$workData\CP_divorce_Outcome2009_2019.dta", clear
 
 // CP: analysis - university on severe_divorce/divorce
 reg university divorce, r
+est sto university_1
 reg university severe_divorce, r
+est sto university_2
 
 reg public divorce, r
+est sto public_1
 reg public severe_divorce, r
+est sto public_2
 
 reg wage_level_2009 divorce, r
+est sto wage_level_2009_1
 reg wage_level_2009 severe_divorce, r
+est sto wage_level_2009_2
 reg wage_level_2013 divorce, r
+est sto wage_level_2013_1
 reg wage_level_2013 severe_divorce, r
+est sto wage_level_2013_2
 reg wage_level_2019 divorce, r
+est sto wage_level_2019_1
 reg wage_level_2019 severe_divorce, r
+est sto wage_level_2019_2
 
 
 reg work_year_2009 divorce, r
+est sto work_year_2009_1
 reg work_year_2013 divorce, r
-
+est sto work_year_2013_1
 
 // SH: parent
 use "$rawData\CP\CP_2001_G_parent.dta", clear
@@ -228,22 +239,45 @@ cd "$workData"
 merge 1:1 stud_id using "CP_divorce_Outcome2009_2019.dta"
 
 reg university divorce i.faedu i.moedu, r
+est sto university_3
 reg university severe_divorce i.faedu i.moedu, r
+est sto university_4
+
 
 reg public divorce i.faedu i.moedu, r
+est sto public_3
 reg public severe_divorce i.faedu i.moedu, r
+est sto public_4
+
 
 reg wage_level_2009 divorce i.faedu i.moedu work_year_2009, r
+est sto wage_level_2009_3
 reg wage_level_2009 severe_divorce i.faedu i.moedu work_year_2009, r
+est sto wage_level_2009_4
 reg wage_level_2013 divorce i.faedu i.moedu work_year_2013, r
+est sto wage_level_2013_3
 reg wage_level_2013 severe_divorce i.faedu i.moedu work_year_2013, r
+est sto wage_level_2013_4
 reg wage_level_2019 divorce i.faedu i.moedu, r
+est sto wage_level_2019_3
 reg wage_level_2019 severe_divorce i.faedu i.moedu, r
+est sto wage_level_2019_4
 
 reg work_year_2009 divorce i.faedu i.moedu, r
+est sto work_year_2009_2
 reg work_year_2009 severe_divorce i.faedu i.moedu , r
+est sto work_year_2009_3
+
 reg work_year_2013 divorce i.faedu i.moedu, r
+est sto work_year_2013_2
 reg work_year_2013 severe_divorce i.faedu i.moedu, r
+est sto work_year_2013_3
 
-
+est tab university_1 university_2 university_3 university_4, p
+est tab public_1 public_2 public_3 public_4, p
+est tab wage_level_2009_1 wage_level_2009_2 wage_level_2009_3 wage_level_2009_4, p
+est tab wage_level_2013_1 wage_level_2013_2 wage_level_2013_3 wage_level_2013_4, p
+est tab wage_level_2019_1 wage_level_2019_2 wage_level_2019_3 wage_level_2019_4, p
+est tab work_year_2009_1 work_year_2009_2 work_year_2009_3, p
+est tab work_year_2013_1 work_year_2013_2 work_year_2013_3, p
 
