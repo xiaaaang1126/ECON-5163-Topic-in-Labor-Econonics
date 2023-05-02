@@ -135,7 +135,7 @@ Duplicates in terms of stud_id
 . 
 . 
 . * part 5: Prelimilary Analysis
-. reg undergraduate divorse, r
+. qui reg undergraduate divorse, r
 
 Linear regression                               Number of obs     =     10,708
                                                 F(1, 10706)       =      11.90
@@ -189,7 +189,7 @@ undergradu~e |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 . replace ma_undergraduate = 0 if (w1moedu<3 | w1moedu>5) & (w1moedu != .)
 (15,018 real changes made)
 
-. reg undergraduate divorse fa_undergraduate ma_undergraduate, r
+. qui reg undergraduate divorse fa_undergraduate ma_undergraduate, r
 
 Linear regression                               Number of obs     =      9,906
                                                 F(3, 9902)        =     161.31

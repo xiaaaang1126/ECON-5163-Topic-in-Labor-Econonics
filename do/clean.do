@@ -75,14 +75,14 @@ drop _merge
 
 
 // SH: analysis - university on severe_divorce/divorce
-reg university divorce, r
-reg university severe_divorce, r
+qui reg university divorce, r
+qui reg university severe_divorce, r
 
-reg public divorce, r
-reg public severe_divorce, r
+qui reg public divorce, r
+qui reg public severe_divorce, r
 
-reg wage_level divorce, r
-reg wage_level severe_divorce, r
+qui reg wage_level divorce, r
+qui reg wage_level severe_divorce, r
 
 save "$workData\SH_divorce_Outcome2009.dta", replace
 
@@ -99,11 +99,11 @@ keep stud_id faedu moedu
 // SH: analysis - adding counfounder
 merge 1:1 stud_id using "$workData\SH_divorce_Outcome2009.dta"
 
-reg university divorce i.faedu i.moedu, r
-* reg university severe_divorce i.faedu i.moedu, r
+qui reg university divorce i.faedu i.moedu, r
+* qui reg university severe_divorce i.faedu i.moedu, r
 
-* reg public divorce i.faedu i.moedu, r
-* reg public severe_divorce i.faedu i.moedu, r
+* qui reg public divorce i.faedu i.moedu, r
+* qui reg public severe_divorce i.faedu i.moedu, r
 
-reg wage_level divorce i.faedu i.moedu work_year, r
-* reg wage_level severe_divorce i.faedu i.moedu, r
+qui reg wage_level divorce i.faedu i.moedu work_year, r
+* qui reg wage_level severe_divorce i.faedu i.moedu, r

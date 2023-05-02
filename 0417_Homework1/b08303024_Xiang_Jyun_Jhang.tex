@@ -190,7 +190,7 @@ twoway (lfit undergraduate divorse)
 We can regress the $\textit{undergraduate}$ on $\textit{divorce}$
 
 \begin{lstlisting}
-reg undergraduate divorce, r
+qui reg undergraduate divorce, r
 \end{lstlisting}
 The coefficient of $\textit{divorce}$ is negative, which means students in single parent families tend to have less human capital accumulation. This might influence their future performance and wages.
 
@@ -218,7 +218,7 @@ replace fa_undergraduate = 0 if (w1faedu<3 | w1faedu>5) & (w1faedu != .)
 gen ma_undergraduate = 1 if (w1moedu>=3) & (w1moedu<=5) & (w1moedu != .)
 replace ma_undergraduate = 0 if (w1moedu<3 | w1moedu>5) & (w1moedu != .)
 
-reg undergraduate divorce fa_undergraduate ma_undergraduate, r
+qui reg undergraduate divorce fa_undergraduate ma_undergraduate, r
 \end{lstlisting}
 
 Since parent's divorce took place after they got the educational degree, with utilizing the panel data, we can verify that the educational status should not be a confounding factor and can control for the causal inference.

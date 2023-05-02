@@ -57,7 +57,7 @@ save "$pic\twoway.png", replace
 
 
 * part 5: Prelimilary Analysis
-reg undergraduate divorse, r
+qui reg undergraduate divorse, r
 
 rename _merge merge_2009
 merge 1:1 stud_id using "SH/SH_2001_G_parent.dta"
@@ -67,6 +67,6 @@ gen fa_undergraduate = 1 if (w1faedu>=3) & (w1faedu<=5) & (w1faedu != .)
 replace fa_undergraduate = 0 if (w1faedu<3 | w1faedu>5) & (w1faedu != .)
 gen ma_undergraduate = 1 if (w1moedu>=3) & (w1moedu<=5) & (w1moedu != .)
 replace ma_undergraduate = 0 if (w1moedu<3 | w1moedu>5) & (w1moedu != .)
-reg undergraduate divorse fa_undergraduate ma_undergraduate, r
+qui reg undergraduate divorse fa_undergraduate ma_undergraduate, r
 
 log close
