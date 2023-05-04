@@ -133,25 +133,29 @@ foreach i in "c" "d" "e" "m"{
 }
 
 * pdslasso for university
-pdslasso university divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob 
+pdslasso university divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+eststo PDS_university
 // t = 0.397, sig to not significant
-pdslasso university severe_divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob
+pdslasso university severe_divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+eststo PDS_university_s
 // t = 0.148, always not significant
 
 * pdslasso for wage_level_2009
-pdslasso wage_level_2009 divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob
+pdslasso wage_level_2009 divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+eststo PDS_wageLevel
 // t = 0.162, always not significant
-pdslasso wage_level_2009 severe_divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob
+pdslasso wage_level_2009 severe_divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
 // t = 0.503, always not significant
 
 * pdslasso for wage_level_2015
-pdslasso wage_level_2015 divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob
+pdslasso wage_level_2015 divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
 // t = 0.417, always not significant
 pdslasso wage_level_2015 severe_divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob
 // t = 0.233, always not significant
 
 * pdslasso for work_year_2009
 pdslasso work_year_2009 divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob
+eststo PDS_2009divorce
 // t = 0.061, always significant  
 pdslasso work_year_2009 severe_divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob 
 // t = 0.474
@@ -162,3 +166,4 @@ pdslasso work_year_2015 severe_divorce ///
 ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob
 
 
+esttab, mtitle(PDS_university PDS_university_s PDS_wageLevel PDS_2009divorce) nonumbers
