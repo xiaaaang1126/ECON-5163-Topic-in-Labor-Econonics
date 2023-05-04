@@ -65,7 +65,7 @@ est sto work_year_2013_1
 ********************************************
 
 * Import data
-merge 1:1 stud_id using "$workData\SH_parent2001.dta", nogenerate
+merge 1:1 stud_id using "$workData\CP_parent2001.dta", nogenerate
 
 * Outcome Variable (1): University
 qui reg university divorce i.faedu i.moedu, r
@@ -125,7 +125,7 @@ est tab work_year_2013_1 work_year_2013_2 work_year_2013_3, p
 
 * Merge data with teacher data
 foreach i in "c" "d" "e" "m"{
-    merge 1:1 stud_id using "$workData\SH_teacher_`i'_2001.dta", nogenerate
+    merge 1:1 stud_id using "$workData\CP_teacher_`i'_2001.dta", nogenerate
 }
 
 * define control variables
