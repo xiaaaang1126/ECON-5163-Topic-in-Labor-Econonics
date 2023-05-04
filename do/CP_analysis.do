@@ -143,6 +143,7 @@ foreach i in "c" "d" "e" "m"{
 * pdslasso for university
 pdslasso university divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
 eststo PDS_university
+// 是否有樣本太少的問題
 pdslasso university severe_divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
 eststo PDS_university_s
 
