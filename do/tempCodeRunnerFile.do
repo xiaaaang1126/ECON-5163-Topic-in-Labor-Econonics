@@ -65,3 +65,13 @@ keep stud_id divorce_2001 female js_private js_urban js_capital ///
 
 * Merge with CP 2007 data, identify divorce in Senior high 
 merge 1:1 stud_id using "$rawData\NP\NP_withCP_2007_A_student.dta", nogenerate
+count if w4s2065 == 1             // 525 obs.
+gen divorce_2007 = (w4s2065 == 1) //specify the divorce status in hs period
+
+* Main Variable: `divorce' and `severe_divorce'
+// define severe_divorce: divorce in twelve grade
+gen severe_divorce = (divorce_2001 == 0 & divorce_2007 == 1) 
+replace severe_divorce = 1 if (w4s2062 == 0 & w4s2063 == 0 & w4s2064 == 0 & w4s2065 == 1)
+// define divorce: once divorce in the past
+gen divorce = (divorce_2001 == 1 | w4s2062 == 1 | w4s2063 == 1 | w4s2064 == 1 | w4s2065 == 1)
+

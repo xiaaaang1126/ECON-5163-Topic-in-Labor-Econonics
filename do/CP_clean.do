@@ -73,7 +73,7 @@ gen divorce_2007 = (w4s2065 == 1) //specify the divorce status in hs period
 gen severe_divorce = (divorce_2001 == 0 & divorce_2007 == 1) 
 replace severe_divorce = 1 if (w4s2062 == 0 & w4s2063 == 0 & w4s2064 == 0 & w4s2065 == 1)
 // define divorce: once divorce in the past
-gen divorce = (divorce_2001 == 1) & (divorce_2007 == 1)
+gen divorce = (divorce_2001 == 1 | w4s2062 == 1 | w4s2063 == 1 | w4s2064 == 1 | w4s2065 == 1)
 
 * Other control variables in CP 2007
 rename w4pgrm hs_type      // 學程類別
@@ -117,6 +117,27 @@ global cf_2007_hs (general_high hs_private hs_urban hs_capital hs_science hs_sca
 * save data
 save "$workData\CP_divorce.dta", replace
 
+/* **********************************************
+. tab divorce
+
+    divorce |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |     30,356       85.83       85.83
+          1 |      5,010       14.17      100.00
+------------+-----------------------------------
+      Total |     35,366      100.00
+
+. tab severe_divorce
+
+severe_divo |
+        rce |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          0 |     34,967       98.87       98.87
+          1 |        399        1.13      100.00
+------------+-----------------------------------
+      Total |     35,366      100.00
+
+********************************************** */
 
 ********************************************
 * Merge with 2009 future working data: 
@@ -158,23 +179,9 @@ keep stud_id university public wage_level_2009 work_year_2009 severe_public
 merge 1:1 stud_id using "$workData\CP_divorce.dta", nogenerate
 save "$workData\CP_divorce_Outcome2009.dta", replace
 
-/* 
- merge 1:1 stud_id using "$workData\CP_divorce.dta"
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                        15,558
-        from master                         1  (_merge==1)
-        from using                     15,557  (_merge==2)
-
-    matched                             4,260  (_merge==3)
-    -----------------------------------------
-
-*/
-
 
 ********************************************
-* Merge with 2013 future working data: 
+* Merge with 2013 CP future working data: 
 * Find Y = university, public, wage_level.  
 * And control variable: work_year
 ********************************************
