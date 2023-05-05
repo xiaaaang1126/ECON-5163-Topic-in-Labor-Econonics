@@ -22,7 +22,7 @@ if "`c(username)'" == "jwutw" {
 
 * Main Variable: `divorce'
 use "$rawData\CP\CP_2001_B_student.dta", clear
-drop if w1s208 == 97 | w1s208 == 99
+recode w1s208 (97/99 = .)
 gen divorce_2001 = (w1s208 > 1) //specify the divorce status in 2001
 
 * Student's other information
@@ -64,15 +64,16 @@ keep stud_id divorce_2001 female js_private js_urban js_capital ///
      js_scarea_north js_scarea_middle js_scarea_south js_scarea_east
 
 * Merge with CP 2007 data, identify divorce in Senior high 
-merge 1:1 stud_id using "$rawData\CP\CP_2007_B_student.dta"
-drop _merge
-gen divorce_2007 = (w4s2065 == 1) //specify the divorce status in 2007
+merge 1:1 stud_id using "$rawData\NP\NP_withCP_2007_A_student.dta", nogenerate
+count if w4s2065 == 1             // 525 obs.
+gen divorce_2007 = (w4s2065 == 1) //specify the divorce status in hs period
 
 * Main Variable: `divorce' and `severe_divorce'
 // define severe_divorce: divorce in twelve grade
 gen severe_divorce = (divorce_2001 == 0 & divorce_2007 == 1) 
+replace severe_divorce = 1 if (w4s2062 == 0 & w4s2063 == 0 & w4s2064 == 0 & w4s2065 == 1)
 // define divorce: once divorce in the past
-gen divorce = (divorce_2001 == 1) | (divorce_2007 == 1)
+gen divorce = (divorce_2001 == 1) & (divorce_2007 == 1)
 
 * Other control variables in CP 2007
 rename w4pgrm hs_type      // 學程類別
