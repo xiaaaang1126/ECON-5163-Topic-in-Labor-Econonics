@@ -24,13 +24,13 @@ if "`c(username)'" == "jwutw" {
 * Prepare the dataset
 do "$do/CP_clean.do"
 use "$workData\SH_divorce_outcome2009_outcome2015.dta", clear
+//do "$do/CP_clean.do"
+use "$workData\CP_divorce_Outcome2009_2019.dta", clear
 
 
 ********************************************
 * Regression (2009)
 ********************************************
-use "$workData\CP_divorce_Outcome2009_2019.dta", clear
-
 // CP: analysis - university on severe_divorce/divorce
 qui reg university divorce, r
 est sto university_1
