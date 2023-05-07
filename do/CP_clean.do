@@ -1,4 +1,4 @@
-* Directory (Xiang Jyun Jhang)
+* Directory
 if "`c(username)'" == "Administrator" {  
     global do = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\do"
     global rawData = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\rawData"
@@ -148,6 +148,8 @@ severe_divo |
 
 ********************************************** */
 
+
+
 ********************************************
 * Merge with 2009 future working data: 
 * Find Y = university, public, wage_level.  
@@ -179,14 +181,14 @@ replace work_year_2009 = 7 - cp09v21 if (cp09v21 == 1|cp09v21 == 96|cp09v21 == 9
 count if work_year_2009 !=. // 91
 
 /* 如果現在這份不是第一份工作，但她並沒有第一份工作是什麼時候開始的資料，那要用現在這份工作是什麼時候開始的資料作為工作年份嗎？
-目前先納入
-*/
+目前先納入  */
 
 keep stud_id university public wage_level_2009 work_year_2009 all_public
 
 * Merge with school time data
 merge 1:1 stud_id using "$workData\CP_divorce.dta", nogenerate
 save "$workData\CP_divorce_Outcome2009.dta", replace
+
 
 
 ********************************************
@@ -216,6 +218,8 @@ keep stud_id wage_level_2013 work_year_2013
 * Merge with school time data
 merge 1:1 stud_id using "$workData\CP_divorce_Outcome2009_2013.dta", nogenerate
 save "$workData\CP_divorce_Outcome2009_2013.dta", replace
+
+
 
 ********************************************
 * Merge with 2013 NCP future working data: 
