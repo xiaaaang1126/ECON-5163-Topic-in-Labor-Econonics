@@ -22,6 +22,7 @@ if "`c(username)'" == "jwutw" {
 
 * Main Variable: `divorce'
 use "$rawData\CP\CP_2001_B_student.dta", clear
+gen cp = 1
 recode w1s208 (97/99 = .)
 gen divorce_2001 = (w1s208 > 1) //specify the divorce status in 2001
 
@@ -60,20 +61,32 @@ label values js_scarea_east map_scarea_east
 label values js_capital map_capital
 
 * keep only useful variables
-keep stud_id divorce_2001 female js_private js_urban js_capital ///
+keep stud_id cp divorce_2001 female js_private js_urban js_capital ///
      js_scarea_north js_scarea_middle js_scarea_south js_scarea_east
 
 * Merge with CP 2007 data, identify divorce in Senior high 
-merge 1:1 stud_id using "$rawData\NP\NP_withCP_2007_A_student.dta", nogenerate
+merge 1:1 stud_id using "$rawData\NP\NP_withCP_2007_A_student.dta" // total obs. = 35,366
+count if _merge == 1              // 15,892 obs. 只有國中資訊，沒有高中資訊
 count if w4s2065 == 1             // 525 obs.
-gen divorce_2007 = (w4s2065 == 1) //specify the divorce status in hs period
+gen divorce_2007 = (w4s2065 == 1) if  w4s2065 != . //specify the divorce status in hs period
+
 
 * Main Variable: `divorce' and `severe_divorce'
+// 檢查divorce相關變數分布
+recode w4s2062 w4s2063 w4s2064 w4s2065  (97/99 = .)
+count if w4s2062 != . & w4s2063 != . & w4s2064 != . & w4s2065 != .
+gen count_divorce = w4s2062 + w4s2063 + w4s2064 + w4s2065
+
+
 // define severe_divorce: divorce in twelve grade
-gen severe_divorce = (divorce_2001 == 0 & divorce_2007 == 1) 
+gen severe_divorce = (divorce_2001 == 0 & divorce_2007 == 1) if (divorce_2001 != . & divorce_2007 != .)
 replace severe_divorce = 1 if (w4s2062 == 0 & w4s2063 == 0 & w4s2064 == 0 & w4s2065 == 1)
 // define divorce: once divorce in the past
-gen divorce = (divorce_2001 == 1 | w4s2062 == 1 | w4s2063 == 1 | w4s2064 == 1 | w4s2065 == 1)
+gen divorce = (divorce_2001 == 1 | w4s2062 == 1 | w4s2063 == 1 | w4s2064 == 1 | w4s2065 == 1)  ///
+              if (w4s2062 != . & w4s2063 != . & w4s2064 != . & w4s2065 != .)
+replace divorce = 1 if divorce_2001 == 1       
+
+
 
 * Other control variables in CP 2007
 rename w4pgrm hs_type      // 學程類別
@@ -83,12 +96,12 @@ rename w4urban3 hs_urban   // 都市地區
 recode hs_urban (1/2 = 0)
 replace hs_urban = 1 if hs_urban == 3
 
-gen general_high = hs_type == 2          // 普通高中
-gen hs_scarea_north = w4scarea == 1
-gen hs_scarea_middle = w4scarea == 2
-gen hs_scarea_south = w4scarea == 3
-gen hs_scarea_east = w4scarea == 4
-gen hs_capital = (w4admarea == 11 | w4admarea == 12 | w4admarea == 25)
+gen general_high = hs_type == 2  if hs_type != .        // 普通高中
+gen hs_scarea_north = w4scarea == 1 if w4scarea != .
+gen hs_scarea_middle = w4scarea == 2 if w4scarea != .
+gen hs_scarea_south = w4scarea == 3 if w4scarea != .
+gen hs_scarea_east = w4scarea == 4 if w4scarea != .
+gen hs_capital = (w4admarea == 11 | w4admarea == 12 | w4admarea == 25) if w4admarea != .
 gen hs_science =  (w4clspgm == 21|w4clspgm == 23) if general_high == 1
 
 label define map_general_high 0 "高職五專" 1 "普通高中"
@@ -105,14 +118,10 @@ label values hs_science map_science
 label values general_high map_general_high
 
 * keep only useful variables
-keep stud_id divorce severe_divorce female js_private js_urban js_capital         ///
+keep stud_id cp divorce severe_divorce female js_private js_urban js_capital  ///
      js_scarea_north js_scarea_middle js_scarea_south js_scarea_east   ///
      general_high hs_private hs_urban hs_capital hs_science            ///
      hs_scarea_north hs_scarea_middle hs_scarea_south hs_scarea_east
-
-* gen confounding variables lists
-global cf_2001_js (female js_private js_urban js_capital js_scarea_north js_scarea_middle js_scarea_south js_scarea_east)
-global cf_2007_hs (general_high hs_private hs_urban hs_capital hs_science hs_scarea_north hs_scarea_middle hs_scarea_south hs_scarea_east)
 
 * save data
 save "$workData\CP_divorce.dta", replace
@@ -153,8 +162,8 @@ gen university = (cp09v06 == 5) | (cp09v06 == 6) if cp09v06 != .
 
 * Outcome Variable (2): Public University
 recode cp09v08_u (11/99 = .)
-gen public = (cp09v08_u == 1) | (cp09v08_u == 2) | (cp09v08_u == 3) | (cp09v08_u == 4) if cp09v08_u != .
-gen severe_public = (cp09v08_u == 1) if cp09v08_u != .
+gen public = (cp09v08_u == 1) if cp09v08_u != .
+gen all_public = (cp09v08_u == 1) | (cp09v08_u == 2) | (cp09v08_u == 3) | (cp09v08_u == 4) if cp09v08_u != .
 
 * Outcome Variable (3): Wage Level at 2009
 recode cp09v23 (96/99 = .)
@@ -173,7 +182,7 @@ count if work_year_2009 !=. // 91
 目前先納入
 */
 
-keep stud_id university public wage_level_2009 work_year_2009 severe_public
+keep stud_id university public wage_level_2009 work_year_2009 all_public
 
 * Merge with school time data
 merge 1:1 stud_id using "$workData\CP_divorce.dta", nogenerate
@@ -205,26 +214,49 @@ count if work_year_2013 != . // 2,138
 keep stud_id wage_level_2013 work_year_2013
 
 * Merge with school time data
-merge 1:1 stud_id using "$workData\CP_divorce_Outcome2009.dta", nogenerate
+merge 1:1 stud_id using "$workData\CP_divorce_Outcome2009_2013.dta", nogenerate
+save "$workData\CP_divorce_Outcome2009_2013.dta", replace
+
+********************************************
+* Merge with 2013 NCP future working data: 
+* Find Y = university, public, wage_level.  
+* And control variable: work_year
+********************************************
+* Import 2013 data
+use "$rawData\NCP\NCP_2011_2013.dta", clear 
+
+* Outcome Variable (1): university degree
+recode ncp11v29 (11/98 = .)
+gen university = (ncp11v29 == 7) | (ncp11v29 == 8) | (ncp11v29 == 9) | (ncp11v29 == 10) if ncp11v29 != .
+
+* Outcome Variable (2): Public University
+recode ncp11v32_u (11/99 = .)
+gen public = (ncp11v32_u == 1) if ncp11v32_u != .
+gen all_public = (ncp11v32_u == 1) | (ncp11v32_u == 2) | (ncp11v32_u == 3) | (ncp11v32_u == 4) | (ncp11v32_u == 5) if ncp11v32_u != .
+
+* Outcome Variable (5): Wage Level at 2013
+recode ncp11v47 (96/99 = .)
+gen wage_level_2013 = ncp11v47 - 1
+
+* Outcome Variable (6): Working Year at 2013
+recode ncp11v49 (7/99 = .) // when to start first job
+recode ncp11v45 (7/99 = .) // when to start job(now)
+gen work_year_2013 = 13 - ncp11v49
+count if work_year_2013 !=. // 91
+
+replace work_year_2013 = 13 - ncp11v45 if (ncp11v48 == 1 | ncp11v48 == 96 | ncp11v48 == 97 | ncp11v48 == 98 |ncp11v48 == 99)
+count if work_year_2013 !=. // 91
+
+* keep only useful variables
+keep stud_id university public wage_level_2013 work_year_2013 all_public
+
+* Merge with school time data
+merge 1:1 stud_id using "$workData\CP_divorce_Outcome2009_2013.dta", nogenerate
 save "$workData\CP_divorce_Outcome2009_2013.dta", replace
 
 
-/*
- merge 1:1 stud_id using "$workData\CP_divorce_Outcome2009.dta"
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                        15,557
-        from master                         0  (_merge==1)
-        from using                     15,557  (_merge==2)
-
-    matched                             4,261  (_merge==3)
-    -----------------------------------------
-
-*/
-
 ********************************************
-* Merge with 2019 future working data: 
+* Merge with 2019 CP future working data: 
 * Find Y = wage_level.  
 ********************************************
 use "$rawData\CP\CP_2019.dta", clear 
@@ -240,21 +272,6 @@ keep stud_id wage_level_2019
 merge 1:1 stud_id using "$workData\CP_divorce_Outcome2009_2013.dta", nogenerate
 save "$workData\CP_divorce_Outcome2009_2019.dta", replace
 
-
-/*
-merge 1:1 stud_id using "$workData\CP_divorce_Outcome2009_2013.dta"
-
-    Result                           # of obs.
-    -----------------------------------------
-    not matched                        15,557
-        from master                         0  (_merge==1)
-        from using                     15,557  (_merge==2)
-
-    matched                             4,261  (_merge==3)
-    -----------------------------------------
-
-
-*/
 
 ********************************************
 ***         CP 2001 Parent Data          ***
