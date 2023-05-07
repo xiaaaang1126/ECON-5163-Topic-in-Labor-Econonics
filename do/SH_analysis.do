@@ -112,6 +112,8 @@ est tab wage_level_2009_1 wage_level_2009_2 wage_level_2009_3 wage_level_2009_4,
 est tab wage_level_2015_1 wage_level_2015_2 wage_level_2015_3 wage_level_2015_4, p
 est tab work_year_2009_1 work_year_2009_2 work_year_2015_1 work_year_2015_2, p
 
+
+
 ********************************************
 ***        Post-Double Selection         ***
 ********************************************
@@ -135,10 +137,10 @@ foreach i in "c" "d" "e" "m"{
 * pdslasso for university
 pdslasso university divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
 eststo PDS_university
-// t = 0.397, sig to not significant
+* t = 0.397, sig to not significant
 pdslasso university severe_divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
 eststo PDS_university_s
-// t = 0.148, always not significant
+* t = 0.148, always not significant
 
 * pdslasso for wage_level_2009
 pdslasso wage_level_2009 divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
@@ -154,7 +156,7 @@ pdslasso wage_level_2015 severe_divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_20
 // t = 0.233, always not significant
 
 * pdslasso for work_year_2009
-pdslasso work_year_2009 divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob
+pdslasso work_year_2009 divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
 eststo PDS_2009divorce
 // t = 0.061, always significant  
 pdslasso work_year_2009 severe_divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob 
