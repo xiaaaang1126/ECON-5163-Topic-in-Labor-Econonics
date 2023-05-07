@@ -124,9 +124,9 @@ foreach i in "c" "d" "e" "m"{
 }
 
 * define control variables
-vl create cf_2001 = (faedu moedu ///
-w1p308 w1p309 w1p310 w1p311 w1p312 w1p313 ///
-w1p401 w1p501 w1p502 w1p503 expect_degree w1p511)
+vl create cf_p_2001 = (w1p308 w1p309 w1p310 w1p311 w1p312 w1p313 ///
+                     w1p401 w1p501 w1p502 w1p503 expect_degree w1p511)
+vl create stud_info = (female hs_urban hs_capital hs_science general_high)
 
 foreach i in "c" "d" "e" "m"{
     vl create tc_`i'_2001 = (w1t105_`i' w1t106_`i' w1t109_`i' w1t112_`i' w1t113_`i' w1t114_`i' w1t115_`i' w1t116_`i'     ///
@@ -135,37 +135,45 @@ foreach i in "c" "d" "e" "m"{
 }
 
 * pdslasso for university
-pdslasso university divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+pdslasso university divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
 eststo PDS_university
+<<<<<<< HEAD
 * t = 0.397, sig to not significant
 pdslasso university severe_divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+=======
+// t = 0.397, sig to not significant
+pdslasso university severe_divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+>>>>>>> 163c0b637010342579e22ee411f29f03351f6dab
 eststo PDS_university_s
 * t = 0.148, always not significant
 
 * pdslasso for wage_level_2009
-pdslasso wage_level_2009 divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+*pdslasso wage_level_2009 divorce ($stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
 eststo PDS_wageLevel
 // t = 0.162, always not significant
-pdslasso wage_level_2009 severe_divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+pdslasso wage_level_2009 severe_divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
 // t = 0.503, always not significant
 
 * pdslasso for wage_level_2015
-pdslasso wage_level_2015 divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+pdslasso wage_level_2015 divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
 // t = 0.417, always not significant
-pdslasso wage_level_2015 severe_divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob
+pdslasso wage_level_2015 severe_divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob
 // t = 0.233, always not significant
 
 * pdslasso for work_year_2009
+<<<<<<< HEAD
 pdslasso work_year_2009 divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+=======
+pdslasso work_year_2009 divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob
+>>>>>>> 163c0b637010342579e22ee411f29f03351f6dab
 eststo PDS_2009divorce
 // t = 0.061, always significant  
-pdslasso work_year_2009 severe_divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob 
+pdslasso work_year_2009 severe_divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob 
 // t = 0.474
 
 * pdslasso for work_year_2015
-pdslasso work_year_2015 divorce ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob 
-pdslasso work_year_2015 severe_divorce ///
-($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob
+pdslasso work_year_2015 divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob 
+pdslasso work_year_2015 severe_divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob
 
 
 esttab, mtitle(PDS_university PDS_university_s PDS_wageLevel PDS_2009divorce) nonumbers

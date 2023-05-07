@@ -35,25 +35,52 @@ gen divorce_2003 = (w2s224 == 1) if w2s224 != .
 gen divorce = divorce_2001 == 1 & divorce_2003 == 1 if (w1s208 != . & w2s224 != .)
 gen severe_divorce = divorce_2001 == 0 & divorce_2003 == 1 if (w1s208 != . & w2s224 != .)
 
-* Standardized
-egen std_divorce = std(divorce)
-egen std_severe_divorce = std(severe_divorce)
+* Student's other information
+rename w1s502 female       // 女性
+rename w1priv hs_private   // 公私立
+rename w1urban3 hs_urban   // 都市地區
+rename w1scarea hs_scarea  // 北中南東
+rename w1pgrm hs_type      // 學程類別
 
-* (Potential) Confouder: `cf_2001'
-recode w1s2023 w1s2024 w1s210 w1s211 w1s212 w1s213 w1s219 w1s220 w1s221 w1s222 w1s223 w1s224 w1s225 w1s226 w1s227 w1s2281 w1s2282 w1s2283 w1s2284 w1s2285 w1s2286 w1s229 w1s230 w1s231 w1s232 w1s233 w1s2341 w1s2342 w1s2343 w1s2344 w1s2345 w1s2346 w1s235 w1s236 w1s237 w1s238 w1s241 w1s242 w1s253 w1s254 w1s255 w1s256 (90/99 = .)  // (2) Parent 
-recode w1s508 w1s509 w1s510 w1s511 w1s512 w1s513 w1s514 w1s515 w1s516 w1s517 w1s518 w1s519 w1s520 w1s521 w1s522 w1s523  w1s535 w1s536 w1s537 w1s538 w1s539 w1s540 w1s541 w1s542 w1s543 w1s544 w1s545 w1s546 w1s547 w1s548 w1s549 w1s550 w1s551 w1s552 w1s553b w1s553c w1s554b w1s554c w1s555 w1s556 w1s557 w1s558 w1s559 w1s560 (90/99 = .) // (5) personal characteristic
-global cf_2001 (w1s2023 w1s2024 w1s210 w1s211 w1s212 w1s213 w1s219 w1s220 w1s221 w1s222 w1s223 w1s224 w1s225 w1s226 w1s227 w1s2281 w1s2282 w1s2283 w1s2284 w1s2285 w1s2286 w1s229 w1s230 w1s231 w1s232 w1s233 w1s2341 w1s2342 w1s2343 w1s2344 w1s2345 w1s2346 w1s235 w1s236 w1s237 w1s238 w1s241 w1s242 w1s253 w1s254 w1s255 w1s256 w1s508 w1s509 w1s510 w1s511 w1s512 w1s513 w1s514 w1s515 w1s516 w1s517 w1s518 w1s519 w1s520 w1s521 w1s522 w1s523  w1s535 w1s536 w1s537 w1s538 w1s539 w1s540 w1s541 w1s542 w1s543 w1s544 w1s545 w1s546 w1s547 w1s548 w1s549 w1s550 w1s551 w1s552 w1s553b w1s553c w1s554b w1s554c w1s555 w1s556 w1s557 w1s558 w1s559 w1s560)
+recode female (97/99 = .)
+replace female = female - 1
+recode hs_urban (1/2 = 0)
+replace hs_urban = 1 if hs_urban == 3
+gen hs_scarea_north = hs_scarea == 1
+gen hs_scarea_middle = hs_scarea == 2
+gen hs_scarea_south = hs_scarea == 3
+gen hs_scarea_east = hs_scarea == 4
+gen hs_capital = (w1admarea == 11 | w1admarea == 12 | w1admarea == 25)
+gen general_high = hs_type == 2    // 普通高中
+gen hs_science =  (w1clspgm == 21 | w1clspgm == 23) if general_high == 1
+
+label define map_female 0 "男性" 1 "女性"
+label define map_private 0 "公立" 1 "私立"
+label define map_urban 0 "非都市" 1 "都市"
+label define map_scarea_north 0 "非北部" 1 "北部"
+label define map_scarea_middle 0 "非中部" 1 "中部"
+label define map_scarea_south 0 "非南部" 1 "南部"
+label define map_scarea_east 0 "非東部" 1 "東部"
+label define map_capital 0 "非直轄市" 1 "直轄市"
+label define map_general_high 0 "高職五專" 1 "普通高中"
+label define map_science 0 "社會組" 1 "自然組"
+
+label values female map_female
+label values hs_private map_private
+label values hs_urban map_urban
+label values hs_scarea_north map_scarea_north
+label values hs_scarea_middle map_scarea_middle
+label values hs_scarea_south map_scarea_south
+label values hs_scarea_east map_scarea_east
+label values hs_capital map_capital
+label values hs_science map_science
+
+* keep only useful variables
+keep stud_id divorce severe_divorce female hs_private hs_urban hs_capital general_high hs_science ///
+     hs_scarea_north hs_scarea_middle hs_scarea_south hs_scarea_east
 
 * Output as original data
-preserve
-keep stud_id divorce severe_divorce $cf_2001
 save "$workData\SH_divorce.dta", replace
-restore 
-
-* Output as standardized data
-preserve
-keep stud_id std_divorce std_severe_divorce $cf_2001
-save "$workData\SH_divorce_std.dta", replace
 
 
 ********************************************
@@ -81,7 +108,7 @@ gen severe_public = (sh09v37v38_u == 1) | (sh09v37v38_u == 2) if sh09v37v38_u !=
 recode sh09v53 (96/99 = .)
 gen wage_level_2009 = sh09v53 - 1
 
-* Outcome Variable (4): Wage Level at 2009
+* Outcome Variable (4): Wage Level at 2015
 merge 1:1 stud_id using "SH\SH_2015.dta", keepusing(sh15v57) nogenerate
 recode sh15v57 (93/99 = .)
 gen wage_level_2015 = sh15v57 - 1
