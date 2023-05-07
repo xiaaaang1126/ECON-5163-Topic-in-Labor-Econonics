@@ -67,11 +67,11 @@ recode w1p511 (2 = 0) (3 = -1)
 label define map_w1p511 -1 "從未期待" 0 "看他自己的能力" 1 "非常期待"
 label value w1p511 map_w1p511
 
-* keep only useful variables
+* Keep only useful variables
 keep stud_id faedu moedu w1p308 w1p309 w1p310 w1p311 w1p312 w1p313   ///
      w1p401 w1p501 w1p502 w1p503 expect_degree w1p511
 
-* save data
+* Save data
 save "$workData\SH_parent2001.dta", replace
 
 /* ********************************************
@@ -86,6 +86,7 @@ w1p401 w1p501 w1p502 w1p503 expect_degree w1p511
 ********************************************
 ***         SH 2001 Teacher Data         ***
 ********************************************
+
 foreach i in "c" "d" "e" "m"{
     * Import data set
     use "$rawData\SH\SH_2001_C_`i't.dta", clear
@@ -144,7 +145,7 @@ foreach i in "c" "d" "e" "m"{
     label variable w1t315 "w1:老師教學不認真?"
     label variable w1t316 "w1:老師不相互比較學生成績?"
 
-    * 標記為dt檔案變數
+    * 標記為 dt 檔案變數
     rename (w1t105 w1t106 w1t109 w1t112 w1t113 w1t114 w1t115 w1t116 w1t201 w1t202        ///
             w1t308 w1t309 w1t310 w1t311 w1t315 w1t316 w1t318 w1t319 w1t320 w1t325 w1t326)        ///
            (w1t105_`i' w1t106_`i' w1t109_`i' w1t112_`i' w1t113_`i' w1t114_`i' w1t115_`i' w1t116_`i'     ///
