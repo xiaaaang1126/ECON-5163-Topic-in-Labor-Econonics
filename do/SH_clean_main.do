@@ -88,7 +88,7 @@ save "$workData\SH_divorce.dta", replace
 
 * Import Dataset (2009 & 2015)
 use "SH\SH_2009.dta", clear 
-merge 1:1 stud_id using "SH\SH_2015.dta", keepusing(sh15v28 sh15v29 sh15v30) nogenerate
+merge 1:1 stud_id using "SH\SH_2015.dta", keepusing(sh15v28 sh15v29 sh15v30 sh15v33v34_u) nogenerate
 
 * Outcome Variable (1): university degree
 recode sh09v33 sh09v36 sh15v28 sh15v29 sh15v30 (9/99 = .)
@@ -98,9 +98,10 @@ gen university = (university_2009 == 1 | university_2015 == 1) if university_200
 
 
 * Outcome Variable (2): Public University
-recode sh09v37v38_u (5 = .) (11/99 = .)
-gen public =  (sh09v37v38_u == 1) if sh09v37v38_u != .
-gen severe_public = (sh09v37v38_u == 1 | sh09v37v38_u == 2 | sh09v37v38_u == 3 | sh09v37v38_u == 4) if sh09v37v38_u != .
+recode sh09v37v38_u sh15v33v34_u (11/99 = .)
+gen public =  (sh09v37v38_u == 1 | sh15v33v34_u == 1)  if (sh09v37v38_u != . | sh15v33v34_u != .)
+gen all_public = (sh09v37v38_u == 1 | sh09v37v38_u == 2 | sh09v37v38_u == 3 | sh09v37v38_u == 4) if (sh09v37v38_u != .)
+replace all_public = 1 if (sh15v33v34_u == 1 | sh15v33v34_u == 2 | sh15v33v34_u == 3 | sh15v33v34_u == 4)
 
 * Outcome Variable (3): Wage Level at 2009
 recode sh09v53 (96/99 = .)
@@ -123,7 +124,7 @@ gen work_year_2015 = 19 - sh15v56
 replace work_year_2015 = 19 - sh15v60 if sh15v59 == 2
 
 * Output
-keep stud_id university public severe_public wage_level_2009 wage_level_2015 work_year_2009 work_year_2015
+keep stud_id university public all_public wage_level_2009 wage_level_2015 work_year_2009 work_year_2015
 save "$workData\SH_outcome2009_outcome2015.dta", replace
 
 

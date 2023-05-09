@@ -37,8 +37,8 @@ est sto public_1
 qui reg public severe_divorce, r            // t = 0.07
 est sto public_2
 
-qui reg severe_public divorce, r            // t = -1.13
-qui reg severe_public severe_divorce, r     // t = 0.18
+qui reg all_public divorce, r            // t = -1.13
+qui reg all_public severe_divorce, r     // t = 0.18
 
 * Outcome Variable (3): Wage Level at 2009
 qui reg wage_level_2009 divorce, r          // t = 0.97
@@ -82,8 +82,8 @@ est sto public_3
 qui reg public severe_divorce i.faedu i.moedu, r            // t = -0.05
 est sto public_4
 
-qui reg severe_public divorce i.faedu i.moedu, r            // t = -0.16
-qui reg severe_public severe_divorce i.faedu i.moedu, r     // t = 0.27
+qui reg all_public divorce i.faedu i.moedu, r            // t = -0.16
+qui reg all_public severe_divorce i.faedu i.moedu, r     // t = 0.27
 
 * Outcome Variable (3): Wage Level at 2009
 qui reg wage_level_2009 divorce i.faedu i.moedu, r          // t = 1.35
