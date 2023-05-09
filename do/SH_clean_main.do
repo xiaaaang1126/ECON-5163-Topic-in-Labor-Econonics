@@ -30,8 +30,9 @@ merge 1:1 stud_id using "SH\SH_2003_G_parent.dta",  keepusing(w2p103) nogenerate
 
 * Main Variable: `divorce' and `severe_divorce'
 recode w1p103 w2p103 (97/99 = .)
-gen divorce = (w1p103 == 2 | w1p103 == 3 | w2p103 == 2 | w2p103 == 3)
-gen severe_divorce = (w1p103 == 1) & (w2p103 == 2 | w2p103 == 3)
+gen divorce = (w1p103 == 2 | w1p103 == 3 | w2p103 == 2 | w2p103 == 3) if (w1p103 !=. | w2p103 !=.)
+gen severe_divorce = (w1p103 == 1) & (w2p103 == 2 | w2p103 == 3) if (w1p103 !=. | w2p103 !=.)
+drop if divorce ==.
 
 * Student's other information
 rename w1s502 female       // 女性
@@ -85,7 +86,7 @@ save "$workData\SH_divorce.dta", replace
 ***         SH 2009 & 2015 Data          ***
 ********************************************
 
-* Import Dataset (2009 & 2003)
+* Import Dataset (2009 & 2015)
 use "SH\SH_2009.dta", clear 
 merge 1:1 stud_id using "SH\SH_2015.dta", keepusing(sh15v28 sh15v29 sh15v30) nogenerate
 
@@ -93,14 +94,13 @@ merge 1:1 stud_id using "SH\SH_2015.dta", keepusing(sh15v28 sh15v29 sh15v30) nog
 recode sh09v33 sh09v36 sh15v28 sh15v29 sh15v30 (9/99 = .)
 gen university_2009 = (sh09v33 == 5) | (sh09v33 == 6) | (sh09v33 == 7) | (sh09v33 == 8) if sh09v33 != .
 gen university_2015 = (sh15v30 == 5) | (sh15v30 == 6) | (sh15v30 == 7) | (sh15v30 == 8) if sh15v30 != .
-replace university_2015 = 1 if (sh15v28 == 1 & university_2009 == 1)
-replace university_2015 = 1 if (sh15v28 == 1 & sh15v30 >= 5 & sh15v30 <= 8)
-gen university = university_2009 == 1 | university_2015 == 1 if university_2009 != . | university_2015 != .
+gen university = (university_2009 == 1 | university_2015 == 1) if university_2009 != . | university_2015 != .
+
 
 * Outcome Variable (2): Public University
 recode sh09v37v38_u (5 = .) (11/99 = .)
-gen public = (sh09v37v38_u == 1) | (sh09v37v38_u == 2) | (sh09v37v38_u == 3) | (sh09v37v38_u <= 4) if sh09v37v38_u != .
-gen severe_public = (sh09v37v38_u == 1) | (sh09v37v38_u == 2) if sh09v37v38_u != .
+gen public =  (sh09v37v38_u == 1) if sh09v37v38_u != .
+gen severe_public = (sh09v37v38_u == 1 | sh09v37v38_u == 2 | sh09v37v38_u == 3 | sh09v37v38_u == 4) if sh09v37v38_u != .
 
 * Outcome Variable (3): Wage Level at 2009
 recode sh09v53 (96/99 = .)
@@ -134,4 +134,5 @@ save "$workData\SH_outcome2009_outcome2015.dta", replace
 use "$workData\SH_divorce.dta", clear
 merge 1:1 stud_id using "$workData\SH_outcome2009_outcome2015.dta", nogenerate
 save "$workData\SH_divorce_outcome2009_outcome2015.dta", replace
+
 
