@@ -134,6 +134,10 @@ foreach i in "c" "d" "e" "m"{
             w1t319_`i' w1t320_`i' w1t325_`i' w1t326_`i')
 }
 
+* save lasso data for hw2
+save "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\Git\LaborTopicTermPaper\0529_Homework2\SH_pds.dta", replace
+
+
 * pdslasso for university
 pdslasso university divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
 eststo PDS_university
