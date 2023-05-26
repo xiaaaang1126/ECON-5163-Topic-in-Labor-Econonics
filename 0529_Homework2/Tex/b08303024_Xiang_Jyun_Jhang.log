@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  26 MAY 2023 20:55
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  26 MAY 2023 21:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -313,15 +313,16 @@ File: univ_graph.png Graphic file (type bmp)
 <univ_graph.png>
 File: workyear_graph.png Graphic file (type bmp)
 <workyear_graph.png>
-File: wagelevel_graph.png Graphic file (type bmp)
-<wagelevel_graph.png>
 
-Overfull \hbox (93.05234pt too wide) in paragraph at lines 156--159
-[][] []
+Overfull \hbox (93.05234pt too wide) in paragraph at lines 156--158
+[][] [] 
  []
 
-[3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 216--220
+[3]
+File: wagelevel_graph.png Graphic file (type bmp)
+<wagelevel_graph.png>
+ [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 218--222
 
  []
 
