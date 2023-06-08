@@ -152,6 +152,7 @@ save "$workData\CP_divorce_Outcome2009_2013.dta", replace
 * Merge with 2013 NCP future working data: 
 * Find Y = university, public, wage_level.  
 * And control variable: work_year
+* 只有 2013 是 NCP, CP 都有資料，分析以此為主
 ********************************************
 * Import 2013 data
 use "$rawData\NP\NP_2013.dta", clear 
@@ -173,15 +174,15 @@ replace all_public = (np13v32v33_u == 1) | (np13v32v33_u == 2) | (np13v32v33_u =
 * Outcome Variable (5): Wage Level at 2013
 recode np13v52 (96/99 = .)
 gen wage_level_2013 = np13v52 - 1
+count if wage_level_2013 !=. // 8,387
 
 * Outcome Variable (6): Working Year at 2013
 recode np13v54 (13/99 = .) // when to start first job
 recode np13v50 (13/99 = .) // when to start job(now)
 gen work_year_2013 = 13 - np13v54
-count if work_year_2013 !=. // 91
 
 replace work_year_2013 = 13 - np13v50 if (np13v53 == 1 | np13v53 == 96 | np13v53 == 97 | np13v53 == 98 |np13v53 == 99)
-count if work_year_2013 !=. // 91
+count if work_year_2013 !=. // 8,615
 
 * keep only useful variables
 keep stud_id university public all_public wage_level_2013 work_year_2013
@@ -201,9 +202,19 @@ use "$rawData\CP\CP_2019.dta", clear
 * Outcome Variable (7): Wage Level at 2019
 recode cp19v66 (22/99 = .)
 gen wage_level_2019 = cp19v66 - 1
+count if wage_level_2019 !=. // 1,875
+
+* Outcome Variable (8): Working Year at 2019
+recode cp19v69 (13/99 = .) // when to start first job
+recode cp19v64 (13/99 = .) // when to start job(now)
+gen work_year_2019 = 19 - cp19v69
+count if work_year_2019 !=.
+
+replace work_year_2019 = 19 - cp19v64 if (cp19v68 == 1 | cp19v68 == 96 | cp19v68 == 97 | cp19v68 == 98 |cp19v68 == 99)
+count if work_year_2019 !=. // 477
 
 * keep only useful variables
-keep stud_id wage_level_2019
+keep stud_id wage_level_2019 work_year_2019
 
 // Merge with school time data
 merge 1:1 stud_id using "$workData\CP_divorce_Outcome2009_2013.dta", nogenerate
