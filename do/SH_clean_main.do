@@ -136,4 +136,3 @@ use "$workData\SH_divorce.dta", clear
 merge 1:1 stud_id using "$workData\SH_outcome2009_outcome2015.dta", nogenerate
 save "$workData\SH_divorce_outcome2009_outcome2015.dta", replace
 
-
