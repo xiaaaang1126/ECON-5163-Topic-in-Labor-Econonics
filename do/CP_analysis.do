@@ -1,9 +1,9 @@
-********************************************
-* Junior High School Sample Analysis
-********************************************
+*********************************************
+***  Junior High School Sample Analyzing  ***
+*********************************************
 
 
-* Directory (Xiang Jyun Jhang)
+* Directory
 if "`c(username)'" == "Administrator" {  
     global do = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\do"
     global rawData = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\rawData"
@@ -49,7 +49,6 @@ est sto wage_level_2019_1
 qui reg wage_level_2019 severe_divorce, r
 est sto wage_level_2019_2
 
-
 qui reg work_year_2013 divorce, r
 est sto work_year_2013_1
 qui reg work_year_2013 severe_divorce, r
@@ -58,6 +57,7 @@ qui reg work_year_2019 divorce, r
 est sto work_year_2019_1
 qui reg work_year_2019 severe_divorce, r
 est sto work_year_2019_2
+
 
 ********************************************
 ***           Adding Confounder          ***
