@@ -28,18 +28,18 @@ use "SH\SH_2001_A_student.dta", clear
 merge 1:1 stud_id using "SH\SH_2001_G_parent.dta",  keepusing(w1p103) nogenerate
 merge 1:1 stud_id using "SH\SH_2003_G_parent.dta",  keepusing(w2p103) nogenerate
 
-* Main Variable: `divorce' and `severe_divorce'
+* Main Variable: `sp' and `severe_sp'
 recode w1p103 w2p103 (5/99 = .)
-gen divorce   = (w1p103 != 1 | w2p103 != 1) if !missing(w1p103, w2p103)  // one-time single parent
+gen sp        = (w1p103 != 1 | w2p103 != 1) if !missing(w1p103, w2p103)  // one-time single parent
 gen sp_comply = (w1p103 != 1 & w2p103 != 1) if !missing(w1p103, w2p103)  // all-time single parent
 gen sp_severe = (w1p103 == 1 & w2p103 != 1) if !missing(w1p103, w2p103)  // suddenly single parent
 
-* Student's other information
-rename w1s502 female       // 女性
-rename w1priv hs_private   // 公私立
-rename w1urban3 hs_urban   // 都市地區
-rename w1scarea hs_scarea  // 北中南東
-rename w1pgrm hs_type      // 學程類別
+* Student's Background Information
+rename w1s502 female       // gender
+rename w1priv hs_private   // private/public univeristy
+rename w1urban3 hs_urban   // urban/rural area
+rename w1scarea hs_scarea  // administrative area
+rename w1pgrm hs_type      // school system type
 
 recode female (97/99 = .)
 replace female = female - 1
@@ -48,10 +48,9 @@ replace hs_urban = 1 if hs_urban == 3
 gen hs_scarea_north = hs_scarea == 1
 gen hs_scarea_middle = hs_scarea == 2
 gen hs_scarea_south = hs_scarea == 3
-gen hs_scarea_east = hs_scarea == 4
 gen hs_capital = (w1admarea == 11 | w1admarea == 12 | w1admarea == 25)
 gen general_high = hs_type == 2    // 普通高中
-gen hs_science =  (w1clspgm == 21 | w1clspgm == 23) if general_high == 1
+gen hs_science =  (w1clspgm == 21 | w1clspgm == 23)
 
 label define map_female 0 "男性" 1 "女性"
 label define map_private 0 "公立" 1 "私立"
@@ -59,7 +58,6 @@ label define map_urban 0 "非都市" 1 "都市"
 label define map_scarea_north 0 "非北部" 1 "北部"
 label define map_scarea_middle 0 "非中部" 1 "中部"
 label define map_scarea_south 0 "非南部" 1 "南部"
-label define map_scarea_east 0 "非東部" 1 "東部"
 label define map_capital 0 "非直轄市" 1 "直轄市"
 label define map_general_high 0 "高職五專" 1 "普通高中"
 label define map_science 0 "社會組" 1 "自然組"
@@ -70,16 +68,15 @@ label values hs_urban map_urban
 label values hs_scarea_north map_scarea_north
 label values hs_scarea_middle map_scarea_middle
 label values hs_scarea_south map_scarea_south
-label values hs_scarea_east map_scarea_east
 label values hs_capital map_capital
 label values hs_science map_science
 
-* keep only useful variables
-keep stud_id divorce severe_divorce female hs_private hs_urban hs_capital general_high hs_science ///
-     hs_scarea_north hs_scarea_middle hs_scarea_south hs_scarea_east
+* Keep Only Useful Variables
+keep stud_id sp sp_comply sp_severe female  ///
+     hs_private hs_urban hs_capital general_high hs_science hs_scarea_north hs_scarea_middle hs_scarea_south  
 
 * Output as original data
-save "$workData\SH_divorce.dta", replace
+save "$workData\SH_sp.dta", replace
 
 
 ********************************************
@@ -134,7 +131,7 @@ save "$workData\SH_outcome2009_outcome2015.dta", replace
 ***                Merge                 ***
 ********************************************
 
-use "$workData\SH_divorce.dta", clear
+use "$workData\SH_sp.dta", clear
 merge 1:1 stud_id using "$workData\SH_outcome2009_outcome2015.dta", nogenerate
-save "$workData\SH_divorce_outcome2009_outcome2015.dta", replace
+save "$workData\SH_sp_outcome2009_outcome2015.dta", replace
 
