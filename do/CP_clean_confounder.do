@@ -250,6 +250,21 @@ save "$workData\CP_teacher_dc_2001.dta", replace
 ****************************************************************
 ****************************************************************
 
+********************************************
+***         NP 2005 Parent Data          ***
+********************************************
+
+* Import data
+use "$rawData\NP\NP_withCP_2005_G_parent.dta", clear
+
+* Father & mother Education
+recode w3faedu (6/99 = .)
+recode w3moedu (6/99 = .)
+rename w3faedu faedu
+rename w3moedu moedu
+
+keep stud_id faedu moedu
+save "$workData\NP_parent2005.dta", replace 
 
 ********************************************
 ***      CP & NP 2005 Teacher Data       ***

@@ -5,46 +5,58 @@
             &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
             &\multicolumn{1}{c}{university}&\multicolumn{1}{c}{university}&\multicolumn{1}{c}{university}&\multicolumn{1}{c}{university}\\
 \hline
-divorce     &     -0.0530\sym{***}&                     &     -0.0135         &                     \\
-            &     (0.000)         &                     &     (0.465)         &                     \\
+divorce     &     -0.0530\sym{***}&                     &      0.0896\sym{***}&                     \\
+            &     (0.000)         &                     &     (0.000)         &                     \\
 [1em]
-severe\_divorce&                     &     -0.0284         &                     &     -0.0414         \\
-            &                     &     (0.384)         &                     &     (0.328)         \\
+severe\_divorce&                     &     -0.0284         &                     &                     \\
+            &                     &     (0.384)         &                     &                     \\
+[1em]
+female      &                     &                     &     -0.0676\sym{***}&     -0.0667\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
+[1em]
+hs\_private  &                     &                     &     -0.0871\sym{***}&     -0.0871\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
+[1em]
+hs\_urban    &                     &                     &      0.0715\sym{***}&      0.0722\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
+[1em]
+general\_high&                     &                     &       0.166\sym{***}&       0.164\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
 [1em]
 1.faedu     &                     &                     &           0         &           0         \\
             &                     &                     &         (.)         &         (.)         \\
 [1em]
-2.faedu     &                     &                     &      0.0487\sym{**} &      0.0488\sym{**} \\
-            &                     &                     &     (0.003)         &     (0.003)         \\
-[1em]
-3.faedu     &                     &                     &      0.0875\sym{***}&      0.0877\sym{***}\\
+2.faedu     &                     &                     &      0.0550\sym{***}&      0.0574\sym{***}\\
             &                     &                     &     (0.000)         &     (0.000)         \\
 [1em]
-4.faedu     &                     &                     &      0.0758\sym{***}&      0.0762\sym{***}\\
-            &                     &                     &     (0.000)         &     (0.000)         \\
+3.faedu     &                     &                     &      0.0186         &      0.0183         \\
+            &                     &                     &     (0.148)         &     (0.155)         \\
 [1em]
-5.faedu     &                     &                     &      0.0626\sym{**} &      0.0628\sym{**} \\
-            &                     &                     &     (0.007)         &     (0.007)         \\
+4.faedu     &                     &                     &      0.0539\sym{***}&      0.0516\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.001)         \\
+[1em]
+5.faedu     &                     &                     &       0.102\sym{***}&       0.100\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
 [1em]
 1.moedu     &                     &                     &           0         &           0         \\
             &                     &                     &         (.)         &         (.)         \\
 [1em]
-2.moedu     &                     &                     &      0.0462\sym{**} &      0.0461\sym{**} \\
-            &                     &                     &     (0.001)         &     (0.001)         \\
+2.moedu     &                     &                     &      0.0310         &      0.0336\sym{*}  \\
+            &                     &                     &     (0.061)         &     (0.042)         \\
 [1em]
-3.moedu     &                     &                     &      0.0684\sym{***}&      0.0682\sym{***}\\
+3.moedu     &                     &                     &      0.0222         &      0.0228         \\
+            &                     &                     &     (0.064)         &     (0.057)         \\
+[1em]
+4.moedu     &                     &                     &      0.0490\sym{**} &      0.0515\sym{**} \\
+            &                     &                     &     (0.003)         &     (0.002)         \\
+[1em]
+5.moedu     &                     &                     &       0.109\sym{***}&       0.111\sym{***}\\
             &                     &                     &     (0.000)         &     (0.000)         \\
 [1em]
-4.moedu     &                     &                     &      0.0691\sym{***}&      0.0690\sym{***}\\
-            &                     &                     &     (0.000)         &     (0.000)         \\
-[1em]
-5.moedu     &                     &                     &      0.0941\sym{***}&      0.0934\sym{***}\\
-            &                     &                     &     (0.000)         &     (0.000)         \\
-[1em]
-\_cons      &       0.411\sym{***}&       0.406\sym{***}&       0.840\sym{***}&       0.839\sym{***}\\
+\_cons      &       0.411\sym{***}&       0.406\sym{***}&       0.274\sym{***}&       0.278\sym{***}\\
             &     (0.000)         &     (0.000)         &     (0.000)         &     (0.000)         \\
 \hline
-\(N\)       &       13043         &       13043         &        3245         &        3245         \\
+\(N\)       &       13043         &       13043         &       11630         &       11630         \\
 \hline\hline
 \multicolumn{5}{l}{\footnotesize \textit{p}-values in parentheses}\\
 \multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
@@ -52,45 +64,57 @@ severe\_divorce&                     &     -0.0284         &                    
 {
 {\trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs\cellx1548\clbrdrt\brdrw10\brdrs\cellx3564\clbrdrt\brdrw10\brdrs\cellx5580\clbrdrt\brdrw10\brdrs\cellx7596\clbrdrt\brdrw10\brdrs\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {(1)}\cell \pard\intbl\qc {(2)}\cell \pard\intbl\qc {(3)}\cell \pard\intbl\qc {(4)}\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {public}\cell \pard\intbl\qc {public}\cell \pard\intbl\qc {public}\cell \pard\intbl\qc {public}\cell\row}
-{\trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs\cellx1548\clbrdrt\brdrw10\brdrs\cellx3564\clbrdrt\brdrw10\brdrs\cellx5580\clbrdrt\brdrw10\brdrs\cellx7596\clbrdrt\brdrw10\brdrs\cellx9612\pard\intbl\ql {divorce}\cell \pard\intbl\qc {-0.0578{\super ***}}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {-0.0720{\super *}}\cell \pard\intbl\qc {}\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {(0.000)}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.013)}\cell \pard\intbl\qc {}\cell\row}
+{\trowd\trgaph108\trleft-108\clbrdrt\brdrw10\brdrs\cellx1548\clbrdrt\brdrw10\brdrs\cellx3564\clbrdrt\brdrw10\brdrs\cellx5580\clbrdrt\brdrw10\brdrs\cellx7596\clbrdrt\brdrw10\brdrs\cellx9612\pard\intbl\ql {divorce}\cell \pard\intbl\qc {-0.0578{\super ***}}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {-0.0427{\super **}}\cell \pard\intbl\qc {}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {(0.000)}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.009)}\cell \pard\intbl\qc {}\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {severe_divorce}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {-0.0497}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.00134}\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.095)}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.985)}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {severe_divorce}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {-0.0497}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {-0.0501}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.095)}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.090)}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {female}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {-0.0263{\super ***}}\cell \pard\intbl\qc {-0.0266{\super ***}}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.001)}\cell \pard\intbl\qc {(0.001)}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {hs_private}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {-0.121{\super ***}}\cell \pard\intbl\qc {-0.122{\super ***}}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.000)}\cell \pard\intbl\qc {(0.000)}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {hs_urban}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.0781{\super ***}}\cell \pard\intbl\qc {0.0776{\super ***}}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.000)}\cell \pard\intbl\qc {(0.000)}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {general_high}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.263{\super ***}}\cell \pard\intbl\qc {0.264{\super ***}}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.000)}\cell \pard\intbl\qc {(0.000)}\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {1.faedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0}\cell \pard\intbl\qc {0}\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(.)}\cell \pard\intbl\qc {(.)}\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {2.faedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.0487{\super *}}\cell \pard\intbl\qc {0.0477{\super *}}\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.023)}\cell \pard\intbl\qc {(0.026)}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {2.faedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.00376}\cell \pard\intbl\qc {0.00311}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.776)}\cell \pard\intbl\qc {(0.814)}\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {3.faedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.127{\super ***}}\cell \pard\intbl\qc {0.128{\super ***}}\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.000)}\cell \pard\intbl\qc {(0.000)}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {3.faedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.0184}\cell \pard\intbl\qc {0.0188}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.087)}\cell \pard\intbl\qc {(0.080)}\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {4.faedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.160{\super ***}}\cell \pard\intbl\qc {0.161{\super ***}}\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.000)}\cell \pard\intbl\qc {(0.000)}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {4.faedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.0235}\cell \pard\intbl\qc {0.0247}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.069)}\cell \pard\intbl\qc {(0.056)}\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {5.faedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.254{\super ***}}\cell \pard\intbl\qc {0.256{\super ***}}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {5.faedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.0759{\super ***}}\cell \pard\intbl\qc {0.0768{\super ***}}\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.000)}\cell \pard\intbl\qc {(0.000)}\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {1.moedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0}\cell \pard\intbl\qc {0}\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(.)}\cell \pard\intbl\qc {(.)}\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {2.moedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.0173}\cell \pard\intbl\qc {0.0170}\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.402)}\cell \pard\intbl\qc {(0.409)}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {2.moedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.0137}\cell \pard\intbl\qc {0.0127}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.338)}\cell \pard\intbl\qc {(0.374)}\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {3.moedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.0745{\super *}}\cell \pard\intbl\qc {0.0730{\super *}}\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.017)}\cell \pard\intbl\qc {(0.019)}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {3.moedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.00203}\cell \pard\intbl\qc {0.00182}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.838)}\cell \pard\intbl\qc {(0.855)}\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {4.moedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.214{\super ***}}\cell \pard\intbl\qc {0.215{\super ***}}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {4.moedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.0425{\super **}}\cell \pard\intbl\qc {0.0414{\super **}}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.004)}\cell \pard\intbl\qc {(0.005)}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {5.moedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.0881{\super ***}}\cell \pard\intbl\qc {0.0871{\super ***}}\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.000)}\cell \pard\intbl\qc {(0.000)}\cell\row}
 {\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {5.moedu}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {0.193{\super **}}\cell \pard\intbl\qc {0.192{\super *}}\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {}\cell \pard\intbl\qc {(0.009)}\cell \pard\intbl\qc {(0.010)}\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\pard\intbl\ql\cell\row}
-{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {_cons}\cell \pard\intbl\qc {0.261{\super ***}}\cell \pard\intbl\qc {0.256{\super ***}}\cell \pard\intbl\qc {0.166{\super ***}}\cell \pard\intbl\qc {0.161{\super ***}}\cell\row}
+{\trowd\trgaph108\trleft-108\cellx1548\cellx3564\cellx5580\cellx7596\cellx9612\pard\intbl\ql {_cons}\cell \pard\intbl\qc {0.261{\super ***}}\cell \pard\intbl\qc {0.256{\super ***}}\cell \pard\intbl\qc {0.0570{\super ***}}\cell \pard\intbl\qc {0.0557{\super ***}}\cell\row}
 {\trowd\trgaph108\trleft-108\clbrdrb\brdrw10\brdrs\cellx1548\clbrdrb\brdrw10\brdrs\cellx3564\clbrdrb\brdrw10\brdrs\cellx5580\clbrdrb\brdrw10\brdrs\cellx7596\clbrdrb\brdrw10\brdrs\cellx9612\pard\intbl\ql {}\cell \pard\intbl\qc {(0.000)}\cell \pard\intbl\qc {(0.000)}\cell \pard\intbl\qc {(0.000)}\cell \pard\intbl\qc {(0.000)}\cell\row}
-{\trowd\trgaph108\trleft-108\clbrdrb\brdrw10\brdrs\cellx1548\clbrdrb\brdrw10\brdrs\cellx3564\clbrdrb\brdrw10\brdrs\cellx5580\clbrdrb\brdrw10\brdrs\cellx7596\clbrdrb\brdrw10\brdrs\cellx9612\pard\intbl\ql {{\i N}}\cell \pard\intbl\qc {11728}\cell \pard\intbl\qc {11728}\cell \pard\intbl\qc {2886}\cell \pard\intbl\qc {2886}\cell\row}
+{\trowd\trgaph108\trleft-108\clbrdrb\brdrw10\brdrs\cellx1548\clbrdrb\brdrw10\brdrs\cellx3564\clbrdrb\brdrw10\brdrs\cellx5580\clbrdrb\brdrw10\brdrs\cellx7596\clbrdrb\brdrw10\brdrs\cellx9612\pard\intbl\ql {{\i N}}\cell \pard\intbl\qc {11728}\cell \pard\intbl\qc {11728}\cell \pard\intbl\qc {10483}\cell \pard\intbl\qc {10483}\cell\row}
 {\pard\ql\fs20 {\i p}-values in parentheses\par}
 {\pard\ql\fs20 {\super *} {\i p} < 0.05, {\super **} {\i p} < 0.01, {\super ***} {\i p} < 0.001\par}
 }
@@ -103,46 +127,58 @@ severe\_divorce&                     &     -0.0284         &                    
             &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
             &\multicolumn{1}{c}{wage\_level\_2013}&\multicolumn{1}{c}{wage\_level\_2013}&\multicolumn{1}{c}{wage\_level\_2013}&\multicolumn{1}{c}{wage\_level\_2013}\\
 \hline
-divorce     &      -0.104         &                     &      -0.190         &                     \\
-            &     (0.170)         &                     &     (0.266)         &                     \\
+divorce     &      -0.104         &                     &      -0.103         &                     \\
+            &     (0.170)         &                     &     (0.333)         &                     \\
 [1em]
-severe\_divorce&                     &       0.166         &                     &       0.269         \\
-            &                     &     (0.389)         &                     &     (0.372)         \\
+severe\_divorce&                     &       0.166         &                     &      0.0578         \\
+            &                     &     (0.389)         &                     &     (0.764)         \\
+[1em]
+female      &                     &                     &      -0.574\sym{***}&      -0.575\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
+[1em]
+hs\_private  &                     &                     &      -0.179\sym{***}&      -0.179\sym{***}\\
+            &                     &                     &     (0.001)         &     (0.001)         \\
+[1em]
+hs\_urban    &                     &                     &       0.152\sym{**} &       0.152\sym{**} \\
+            &                     &                     &     (0.002)         &     (0.002)         \\
+[1em]
+general\_high&                     &                     &       0.440\sym{***}&       0.442\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
 [1em]
 1.faedu     &                     &                     &           0         &           0         \\
             &                     &                     &         (.)         &         (.)         \\
 [1em]
-2.faedu     &                     &                     &       0.135         &       0.128         \\
-            &                     &                     &     (0.264)         &     (0.287)         \\
+2.faedu     &                     &                     &       0.327\sym{***}&       0.323\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
 [1em]
-3.faedu     &                     &                     &      0.0996         &       0.107         \\
-            &                     &                     &     (0.521)         &     (0.492)         \\
+3.faedu     &                     &                     &       0.214\sym{**} &       0.214\sym{**} \\
+            &                     &                     &     (0.001)         &     (0.001)         \\
 [1em]
-4.faedu     &                     &                     &       0.523\sym{*}  &       0.524\sym{*}  \\
-            &                     &                     &     (0.044)         &     (0.044)         \\
+4.faedu     &                     &                     &       0.106         &       0.108         \\
+            &                     &                     &     (0.186)         &     (0.176)         \\
 [1em]
-5.faedu     &                     &                     &       1.208\sym{**} &       1.224\sym{**} \\
-            &                     &                     &     (0.004)         &     (0.004)         \\
+5.faedu     &                     &                     &       0.421\sym{***}&       0.424\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
 [1em]
 1.moedu     &                     &                     &           0         &           0         \\
             &                     &                     &         (.)         &         (.)         \\
 [1em]
-2.moedu     &                     &                     &       0.234\sym{*}  &       0.235\sym{*}  \\
-            &                     &                     &     (0.041)         &     (0.039)         \\
+2.moedu     &                     &                     &      0.0913         &      0.0887         \\
+            &                     &                     &     (0.308)         &     (0.321)         \\
 [1em]
-3.moedu     &                     &                     &       0.626\sym{***}&       0.615\sym{***}\\
-            &                     &                     &     (0.001)         &     (0.001)         \\
+3.moedu     &                     &                     &     0.00348         &     0.00282         \\
+            &                     &                     &     (0.955)         &     (0.964)         \\
 [1em]
-4.moedu     &                     &                     &       0.770\sym{**} &       0.782\sym{**} \\
-            &                     &                     &     (0.009)         &     (0.008)         \\
+4.moedu     &                     &                     &       0.394\sym{***}&       0.391\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
 [1em]
-5.moedu     &                     &                     &       0.798         &       0.796         \\
-            &                     &                     &     (0.288)         &     (0.290)         \\
+5.moedu     &                     &                     &       0.448\sym{**} &       0.445\sym{**} \\
+            &                     &                     &     (0.002)         &     (0.002)         \\
 [1em]
-\_cons      &       5.952\sym{***}&       5.939\sym{***}&       5.472\sym{***}&       5.454\sym{***}\\
+\_cons      &       5.952\sym{***}&       5.939\sym{***}&       5.746\sym{***}&       5.740\sym{***}\\
             &     (0.000)         &     (0.000)         &     (0.000)         &     (0.000)         \\
 \hline
-\(N\)       &        8387         &        8387         &        1977         &        1977         \\
+\(N\)       &        8387         &        8387         &        7514         &        7514         \\
 \hline\hline
 \multicolumn{5}{l}{\footnotesize \textit{p}-values in parentheses}\\
 \multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
@@ -155,46 +191,58 @@ severe\_divorce&                     &       0.166         &                    
             &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
             &\multicolumn{1}{c}{wage\_level\_2019}&\multicolumn{1}{c}{wage\_level\_2019}&\multicolumn{1}{c}{wage\_level\_2019}&\multicolumn{1}{c}{wage\_level\_2019}\\
 \hline
-divorce     &      -0.306         &                     &      -0.363         &                     \\
-            &     (0.320)         &                     &     (0.328)         &                     \\
+divorce     &      -0.306         &                     &      -0.111         &                     \\
+            &     (0.320)         &                     &     (0.745)         &                     \\
 [1em]
-severe\_divorce&                     &       0.264         &                     &     -0.0607         \\
-            &                     &     (0.755)         &                     &     (0.946)         \\
+severe\_divorce&                     &       0.264         &                     &       0.256         \\
+            &                     &     (0.755)         &                     &     (0.754)         \\
+[1em]
+female      &                     &                     &      -1.552\sym{***}&      -1.553\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
+[1em]
+hs\_private  &                     &                     &      -0.757\sym{***}&      -0.756\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
+[1em]
+hs\_urban    &                     &                     &       0.570\sym{**} &       0.568\sym{**} \\
+            &                     &                     &     (0.002)         &     (0.002)         \\
+[1em]
+general\_high&                     &                     &       1.035\sym{***}&       1.040\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
 [1em]
 1.faedu     &                     &                     &           0         &           0         \\
             &                     &                     &         (.)         &         (.)         \\
 [1em]
-2.faedu     &                     &                     &       0.676\sym{**} &       0.669\sym{*}  \\
-            &                     &                     &     (0.010)         &     (0.010)         \\
+2.faedu     &                     &                     &       0.448         &       0.433         \\
+            &                     &                     &     (0.139)         &     (0.155)         \\
 [1em]
-3.faedu     &                     &                     &       0.720\sym{*}  &       0.719\sym{*}  \\
-            &                     &                     &     (0.023)         &     (0.023)         \\
+3.faedu     &                     &                     &     -0.0914         &     -0.0921         \\
+            &                     &                     &     (0.723)         &     (0.721)         \\
 [1em]
-4.faedu     &                     &                     &       1.481\sym{***}&       1.485\sym{***}\\
-            &                     &                     &     (0.001)         &     (0.001)         \\
+4.faedu     &                     &                     &       0.180         &       0.185         \\
+            &                     &                     &     (0.560)         &     (0.547)         \\
 [1em]
-5.faedu     &                     &                     &       1.368\sym{*}  &       1.377\sym{*}  \\
-            &                     &                     &     (0.033)         &     (0.032)         \\
+5.faedu     &                     &                     &       0.329         &       0.332         \\
+            &                     &                     &     (0.384)         &     (0.379)         \\
 [1em]
 1.moedu     &                     &                     &           0         &           0         \\
             &                     &                     &         (.)         &         (.)         \\
 [1em]
-2.moedu     &                     &                     &       0.364         &       0.361         \\
-            &                     &                     &     (0.147)         &     (0.150)         \\
+2.moedu     &                     &                     &       0.728\sym{*}  &       0.726\sym{*}  \\
+            &                     &                     &     (0.026)         &     (0.027)         \\
 [1em]
-3.moedu     &                     &                     &       0.967\sym{**} &       0.964\sym{*}  \\
-            &                     &                     &     (0.010)         &     (0.010)         \\
+3.moedu     &                     &                     &       0.574\sym{*}  &       0.570\sym{*}  \\
+            &                     &                     &     (0.015)         &     (0.016)         \\
 [1em]
-4.moedu     &                     &                     &       0.868         &       0.874         \\
-            &                     &                     &     (0.079)         &     (0.077)         \\
+4.moedu     &                     &                     &       1.164\sym{**} &       1.158\sym{**} \\
+            &                     &                     &     (0.001)         &     (0.001)         \\
 [1em]
-5.moedu     &                     &                     &       2.222\sym{*}  &       2.203\sym{*}  \\
-            &                     &                     &     (0.023)         &     (0.025)         \\
+5.moedu     &                     &                     &       1.288\sym{**} &       1.286\sym{**} \\
+            &                     &                     &     (0.003)         &     (0.003)         \\
 [1em]
-\_cons      &       9.041\sym{***}&       9.005\sym{***}&       7.961\sym{***}&       7.938\sym{***}\\
+\_cons      &       9.041\sym{***}&       9.005\sym{***}&       8.268\sym{***}&       8.257\sym{***}\\
             &     (0.000)         &     (0.000)         &     (0.000)         &     (0.000)         \\
 \hline
-\(N\)       &        1870         &        1870         &        1760         &        1760         \\
+\(N\)       &        1870         &        1870         &        1801         &        1801         \\
 \hline\hline
 \multicolumn{5}{l}{\footnotesize \textit{p}-values in parentheses}\\
 \multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
@@ -207,46 +255,58 @@ severe\_divorce&                     &       0.264         &                    
             &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
             &\multicolumn{1}{c}{work\_year\_2013}&\multicolumn{1}{c}{work\_year\_2013}&\multicolumn{1}{c}{work\_year\_2013}&\multicolumn{1}{c}{work\_year\_2013}\\
 \hline
-divorce     &       0.251\sym{***}&                     &      0.0450         &                     \\
-            &     (0.000)         &                     &     (0.751)         &                     \\
+divorce     &       0.251\sym{***}&                     &      0.0791         &                     \\
+            &     (0.000)         &                     &     (0.361)         &                     \\
 [1em]
-severe\_divorce&                     &       0.223         &                     &     -0.0737         \\
-            &                     &     (0.132)         &                     &     (0.796)         \\
+severe\_divorce&                     &       0.223         &                     &       0.326\sym{*}  \\
+            &                     &     (0.132)         &                     &     (0.042)         \\
+[1em]
+female      &                     &                     &       0.450\sym{***}&       0.451\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
+[1em]
+hs\_private  &                     &                     &       0.286\sym{***}&       0.288\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
+[1em]
+hs\_urban    &                     &                     &      -0.144\sym{***}&      -0.142\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
+[1em]
+general\_high&                     &                     &      -0.420\sym{***}&      -0.420\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
 [1em]
 1.faedu     &                     &                     &           0         &           0         \\
             &                     &                     &         (.)         &         (.)         \\
 [1em]
-2.faedu     &                     &                     &      -0.215\sym{*}  &      -0.212\sym{*}  \\
-            &                     &                     &     (0.031)         &     (0.032)         \\
+2.faedu     &                     &                     &      -0.120         &      -0.121\sym{*}  \\
+            &                     &                     &     (0.050)         &     (0.049)         \\
 [1em]
-3.faedu     &                     &                     &      -0.487\sym{***}&      -0.488\sym{***}\\
+3.faedu     &                     &                     &     -0.0796         &     -0.0813         \\
+            &                     &                     &     (0.127)         &     (0.119)         \\
+[1em]
+4.faedu     &                     &                     &      -0.244\sym{***}&      -0.247\sym{***}\\
             &                     &                     &     (0.000)         &     (0.000)         \\
 [1em]
-4.faedu     &                     &                     &      -0.599\sym{***}&      -0.599\sym{***}\\
-            &                     &                     &     (0.000)         &     (0.000)         \\
-[1em]
-5.faedu     &                     &                     &      -0.683\sym{***}&      -0.685\sym{***}\\
+5.faedu     &                     &                     &      -0.396\sym{***}&      -0.397\sym{***}\\
             &                     &                     &     (0.000)         &     (0.000)         \\
 [1em]
 1.moedu     &                     &                     &           0         &           0         \\
             &                     &                     &         (.)         &         (.)         \\
 [1em]
-2.moedu     &                     &                     &      -0.168         &      -0.168         \\
-            &                     &                     &     (0.064)         &     (0.064)         \\
+2.moedu     &                     &                     &     -0.0675         &     -0.0669         \\
+            &                     &                     &     (0.303)         &     (0.306)         \\
 [1em]
-3.moedu     &                     &                     &      -0.325\sym{**} &      -0.322\sym{**} \\
-            &                     &                     &     (0.003)         &     (0.003)         \\
+3.moedu     &                     &                     &      -0.177\sym{***}&      -0.176\sym{***}\\
+            &                     &                     &     (0.000)         &     (0.000)         \\
 [1em]
-4.moedu     &                     &                     &      -0.274         &      -0.276         \\
-            &                     &                     &     (0.061)         &     (0.058)         \\
+4.moedu     &                     &                     &      -0.192\sym{**} &      -0.190\sym{**} \\
+            &                     &                     &     (0.002)         &     (0.002)         \\
 [1em]
-5.moedu     &                     &                     &      -0.201         &      -0.201         \\
-            &                     &                     &     (0.525)         &     (0.525)         \\
+5.moedu     &                     &                     &      -0.206\sym{*}  &      -0.206\sym{*}  \\
+            &                     &                     &     (0.013)         &     (0.013)         \\
 [1em]
-\_cons      &       3.215\sym{***}&       3.237\sym{***}&       2.954\sym{***}&       2.958\sym{***}\\
+\_cons      &       3.215\sym{***}&       3.237\sym{***}&       3.420\sym{***}&       3.418\sym{***}\\
             &     (0.000)         &     (0.000)         &     (0.000)         &     (0.000)         \\
 \hline
-\(N\)       &        8615         &        8615         &        2007         &        2007         \\
+\(N\)       &        8615         &        8615         &        7722         &        7722         \\
 \hline\hline
 \multicolumn{5}{l}{\footnotesize \textit{p}-values in parentheses}\\
 \multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
@@ -259,46 +319,58 @@ severe\_divorce&                     &       0.223         &                    
             &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
             &\multicolumn{1}{c}{work\_year\_2019}&\multicolumn{1}{c}{work\_year\_2019}&\multicolumn{1}{c}{work\_year\_2019}&\multicolumn{1}{c}{work\_year\_2019}\\
 \hline
-divorce     &       0.775\sym{*}  &                     &       0.567         &                     \\
-            &     (0.011)         &                     &     (0.111)         &                     \\
+divorce     &       0.775\sym{*}  &                     &       0.408         &                     \\
+            &     (0.011)         &                     &     (0.241)         &                     \\
 [1em]
-severe\_divorce&                     &       1.847         &                     &       1.621         \\
-            &                     &     (0.237)         &                     &     (0.277)         \\
+severe\_divorce&                     &       1.847         &                     &       1.889         \\
+            &                     &     (0.237)         &                     &     (0.190)         \\
+[1em]
+female      &                     &                     &       0.373\sym{*}  &       0.423\sym{**} \\
+            &                     &                     &     (0.015)         &     (0.005)         \\
+[1em]
+hs\_private  &                     &                     &       0.594\sym{**} &       0.579\sym{**} \\
+            &                     &                     &     (0.002)         &     (0.002)         \\
+[1em]
+hs\_urban    &                     &                     &      -0.193         &      -0.185         \\
+            &                     &                     &     (0.262)         &     (0.275)         \\
+[1em]
+general\_high&                     &                     &      -0.299         &      -0.333         \\
+            &                     &                     &     (0.132)         &     (0.086)         \\
 [1em]
 1.faedu     &                     &                     &           0         &           0         \\
             &                     &                     &         (.)         &         (.)         \\
 [1em]
-2.faedu     &                     &                     &      0.0973         &       0.110         \\
-            &                     &                     &     (0.699)         &     (0.660)         \\
+2.faedu     &                     &                     &       0.545         &       0.559         \\
+            &                     &                     &     (0.088)         &     (0.079)         \\
 [1em]
-3.faedu     &                     &                     &      -0.127         &      -0.145         \\
-            &                     &                     &     (0.640)         &     (0.595)         \\
+3.faedu     &                     &                     &      0.0222         &      0.0284         \\
+            &                     &                     &     (0.934)         &     (0.914)         \\
 [1em]
-4.faedu     &                     &                     &      -0.421         &      -0.402         \\
-            &                     &                     &     (0.189)         &     (0.209)         \\
+4.faedu     &                     &                     &     -0.0940         &     -0.0910         \\
+            &                     &                     &     (0.740)         &     (0.745)         \\
 [1em]
-5.faedu     &                     &                     &      -0.271         &      -0.253         \\
-            &                     &                     &     (0.569)         &     (0.595)         \\
+5.faedu     &                     &                     &      -0.338         &      -0.365         \\
+            &                     &                     &     (0.278)         &     (0.243)         \\
 [1em]
 1.moedu     &                     &                     &           0         &           0         \\
             &                     &                     &         (.)         &         (.)         \\
 [1em]
-2.moedu     &                     &                     &      -0.486\sym{*}  &      -0.502\sym{*}  \\
-            &                     &                     &     (0.045)         &     (0.040)         \\
+2.moedu     &                     &                     &      -0.621\sym{*}  &      -0.615\sym{*}  \\
+            &                     &                     &     (0.033)         &     (0.034)         \\
 [1em]
-3.moedu     &                     &                     &      -0.712\sym{*}  &      -0.714\sym{*}  \\
-            &                     &                     &     (0.018)         &     (0.018)         \\
+3.moedu     &                     &                     &      -0.348         &      -0.377         \\
+            &                     &                     &     (0.178)         &     (0.144)         \\
 [1em]
-4.moedu     &                     &                     &      -1.003\sym{**} &      -1.040\sym{**} \\
-            &                     &                     &     (0.008)         &     (0.006)         \\
+4.moedu     &                     &                     &      -0.421         &      -0.412         \\
+            &                     &                     &     (0.146)         &     (0.154)         \\
 [1em]
-5.moedu     &                     &                     &      -0.677         &      -0.635         \\
-            &                     &                     &     (0.286)         &     (0.340)         \\
+5.moedu     &                     &                     &      -0.782\sym{*}  &      -0.759\sym{*}  \\
+            &                     &                     &     (0.024)         &     (0.028)         \\
 [1em]
-\_cons      &       8.842\sym{***}&       8.903\sym{***}&       9.353\sym{***}&       9.388\sym{***}\\
+\_cons      &       8.842\sym{***}&       8.903\sym{***}&       9.221\sym{***}&       9.247\sym{***}\\
             &     (0.000)         &     (0.000)         &     (0.000)         &     (0.000)         \\
 \hline
-\(N\)       &         477         &         477         &         454         &         454         \\
+\(N\)       &         477         &         477         &         463         &         463         \\
 \hline\hline
 \multicolumn{5}{l}{\footnotesize \textit{p}-values in parentheses}\\
 \multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
@@ -311,22 +383,25 @@ severe\_divorce&                     &       1.847         &                    
             &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}\\
             &\multicolumn{1}{c}{university}&\multicolumn{1}{c}{university}\\
 \hline
-divorce     &     0.00277         &                     \\
-            &     (0.858)         &                     \\
+divorce     &     0.00343         &                     \\
+            &     (0.805)         &                     \\
 [1em]
-female      &      0.0331\sym{***}&      0.0333\sym{***}\\
+female      &      0.0325\sym{***}&      0.0326\sym{***}\\
             &     (0.000)         &     (0.000)         \\
 [1em]
-w1t202\_c    &     -0.0144         &                     \\
-            &     (0.648)         &                     \\
+w1t202\_c    &     -0.0147         &                     \\
+            &     (0.642)         &                     \\
 [1em]
-severe\_divorce&                     &     -0.0402         \\
-            &                     &     (0.450)         \\
+severe\_divorce&                     &     -0.0373         \\
+            &                     &     (0.461)         \\
 [1em]
-\_cons      &       0.964\sym{***}&       0.964\sym{***}\\
+w1p502      &                     &    -0.00403         \\
+            &                     &     (0.684)         \\
+[1em]
+\_cons      &       0.965\sym{***}&       0.966\sym{***}\\
             &     (0.000)         &     (0.000)         \\
 \hline
-\(N\)       &        1281         &        1281         \\
+\(N\)       &        1304         &        1304         \\
 \hline\hline
 \multicolumn{3}{l}{\footnotesize \textit{p}-values in parentheses}\\
 \multicolumn{3}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
@@ -339,31 +414,31 @@ severe\_divorce&                     &     -0.0402         \\
             &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}\\
             &\multicolumn{1}{c}{public}&\multicolumn{1}{c}{public}\\
 \hline
-divorce     &     -0.0545         &                     \\
-            &     (0.362)         &                     \\
+divorce     &     -0.0502         &                     \\
+            &     (0.369)         &                     \\
 [1em]
-4.moedu     &       0.144\sym{***}&       0.144\sym{***}\\
+5.faedu     &       0.110\sym{***}&       0.110\sym{***}\\
+            &     (0.001)         &     (0.001)         \\
+[1em]
+hs\_private  &      -0.215\sym{***}&      -0.212\sym{***}\\
             &     (0.000)         &     (0.000)         \\
 [1em]
-hs\_private  &      -0.205\sym{***}&      -0.202\sym{***}\\
+hs\_urban    &       0.107\sym{***}&       0.107\sym{***}\\
             &     (0.000)         &     (0.000)         \\
 [1em]
-hs\_urban    &       0.115\sym{***}&       0.116\sym{***}\\
+w1p503      &       0.191\sym{***}&       0.195\sym{***}\\
             &     (0.000)         &     (0.000)         \\
 [1em]
-w1p503      &       0.215\sym{***}&       0.220\sym{***}\\
-            &     (0.000)         &     (0.000)         \\
+w1t202\_c    &      0.0576         &                     \\
+            &     (0.477)         &                     \\
 [1em]
-w1t202\_c    &      0.0621         &                     \\
-            &     (0.446)         &                     \\
+severe\_divorce&                     &    -0.00626         \\
+            &                     &     (0.959)         \\
 [1em]
-severe\_divorce&                     &      0.0204         \\
-            &                     &     (0.869)         \\
-[1em]
-\_cons      &       0.333\sym{***}&       0.329\sym{***}\\
+\_cons      &       0.336\sym{***}&       0.333\sym{***}\\
             &     (0.000)         &     (0.000)         \\
 \hline
-\(N\)       &        1170         &        1170         \\
+\(N\)       &        1190         &        1190         \\
 \hline\hline
 \multicolumn{3}{l}{\footnotesize \textit{p}-values in parentheses}\\
 \multicolumn{3}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
@@ -376,31 +451,28 @@ severe\_divorce&                     &      0.0204         \\
             &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
             &\multicolumn{1}{c}{wage\_level\_2013}&\multicolumn{1}{c}{wage\_level\_2013}&\multicolumn{1}{c}{wage\_level\_2019}&\multicolumn{1}{c}{wage\_level\_2019}\\
 \hline
-divorce     &      0.0679         &                     &      -0.598         &                     \\
-            &     (0.898)         &                     &     (0.424)         &                     \\
+divorce     &       0.104         &                     &      -0.664         &                     \\
+            &     (0.827)         &                     &     (0.304)         &                     \\
 [1em]
-5.faedu     &       1.038\sym{*}  &                     &                     &                     \\
-            &     (0.043)         &                     &                     &                     \\
+w1p503      &       0.610         &                     &                     &                     \\
+            &     (0.169)         &                     &                     &                     \\
 [1em]
-4.moedu     &       0.714\sym{*}  &                     &                     &                     \\
-            &     (0.022)         &                     &                     &                     \\
+severe\_divorce&                     &      -0.740         &                     &      -0.680         \\
+            &                     &     (0.196)         &                     &     (0.589)         \\
 [1em]
-severe\_divorce&                     &      -0.733         &                     &      -0.753         \\
-            &                     &     (0.200)         &                     &     (0.609)         \\
-[1em]
-female      &                     &                     &      -1.315\sym{***}&      -1.311\sym{***}\\
+female      &                     &                     &      -1.340\sym{***}&      -1.343\sym{***}\\
             &                     &                     &     (0.000)         &     (0.000)         \\
 [1em]
-hs\_science  &                     &                     &       0.995\sym{**} &       0.999\sym{**} \\
-            &                     &                     &     (0.002)         &     (0.002)         \\
+hs\_science  &                     &                     &       0.966\sym{**} &       0.975\sym{**} \\
+            &                     &                     &     (0.003)         &     (0.003)         \\
 [1em]
-w1t116\_c    &                     &                     &      -0.428\sym{***}&      -0.426\sym{***}\\
+w1t116\_c    &                     &                     &      -0.439\sym{***}&      -0.437\sym{***}\\
             &                     &                     &     (0.000)         &     (0.000)         \\
 [1em]
-\_cons      &       6.080\sym{***}&       6.233\sym{***}&       10.94\sym{***}&       10.91\sym{***}\\
+\_cons      &       6.190\sym{***}&       6.240\sym{***}&       11.01\sym{***}&       10.96\sym{***}\\
             &     (0.000)         &     (0.000)         &     (0.000)         &     (0.000)         \\
 \hline
-\(N\)       &         694         &         694         &         676         &         676         \\
+\(N\)       &         711         &         711         &         693         &         693         \\
 \hline\hline
 \multicolumn{5}{l}{\footnotesize \textit{p}-values in parentheses}\\
 \multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
@@ -413,19 +485,22 @@ w1t116\_c    &                     &                     &      -0.428\sym{***}&
             &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
             &\multicolumn{1}{c}{work\_year\_2013}&\multicolumn{1}{c}{work\_year\_2013}&\multicolumn{1}{c}{work\_year\_2019}&\multicolumn{1}{c}{work\_year\_2019}\\
 \hline
-divorce     &       0.292         &                     &       0.920         &                     \\
-            &     (0.226)         &                     &     (0.200)         &                     \\
+divorce     &       0.350         &                     &       0.943         &                     \\
+            &     (0.092)         &                     &     (0.153)         &                     \\
 [1em]
-w1t202\_c    &      0.0589         &                     &                     &                     \\
-            &     (0.851)         &                     &                     &                     \\
+5.faedu     &      -0.502\sym{***}&      -0.513\sym{***}&                     &                     \\
+            &     (0.000)         &     (0.000)         &                     &                     \\
 [1em]
-severe\_divorce&                     &       0.531         &                     &       7.360\sym{***}\\
-            &                     &     (0.226)         &                     &     (0.000)         \\
+hs\_scarea\_east&       0.117         &                     &                     &                     \\
+            &     (0.677)         &                     &                     &                     \\
 [1em]
-\_cons      &       2.294\sym{***}&       2.303\sym{***}&       8.626\sym{***}&       8.640\sym{***}\\
+severe\_divorce&                     &       0.585         &                     &       7.340\sym{***}\\
+            &                     &     (0.172)         &                     &     (0.000)         \\
+[1em]
+\_cons      &       2.400\sym{***}&       2.419\sym{***}&       8.640\sym{***}&       8.660\sym{***}\\
             &     (0.000)         &     (0.000)         &     (0.000)         &     (0.000)         \\
 \hline
-\(N\)       &         716         &         716         &         198         &         198         \\
+\(N\)       &         733         &         733         &         201         &         201         \\
 \hline\hline
 \multicolumn{5}{l}{\footnotesize \textit{p}-values in parentheses}\\
 \multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\

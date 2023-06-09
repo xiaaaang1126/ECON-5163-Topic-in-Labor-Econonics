@@ -65,47 +65,48 @@ est sto work_year_2019_2
 
 * Import data
 merge 1:1 stud_id using "$workData\CP_parent2001.dta", nogenerate
+merge 1:1 stud_id using "$workData\NP_parent2005.dta", replace update
 
 * Outcome Variable (1): University
-qui reg university divorce i.faedu i.moedu, r
+qui reg university divorce female hs_private hs_urban general_high i.faedu i.moedu, r
 est sto university_3
-qui reg university severe_divorce i.faedu i.moedu, r
+qui reg university female hs_private hs_urban general_high i.faedu i.moedu, r
 est sto university_4
 
 * Outcome Variable (2): Public University
-qui reg public divorce i.faedu i.moedu, r
+qui reg public divorce female hs_private hs_urban general_high i.faedu i.moedu, r
 est sto public_3
-qui reg public severe_divorce i.faedu i.moedu, r
+qui reg public severe_divorce female hs_private hs_urban general_high i.faedu i.moedu, r
 est sto public_4
 
 * Outcome Variable (3): Wage Level at 2013
-qui reg wage_level_2013 divorce i.faedu i.moedu, r
+qui reg wage_level_2013 divorce female hs_private hs_urban general_high i.faedu i.moedu, r
 est sto wage_level_2013_3
-qui reg wage_level_2013 severe_divorce i.faedu i.moedu, r
+qui reg wage_level_2013 severe_divorce female hs_private hs_urban general_high i.faedu i.moedu, r
 est sto wage_level_2013_4
 
 * Outcome Variable (4): Wage Level at 2013
-qui reg wage_level_2013 divorce i.faedu i.moedu, r
+qui reg wage_level_2013 divorce female hs_private hs_urban general_high i.faedu i.moedu, r
 est sto wage_level_2013_3
-qui reg wage_level_2013 severe_divorce i.faedu i.moedu, r
+qui reg wage_level_2013 severe_divorce female hs_private hs_urban general_high i.faedu i.moedu, r
 est sto wage_level_2013_4
 
 * Outcome Variable (5): Wage Level at 2019
-qui reg wage_level_2019 divorce i.faedu i.moedu, r
+qui reg wage_level_2019 divorce female hs_private hs_urban general_high i.faedu i.moedu, r
 est sto wage_level_2019_3
-qui reg wage_level_2019 severe_divorce i.faedu i.moedu, r
+qui reg wage_level_2019 severe_divorce female hs_private hs_urban general_high i.faedu i.moedu, r
 est sto wage_level_2019_4
 
 * Outcome Variable (6): Working Year at 2013
-qui reg work_year_2013 divorce i.faedu i.moedu, r
+qui reg work_year_2013 divorce female hs_private hs_urban general_high i.faedu i.moedu, r
 est sto work_year_2013_3
-qui reg work_year_2013 severe_divorce i.faedu i.moedu, r
+qui reg work_year_2013 severe_divorce female hs_private hs_urban general_high i.faedu i.moedu, r
 est sto work_year_2013_4
 
 * Outcome Variable (7): Working Year at 2019
-qui reg work_year_2019 divorce i.faedu i.moedu, r
+qui reg work_year_2019 divorce female hs_private hs_urban general_high i.faedu i.moedu, r
 est sto work_year_2019_3
-qui reg work_year_2019 severe_divorce i.faedu i.moedu , r
+qui reg work_year_2019 severe_divorce female hs_private hs_urban general_high i.faedu i.moedu, r
 est sto work_year_2019_4
 
 esttab university_1 university_2 university_3 university_4, p num
