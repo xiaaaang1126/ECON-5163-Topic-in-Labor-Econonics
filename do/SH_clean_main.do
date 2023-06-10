@@ -18,6 +18,7 @@ if "`c(username)'" == "jwutw" {
 }
 
 
+
 ********************************************
 ***         SH 2001 & 2003 Data          ***
 ********************************************
@@ -79,6 +80,7 @@ keep stud_id sp sp_comply sp_severe female  ///
 save "$workData\SH_sp.dta", replace
 
 
+
 ********************************************
 ***         SH 2009 & 2015 Data          ***
 ********************************************
@@ -102,29 +104,15 @@ gen public =  (sh09v37v38_u == 1 | sh15v33v34_u == 1)  if (sh09v37v38_u != . | s
 gen all_public = (sh09v37v38_u == 1 | sh09v37v38_u == 2 | sh09v37v38_u == 3 | sh09v37v38_u == 4) if (sh09v37v38_u != .)
 replace all_public = 1 if (sh15v33v34_u == 1 | sh15v33v34_u == 2 | sh15v33v34_u == 3 | sh15v33v34_u == 4)
 
-* Outcome Variable (3): Wage Level at 2009
-recode sh09v53 (96/99 = .)
-gen wage_level_2009 = sh09v53 - 1
-
-* Outcome Variable (4): Wage Level at 2015
-merge 1:1 stud_id using "SH\SH_2015.dta", keepusing(sh15v57) nogenerate
-recode sh15v57 (93/99 = .)
-gen wage_level_2015 = sh15v57 - 1
-
-* Outcome Variable (5): Working Year at 2009
+* Outcome Variable (4): Working Year at 2009
 recode sh09v51 sh09v55 (12/99 = .)
-gen work_year_2009 = 12 - sh09v51
-replace work_year_2009 = 12 - sh09v55 if sh09v54 == 2
-
-* Outcome Variable (6): Working Year at 2015
-merge 1:1 stud_id using "SH\SH_2015.dta", keepusing(sh15v56 sh15v59 sh15v60) nogenerate
-recode sh15v56 sh15v60 (90/999 = .)
-gen work_year_2015 = 19 - sh15v56
-replace work_year_2015 = 19 - sh15v60 if sh15v59 == 2
+gen work_year = 12 - sh09v51
+replace work_year = 12 - sh09v55 if sh09v54 == 2
 
 * Output
-keep stud_id university public all_public wage_level_2009 wage_level_2015 work_year_2009 work_year_2015
+keep stud_id university master public all_public work_year
 save "$workData\SH_outcome2009_outcome2015.dta", replace
+
 
 
 ********************************************

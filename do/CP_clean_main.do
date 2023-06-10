@@ -177,8 +177,8 @@ gen wage_level_2013 = np13v52 - 1
 count if wage_level_2013 !=. // 8,387
 
 * Outcome Variable (6): Working Year at 2013
-recode np13v54 (13/99 = .) // when to start first job
-recode np13v50 (13/99 = .) // when to start job(now)
+recode np13v54 (13/99 = .)  // when to start first job
+recode np13v50 (13/99 = .)  // when to start job(now)
 gen work_year_2013 = 13 - np13v54
 
 replace work_year_2013 = 13 - np13v50 if (np13v53 == 1 | np13v53 == 96 | np13v53 == 97 | np13v53 == 98 |np13v53 == 99)

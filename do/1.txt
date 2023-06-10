@@ -1,0 +1,5 @@
+* Outcome Table
+esttab university_7 university_8 university_9, p num
+esttab master_7 master_8 master_9, p num
+esttab public_7 public_8 public_9, p num
+esttab work_year_7 work_year_8 work_year_9, p num

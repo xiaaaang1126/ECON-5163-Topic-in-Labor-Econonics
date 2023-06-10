@@ -22,95 +22,95 @@ if "`c(username)'" == "jwutw" {
 use "$workData\SH_sp_outcome2009_outcome2015.dta", clear
 
 
+
 ********************************************
 ***           Baseline Model             ***
 ********************************************
 
-* Outcome Variable (1): University
-qui reg university sp, r               // t = -3.81 √
+* Outcome Variable (1): University degree
+qui reg university sp, r             
 est sto university_1
-qui reg university sp_severe, r        // t = 0.532
+qui reg university sp_severe, r      
 est sto university_2
-* Outcome Variable (2): Public University
-qui reg public sp, r                   // t = -0.84 
+qui reg university sp_comply, r
+est sto university_3
+
+* Outcome Variable (2): Master degree
+qui reg master sp, r             
+est sto master_1
+qui reg master sp_severe, r      
+est sto master_2
+qui reg master sp_comply, r
+est sto master_3
+
+* Outcome Variable (3): Public University
+qui reg public sp, r                 
 est sto public_1
-qui reg public sp_severe, r            // t = 0.07
+qui reg public sp_severe, r          
 est sto public_2
+qui reg public sp_comply, r
+est sto public_3
 
-qui reg all_public sp, r            // t = -1.13
-qui reg all_public sp_severe, r     // t = 0.18
+* Outcome Variable (4): Working Year at 2009
+qui reg work_year sp, r
+est sto work_year_1
+qui reg work_year sp_severe, r
+est sto work_year_2
+qui reg work_year sp_comply, r
+est sto work_year_3
 
-* Outcome Variable (3): Wage Level at 2009
-qui reg wage_level_2009 sp, r          // t = 0.97
-est sto wage_level_2009_1
-qui reg wage_level_2009 sp_severe, r   // t = 0.41
-est sto wage_level_2009_2
-
-
-* Outcome Variable (4): Wage Level at 2015
-qui reg wage_level_2015 sp, r          // t = 0.30
-est sto wage_level_2015_1
-qui reg wage_level_2015 sp_severe, r   // t = 1.90 √
-est sto wage_level_2015_2
-
-* Outcome Variable (5): Working Year at 2009
-qui reg work_year_2009 sp, r           // t = 3.13 √
-est sto work_year_2009_1
-
-* Outcome Variable (6): Working Year at 2015
-qui reg work_year_2015 sp, r           // t = 1.40
-est sto work_year_2015_1
+* Present the Outcome
+esttab university_1 university_2 university_3 
+esttab master_1 master_2 master_3
+esttab public_1 public_2 public_3
+esttab work_year_1 work_year_2 work_year_3
 
 
 
 ********************************************
-***           Adding Confounder          ***
+***        Adding Control Variable       ***
 ********************************************
 
 * Import Data
 merge 1:1 stud_id using "$workData\SH_parent2001.dta", nogenerate
 
 * Outcome Variable (1): University
-qui reg university sp female hs_private hs_urban general_high i.faedu i.moedu, r               // t = -3.20 √
-est sto university_3
-qui reg university sp_severe female hs_private hs_urban general_high i.faedu i.moedu, r        // t = -0.87
+qui reg university sp female hs_private hs_urban general_high paedu, r               // t = -3.20 √
 est sto university_4
+qui reg university sp_severe female hs_private hs_urban general_high paedu, r        // t = -0.87
+est sto university_5
+qui reg university sp_comply female hs_private hs_urban general_high paedu, r        // t = -0.87
+est sto university_6
 
-* Outcome Variable (2): Public University
-qui reg public sp female hs_private hs_urban general_high i.faedu i.moedu, r                   // t = 0.24 
-est sto public_3
-qui reg public sp_severe female hs_private hs_urban general_high i.faedu i.moedu, r            // t = -0.05
+* Outcome Variable (2): Master
+qui reg master sp female hs_private hs_urban general_high paedu, r
+est sto master_4
+qui reg master sp_severe female hs_private hs_urban general_high paedu, r
+est sto master_5
+qui reg master sp_comply female hs_private hs_urban general_high paedu, r   
+est sto master_6
+
+* Outcome Variable (3): Public University
+qui reg public sp female hs_private hs_urban general_high paedu, r                   // t = 0.24 
 est sto public_4
+qui reg public sp_severe female hs_private hs_urban general_high paedu, r            // t = -0.05
+est sto public_5
+qui reg public sp_comply female hs_private hs_urban general_high paedu, r            // t = -0.05
+est sto public_6
 
-qui reg all_public sp female hs_private hs_urban general_high i.faedu i.moedu, r            // t = -0.16
-qui reg all_public sp_severe female hs_private hs_urban general_high i.faedu i.moedu, r     // t = 0.27
-
-* Outcome Variable (3): Wage Level at 2009
-qui reg wage_level_2009 sp female hs_private hs_urban general_high i.faedu i.moedu, r          // t = 1.35
-est sto wage_level_2009_3
-qui reg wage_level_2009 sp_severe female hs_private hs_urban general_high i.faedu i.moedu, r   // t = 0.04
-est sto wage_level_2009_4
-
-* Outcome Variable (4): Wage Level at 2015
-qui reg wage_level_2015 sp female hs_private hs_urban general_high i.faedu i.moedu, r          // t = 0.92
-est sto wage_level_2015_3
-qui reg wage_level_2015 sp_severe female hs_private hs_urban general_high i.faedu i.moedu, r   // t = 1.81 √
-est sto wage_level_2015_4
-
-* Outcome Variable (5): Working Year at 2009
-qui reg work_year_2009 sp female hs_private hs_urban general_high i.faedu i.moedu, r           // t = 3.59 √
-est sto work_year_2009_2
-
-* Outcome Variable (6): Working Year at 2015
-qui reg work_year_2015 sp female hs_private hs_urban general_high i.faedu i.moedu, r           // t = 0.79
-est sto work_year_2015_2
+* Outcome Variable (4): Working Year at 2009
+qui reg work_year sp female hs_private hs_urban general_high paedu, r           // t = 3.59 √
+est sto work_year_4
+qui reg work_year sp_severe female hs_private hs_urban general_high paedu, r           // t = 3.59 √
+est sto work_year_5
+qui reg work_year sp_comply female hs_private hs_urban general_high paedu, r           // t = 3.59 √
+est sto work_year_6
 
 * Outcome Table
-esttab university_1 university_2 university_3 university_4, p num
-esttab public_1 public_2 public_3 public_4, p num
-esttab wage_level_2009_1 wage_level_2009_2 wage_level_2009_3 wage_level_2009_4, p num
-esttab wage_level_2015_1 wage_level_2015_2 wage_level_2015_3 wage_level_2015_4, p num
-esttab work_year_2009_1 work_year_2009_2 work_year_2015_1 work_year_2015_2, p num
+esttab university_4 university_5 university_6, p num
+esttab master_4 master_5 master_6, p num
+esttab public_4 public_5 public_6, p num
+esttab work_year_4 work_year_5 work_year_6, p num
 
 
 
@@ -123,7 +123,7 @@ foreach i in "c" "d" "e" "m"{
     merge 1:1 stud_id using "$workData\SH_teacher_`i'_2001.dta", nogenerate
 }
 
-* define control variables
+* Define Control Variables
 vl create cf_p_2001 = (w1p308 w1p309 w1p310 w1p311 w1p312 w1p313 ///
                      w1p401 w1p501 w1p502 w1p503 expect_degree w1p511)
 vl create stud_info = (female hs_urban hs_capital hs_science general_high)
@@ -135,41 +135,51 @@ foreach i in "c" "d" "e" "m"{
 }
 
 
-* pdslasso for university
-pdslasso university sp (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
-eststo PDS_university
-pdslasso university sp_severe ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
-eststo PDS_university_s
+* Outcome Variable (1): University
+qui pdslasso university sp (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+eststo university_7
+qui pdslasso university sp_severe (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+eststo university_8
+qui pdslasso university sp_comply (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+eststo university_9
 
-* pdslasso for public
-pdslasso public sp (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
-eststo PDS_public
-pdslasso university sp_severe ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
-eststo PDS_public_s
+* Outcome Variable (2): Master degree
+qui pdslasso master sp (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+eststo master_7
+qui pdslasso master sp_severe (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+eststo master_8
+qui pdslasso master sp_comply (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+eststo master_9
 
-* pdslasso for wage_level_2009
-pdslasso wage_level_2009 sp ($stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
-eststo PDS_wageLevel_2009
-pdslasso wage_level_2009 sp_severe (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
-eststo PDS_wageLevel_2009_s
+* Outcome Variable (3): Public University
+qui pdslasso public sp (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+eststo public_7
+qui pdslasso public sp_severe (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+eststo public_8
+qui pdslasso public sp_comply (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+eststo public_9
 
-* pdslasso for wage_level_2015
-pdslasso wage_level_2015 sp (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
-eststo PDS_wageLevel_2015
-pdslasso wage_level_2015 sp_severe (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob
-eststo PDS_wageLevel_2015_s
+* Outcome Variable (4): work_year at 2009
+qui pdslasso work_year sp (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+eststo work_year_7
+qui pdslasso work_year sp_severe (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+eststo work_year_8
+qui pdslasso work_year sp_comply (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+eststo work_year_9
 
-* pdslasso for work_year_2009
-pdslasso work_year_2009 sp ($cf_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
-eststo PDS_workyear_2009
-pdslasso work_year_2009 sp_severe (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob 
-eststo PDS_workyear_2009_s
+* Outcome Table
+esttab university_7 university_8 university_9, p num
+esttab master_7 master_8 master_9, p num
+esttab public_7 public_8 public_9, p num
+esttab work_year_7 work_year_8 work_year_9, p num
 
-* pdslasso for work_year_2015
-pdslasso work_year_2015 sp (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob 
-eststo PDS_workyear_2015
-pdslasso work_year_2015 sp_severe (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob
-eststo PDS_workyear_2015_s
+
+
+
+
+
+
+
 
 
 * save table as tex
@@ -178,7 +188,7 @@ esttab university_1 university_2 university_3 university_4 using "$do\table_tex\
 esttab public_1 public_2 public_3 public_4 using "$do\table_tex\SH_table.tex", p num append
 esttab wage_level_2009_1 wage_level_2009_2 wage_level_2009_3 wage_level_2009_4 using "$do\table_tex\SH_table.tex", p num append
 esttab wage_level_2015_1 wage_level_2015_2 wage_level_2015_3 wage_level_2015_4 using "$do\table_tex\SH_table.tex", p num append
-esttab work_year_2009_1 work_year_2009_2 work_year_2015_1 work_year_2015_2 using "$do\table_tex\SH_table.tex", p num append
+esttab work_year_1 work_year_2 work_year_2015_1 work_year_2015_2 using "$do\table_tex\SH_table.tex", p num append
 esttab PDS_university PDS_university_s using "$do\table_tex\SH_table.tex", p num append
 esttab PDS_public PDS_public_s using "$do\table_tex\SH_table.tex", p num append
 esttab PDS_wageLevel_2009 PDS_wageLevel_2009_s using "$do\table_tex\SH_table.tex", p num append

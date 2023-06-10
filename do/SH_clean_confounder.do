@@ -7,10 +7,11 @@
 use "$rawData\SH\SH_2001_G_parent.dta", clear
 
 * Father & mother Education
-recode w1faedu (6/99 = .)
-recode w1moedu (6/99 = .)
+recode w1faedu w1moedu (6/99 = .)
 rename w1faedu faedu
 rename w1moedu moedu
+egen edu = rowmax(faedu moedu)
+gen paedu = (edu >= 4) if !missing(edu)
 
 * Parents conflict
 recode w1p308 (97/99 = .)    // 功課衝突
@@ -68,7 +69,7 @@ label define map_w1p511 -1 "從未期待" 0 "看他自己的能力" 1 "非常期
 label value w1p511 map_w1p511
 
 * Keep only useful variables
-keep stud_id faedu moedu w1p308 w1p309 w1p310 w1p311 w1p312 w1p313   ///
+keep stud_id paedu w1p308 w1p309 w1p310 w1p311 w1p312 w1p313   ///
      w1p401 w1p501 w1p502 w1p503 expect_degree w1p511
 
 * Save data
@@ -76,7 +77,7 @@ save "$workData\SH_parent2001.dta", replace
 
 /* ********************************************
 PDS control variable in 2001
-faedu moedu
+paedu
 w1p308 w1p309 w1p310 w1p311 w1p312 w1p313
 w1p401 w1p501 w1p502 w1p503 expect_degree w1p511
 ********************************************* */
