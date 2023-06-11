@@ -31,7 +31,7 @@ merge 1:1 stud_id using "$workData\NPCP_sp_outcome2009_outcome2013", nogenerate
 * Divide into two group and graph
 destring(stud_id), replace
 gen NPCP = (stud_id <= 100000)
-graph twoway (percent) university, over(sp) over(NPCP) yti("University Degree (%)") 
+graph bar (percent) university, over(sp) over(NPCP) yti("University Degree (%)")
 /* 
 xlabels(0 "Group 1: sp1=0, sp2=0" 1 "Group 2: sp1=0, sp2=1" ///
         2 "Group 3: sp1=1, sp2=0" 3 "Group 4: sp1=1, sp2=1") */

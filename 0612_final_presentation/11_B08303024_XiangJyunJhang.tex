@@ -1,0 +1,83 @@
+\documentclass{beamer}
+\usetheme{Boadilla}
+\usecolortheme{spruce}
+
+\title{How does Single Parent Family Affect Children's Human Capital Investment}
+\author[Yi Jie Wu, Xiang Jyun Jhang]{Yi Jie Wu\inst{1} \and Xiang Jyun Jhang\inst{2}}
+\institute[NTU]
+{
+    \inst{1}
+    Department of Economics \\
+    National Taiwan University
+    \and
+    \inst{2}
+    Department of Economics \\ 
+    National Taiwan University
+}
+\date{2023/06/12}
+
+\begin{document}
+\frame{\titlepage}
+
+
+\begin{frame} % 2.
+\frametitle{Motivation}
+\begin{itemize}
+    \item Single parent family might fail to provide children with stable environment for learning
+    \begin{itemize}
+        \item The economic condition for single parent family is usually more fragile than traditional nuclear family
+        \item Besides, single parent might not give enough mental support to children
+    \end{itemize}
+    \item We aim to estimate the negative impact on children's education attainment
+\end{itemize}
+\end{frame}
+
+
+\begin{frame} % 3.
+\frametitle{Dataset}
+\framesubtitle{Taiwan Education Panel Survey and Beyond, SRDA}
+\begin{itemize}
+    \item A panel data tracking down two different groups of children across almost 20 years
+    \begin{itemize}
+        \item group 1: born in 1984-1985
+        \item group 2: born in 1988-1989
+    \end{itemize}
+    \item Survey on the children, their parent and teachers, even after they enter labor market
+    \item So we have comprehensive information about the children's behavior, relationship and academic performance
+\end{itemize}
+\end{frame}
+
+
+\begin{frame} % 4.
+\frametitle{Sample}
+\begin{itemize}
+    \item Treatment variable ($D_i$): single parent family
+    \item Outcome variable ($Y_i$): university degree, public university and working years
+    \item In order to find possbile confounders, we consider the covariates from these survey data for each group:
+    \begin{itemize}
+        \item student
+        \item classroom teacher
+        \item Chinese, English, Math teacher
+        \item parents
+    \end{itemize}
+    \item We pick an abundance of covariates to conduct PDS
+\end{itemize}
+\end{frame}
+
+
+\begin{frame} % 5.
+\frametitle{Empirical Specification}
+\framesubtitle{Post-Double Selection}
+\begin{itemize}
+    \item With PDS, we can identify the confounders in roughly 110 selected covariates and identify the causal relationship
+    \[
+        Y_i = \beta_0 + \beta_1 D_i + \bigcup_{j \in A \cup B} \pi_j W_i^j + \epsilon_i
+    \]
+    where $A,B$ are the Lasso-selected covariates at step 1 \& 2 in PDS.
+    \item In later analysis, we try to compare if there is any difference of effect between groups
+\end{itemize}
+\end{frame}
+    
+
+
+\end{document}
