@@ -53,6 +53,26 @@ append using "$workData\CP_pds.dta"
 replace SH = 0 if SH == .
 
 
+***        Simple Regression       ***
+* Outcome Variable (1): University
+qui reg university sp if SH == 1, r         
+est sto university_1_sh
+qui reg university sp if SH == 0, r       
+est sto university_1_cp
+
+* Outcome Variable (2): Master
+qui reg master sp if SH == 1, r
+est sto master_1_sh
+qui reg master sp if SH == 0, r
+est sto master_1_cp
+
+* Outcome Variable (3): Public University
+qui reg public sp if SH == 1, r          
+est sto public_1_sh
+qui reg public sp if SH == 0, r              
+est sto public_1_cp
+
+
 ***        Adding Control Variable       ***
 * Outcome Variable (1): University
 qui reg university sp female hs_private hs_urban general_high paedu if SH == 1, r         
@@ -101,5 +121,6 @@ eststo public_7_sh
 qui pdslasso public sp (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005) if SH == 0, rob loption(prestd)
 eststo public_7_cp
 
-esttab university_4_sh  public_4_sh master_4_sh university_4_cp public_4_cp master_4_cp using "$do\table_tex\comparison_table1.tex", p num star(* 0.10 ** 0.05 *** 0.01) tex replace
-esttab university_7_sh  public_7_sh master_7_sh university_7_cp public_7_cp master_7_cp using "$do\table_tex\comparison_table2.tex", p num star(* 0.10 ** 0.05 *** 0.01) tex replace
+esttab university_1_sh university_4_sh university_7_sh university_1_cp university_4_cp university_7_cp using "$do\table_tex\comparison_univ.tex", p num star(* 0.10 ** 0.05 *** 0.01) tex replace
+esttab public_1_sh public_4_sh public_7_sh public_1_cp public_4_cp public_7_cp using "$do\table_tex\comparison_public.tex", p num star(* 0.10 ** 0.05 *** 0.01) tex replace
+esttab master_1_sh master_4_sh master_7_sh master_1_cp master_4_cp master_7_cp using "$do\table_tex\comparison_master.tex", p num star(* 0.10 ** 0.05 *** 0.01) tex replace
