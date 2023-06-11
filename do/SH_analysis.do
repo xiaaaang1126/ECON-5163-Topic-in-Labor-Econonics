@@ -122,11 +122,13 @@ esttab work_year_4 work_year_5 work_year_6, p num star(* 0.10 ** 0.05 *** 0.01)
 foreach i in "c" "d" "e" "m"{
     merge 1:1 stud_id using "$workData\SH_teacher_`i'_2001.dta", nogenerate
 }
+merge 1:1 stud_id using "$workData\SH_teacher_dc_2001.dta", nogenerate
 
 * Define Control Variables
 vl create cf_p_2001 = (w1p308 w1p309 w1p310 w1p311 w1p312 w1p313 ///
                      w1p401 w1p501 w1p502 w1p503 expect_degree w1p511)
-vl create stud_info = (female hs_urban hs_capital hs_science general_high)
+vl create stud_info = (female general_high hs_private hs_urban hs_capital hs_science      ///
+                       hs_scarea_north hs_scarea_middle hs_scarea_south)
 
 foreach i in "c" "d" "e" "m"{
     vl create tc_`i'_2001 = (w1t105_`i' w1t106_`i' w1t109_`i' w1t112_`i' w1t113_`i' w1t114_`i' w1t115_`i' w1t116_`i'     ///
@@ -134,38 +136,40 @@ foreach i in "c" "d" "e" "m"{
             w1t319_`i' w1t320_`i' w1t325_`i' w1t326_`i')
 }
 
+vl create tc_dc_2001 = (w1dtc01 w1dtc02 w1dtc03 w1dtc04 w1dtc05 w1dtc06 w1dtc07 w1dtc08)
+
 save "$workData\SH_pds.dta", replace
 
 * Outcome Variable (1): University
-qui pdslasso university sp (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+qui pdslasso university sp (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001), rob loption(prestd)
 eststo university_7
-qui pdslasso university sp_severe (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+qui pdslasso university sp_severe (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001), rob loption(prestd)
 eststo university_8
-qui pdslasso university sp_comply (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+qui pdslasso university sp_comply (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001), rob loption(prestd)
 eststo university_9
 
 * Outcome Variable (2): Master degree
-qui pdslasso master sp (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+qui pdslasso master sp (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001), rob loption(prestd)
 eststo master_7
-qui pdslasso master sp_severe (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+qui pdslasso master sp_severe (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001), rob loption(prestd)
 eststo master_8
-qui pdslasso master sp_comply (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+qui pdslasso master sp_comply (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001), rob loption(prestd)
 eststo master_9
 
 * Outcome Variable (3): Public University
-qui pdslasso public sp (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+qui pdslasso public sp (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001), rob loption(prestd)
 eststo public_7
-qui pdslasso public sp_severe (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+qui pdslasso public sp_severe (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001), rob loption(prestd)
 eststo public_8
-qui pdslasso public sp_comply (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+qui pdslasso public sp_comply (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001), rob loption(prestd)
 eststo public_9
 
 * Outcome Variable (4): work_year at 2009
-qui pdslasso work_year sp (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+qui pdslasso work_year sp (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001), rob loption(prestd)
 eststo work_year_7
-qui pdslasso work_year sp_severe (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+qui pdslasso work_year sp_severe (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001), rob loption(prestd)
 eststo work_year_8
-qui pdslasso work_year sp_comply (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
+qui pdslasso work_year sp_comply (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001), rob loption(prestd)
 eststo work_year_9
 
 * Outcome Table

@@ -132,7 +132,7 @@ merge 1:1 stud_id using "$workData\NPCP_teacher_dc_2005.dta", nogenerate
 
 * define control variables
 vl create stud_info = (female general_high hs_private hs_urban hs_capital hs_science      ///
-                       hs_scarea_north hs_scarea_middle hs_scarea_south hs_scarea_east)
+                       hs_scarea_north hs_scarea_middle hs_scarea_south)
 
 foreach i in "c" "d" "e" "m"{
     vl create tc_`i'_2005 = (w3t101_`i' w3t110_`i' w3t117_`i' w3t203_`i' w3t204_`i' w3t206_`i' w3t209_`i' w3t210_`i'   ///
