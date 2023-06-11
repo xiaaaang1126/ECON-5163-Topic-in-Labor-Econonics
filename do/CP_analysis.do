@@ -2,7 +2,6 @@
 ***  Junior High School Sample Analyzing  ***
 *********************************************
 
-
 * Directory
 if "`c(username)'" == "Administrator" {  
     global do = "C:\Users\Administrator\Desktop\LaborTopicTermPaper\do"
@@ -23,40 +22,52 @@ if "`c(username)'" == "jwutw" {
 
 * Prepare the dataset
 //do "$do/CP_clean.do"
-use "$workData\CP_divorce_Outcome2009_2019.dta", clear
+use "$workData\NPCP_sp_outcome2009_outcome2013.dta", clear
+
 
 
 ********************************************
-* Regression (2009)
+***           Baseline Model             ***
 ********************************************
-// CP: analysis - university on severe_divorce/divorce
-qui reg university divorce, r
+
+* Outcome Variable (1): University degree
+qui reg university sp, r             
 est sto university_1
-qui reg university severe_divorce, r
+qui reg university sp_severe, r      
 est sto university_2
+qui reg university sp_comply, r
+est sto university_3
 
-qui reg public divorce, r
+* Outcome Variable (2): Master degree
+qui reg master sp, r             
+est sto master_1
+qui reg master sp_severe, r      
+est sto master_2
+qui reg master sp_comply, r
+est sto master_3
+
+* Outcome Variable (3): Public University
+qui reg public sp, r                 
 est sto public_1
-qui reg public severe_divorce, r
+qui reg public sp_severe, r          
 est sto public_2
+qui reg public sp_comply, r
+est sto public_3
 
-qui reg wage_level_2013 divorce, r
-est sto wage_level_2013_1
-qui reg wage_level_2013 severe_divorce, r
-est sto wage_level_2013_2
-qui reg wage_level_2019 divorce, r
-est sto wage_level_2019_1
-qui reg wage_level_2019 severe_divorce, r
-est sto wage_level_2019_2
+* Outcome Variable (4): Working Year at 2009
+qui reg work_year sp, r
+est sto work_year_1
+qui reg work_year sp_severe, r
+est sto work_year_2
+qui reg work_year sp_comply, r
+est sto work_year_3
 
-qui reg work_year_2013 divorce, r
-est sto work_year_2013_1
-qui reg work_year_2013 severe_divorce, r
-est sto work_year_2013_2
-qui reg work_year_2019 divorce, r
-est sto work_year_2019_1
-qui reg work_year_2019 severe_divorce, r
-est sto work_year_2019_2
+* Present the Outcome
+esttab university_1 university_2 university_3, p num star(* 0.10 ** 0.05 *** 0.01) 
+esttab master_1 master_2 master_3, p num star(* 0.10 ** 0.05 *** 0.01)
+esttab public_1 public_2 public_3, p num star(* 0.10 ** 0.05 *** 0.01)
+esttab work_year_1 work_year_2 work_year_3, p num star(* 0.10 ** 0.05 *** 0.01)
+
 
 
 ********************************************
@@ -68,66 +79,48 @@ merge 1:1 stud_id using "$workData\CP_parent2001.dta", nogenerate
 merge 1:1 stud_id using "$workData\NP_parent2005.dta", replace update
 
 * Outcome Variable (1): University
-qui reg university divorce female hs_private hs_urban general_high i.faedu i.moedu, r
-est sto university_3
-qui reg university female hs_private hs_urban general_high i.faedu i.moedu, r
+qui reg university sp female hs_private hs_urban general_high paedu, r               // t = -3.20 √
 est sto university_4
+qui reg university sp_severe female hs_private hs_urban general_high paedu, r        // t = -0.87
+est sto university_5
+qui reg university sp_comply female hs_private hs_urban general_high paedu, r        // t = -0.87
+est sto university_6
 
-* Outcome Variable (2): Public University
-qui reg public divorce female hs_private hs_urban general_high i.faedu i.moedu, r
-est sto public_3
-qui reg public severe_divorce female hs_private hs_urban general_high i.faedu i.moedu, r
+* Outcome Variable (2): Master
+qui reg master sp female hs_private hs_urban general_high paedu, r
+est sto master_4
+qui reg master sp_severe female hs_private hs_urban general_high paedu, r
+est sto master_5
+qui reg master sp_comply female hs_private hs_urban general_high paedu, r   
+est sto master_6
+
+* Outcome Variable (3): Public University
+qui reg public sp female hs_private hs_urban general_high paedu, r                   // t = 0.24 
 est sto public_4
+qui reg public sp_severe female hs_private hs_urban general_high paedu, r            // t = -0.05
+est sto public_5
+qui reg public sp_comply female hs_private hs_urban general_high paedu, r            // t = -0.05
+est sto public_6
 
-* Outcome Variable (3): Wage Level at 2013
-qui reg wage_level_2013 divorce female hs_private hs_urban general_high i.faedu i.moedu, r
-est sto wage_level_2013_3
-qui reg wage_level_2013 severe_divorce female hs_private hs_urban general_high i.faedu i.moedu, r
-est sto wage_level_2013_4
+* Outcome Variable (4): Working Year at 2009
+qui reg work_year sp female hs_private hs_urban general_high paedu, r           // t = 3.59 √
+est sto work_year_4
+qui reg work_year sp_severe female hs_private hs_urban general_high paedu, r           // t = 3.59 √
+est sto work_year_5
+qui reg work_year sp_comply female hs_private hs_urban general_high paedu, r           // t = 3.59 √
+est sto work_year_6
 
-* Outcome Variable (4): Wage Level at 2013
-qui reg wage_level_2013 divorce female hs_private hs_urban general_high i.faedu i.moedu, r
-est sto wage_level_2013_3
-qui reg wage_level_2013 severe_divorce female hs_private hs_urban general_high i.faedu i.moedu, r
-est sto wage_level_2013_4
-
-* Outcome Variable (5): Wage Level at 2019
-qui reg wage_level_2019 divorce female hs_private hs_urban general_high i.faedu i.moedu, r
-est sto wage_level_2019_3
-qui reg wage_level_2019 severe_divorce female hs_private hs_urban general_high i.faedu i.moedu, r
-est sto wage_level_2019_4
-
-* Outcome Variable (6): Working Year at 2013
-qui reg work_year_2013 divorce female hs_private hs_urban general_high i.faedu i.moedu, r
-est sto work_year_2013_3
-qui reg work_year_2013 severe_divorce female hs_private hs_urban general_high i.faedu i.moedu, r
-est sto work_year_2013_4
-
-* Outcome Variable (7): Working Year at 2019
-qui reg work_year_2019 divorce female hs_private hs_urban general_high i.faedu i.moedu, r
-est sto work_year_2019_3
-qui reg work_year_2019 severe_divorce female hs_private hs_urban general_high i.faedu i.moedu, r
-est sto work_year_2019_4
-
-esttab university_1 university_2 university_3 university_4, p num
-esttab public_1 public_2 public_3 public_4, p num
-esttab wage_level_2013_1 wage_level_2013_2 wage_level_2013_3 wage_level_2013_4, p num
-esttab wage_level_2019_1 wage_level_2019_2 wage_level_2019_3 wage_level_2019_4, p num
-esttab work_year_2013_1 work_year_2013_2 work_year_2013_3 work_year_2013_4, p num
-esttab work_year_2019_1 work_year_2019_2 work_year_2019_3 work_year_2019_4, p num
+* Outcome Table
+esttab university_4 university_5 university_6, p num star(* 0.10 ** 0.05 *** 0.01)
+esttab master_4 master_5 master_6, p num star(* 0.10 ** 0.05 *** 0.01)
+esttab public_4 public_5 public_6, p num star(* 0.10 ** 0.05 *** 0.01)
+esttab work_year_4 work_year_5 work_year_6, p num star(* 0.10 ** 0.05 *** 0.01)
 
 
 
 ********************************************
-***         Merge data for PDS           ***
+***  Post-Double Selection - Data Merge  ***
 ********************************************
-
-* Merge data with 2001 teacher data (only CP)
-foreach i in "c" "d" "e" "m"{
-    merge 1:1 stud_id using "$workData\CP_teacher_`i'_2001.dta", nogenerate
-}
-
-merge 1:1 stud_id using "$workData\CP_teacher_dc_2001.dta", nogenerate
 
 * Merge data with 2005 teacher data (CP & NP)
 foreach i in "c" "d" "e" "m"{
@@ -135,22 +128,12 @@ foreach i in "c" "d" "e" "m"{
 }
 
 merge 1:1 stud_id using "$workData\NPCP_teacher_dc_2005.dta", nogenerate
-
 save "$workData\CP_pds.dta", replace
 
+
 * define control variables
-vl create cf_p_2001 = (w1p308 w1p309 w1p310 w1p311 w1p312 w1p313 ///
-                       w1p401 w1p501 w1p502 w1p503 expect_degree w1p511)
 vl create stud_info = (female general_high hs_private hs_urban hs_capital hs_science      ///
                        hs_scarea_north hs_scarea_middle hs_scarea_south hs_scarea_east)
-
-foreach i in "c" "d" "e" "m"{
-    vl create tc_`i'_2001 = (w1t105_`i' w1t106_`i' w1t109_`i' w1t112_`i' w1t113_`i' w1t114_`i' w1t115_`i' w1t116_`i'     ///
-                             w1t201_`i' w1t202_`i' w1t308_`i' w1t309_`i' w1t311_`i' w1t315_`i' w1t316_`i' w1t318_`i'     ///
-                             w1t319_`i' w1t320_`i' w1t325_`i' w1t326_`i')
-}
-
-vl create tc_dc_2001 = (w1dtc01 w1dtc02 w1dtc03 w1dtc04 w1dtc05 w1dtc06 w1dtc07 w1dtc08)
 
 foreach i in "c" "d" "e" "m"{
     vl create tc_`i'_2005 = (w3t101_`i' w3t110_`i' w3t117_`i' w3t203_`i' w3t204_`i' w3t206_`i' w3t209_`i' w3t210_`i'   ///
@@ -160,92 +143,56 @@ foreach i in "c" "d" "e" "m"{
 vl create tc_dc_2005 = (w3dtc02 w3dtc03 w3dtc04 w3dtc05 w3dtc06 w3dtc07 w3dtc08)
 
 
+
 ********************************************
-***     Post Double Selection for CP     ***
+***        Post-Double Selection         ***
 ********************************************
 
-* pdslasso for university
-pdslasso university divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001) if cp == 1, rob loption(prestd)
-eststo PDS_university
-pdslasso university severe_divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001) if cp == 1, rob loption(prestd)
-eststo PDS_university_s
+* Outcome Variable (1): University
+qui pdslasso university sp (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
+eststo university_7
+qui pdslasso university sp_severe (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
+eststo university_8
+qui pdslasso university sp_comply (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
+eststo university_9
 
-* pdslasso for public
-pdslasso public divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001) if cp == 1, rob loption(prestd)
-eststo PDS_public
-pdslasso public severe_divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001) if cp == 1, rob loption(prestd)
-eststo PDS_public_s
+* Outcome Variable (2): Master degree
+qui pdslasso master sp (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
+eststo master_7
+qui pdslasso master sp_severe (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
+eststo master_8
+qui pdslasso master sp_comply (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
+eststo master_9
 
-* pdslasso for wage_level_2013
-pdslasso wage_level_2013 divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001) if cp == 1, rob loption(prestd)
-eststo PDS_wageLevel_2013
-pdslasso wage_level_2013 severe_divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001) if cp == 1, rob loption(prestd)
-eststo PDS_wageLevel_2013_s
+* Outcome Variable (3): Public University
+qui pdslasso public sp (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
+eststo public_7
+qui pdslasso public sp_severe (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
+eststo public_8
+qui pdslasso public sp_comply (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
+eststo public_9
 
-* pdslasso for work_year_2013
-pdslasso work_year_2013 divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001) if cp == 1, rob loption(prestd)
-eststo PDS_workyear_2013
-pdslasso work_year_2013 severe_divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001) if cp == 1, rob loption(prestd)
-eststo PDS_workyear_2013_s
+* Outcome Variable (4): work_year at 2009
+qui pdslasso work_year sp (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
+eststo work_year_7
+qui pdslasso work_year sp_severe (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
+eststo work_year_8
+qui pdslasso work_year sp_comply (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
+eststo work_year_9
 
-* pdslasso for wage_level_2019
-pdslasso wage_level_2019 divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001) if cp == 1, rob loption(prestd)
-eststo PDS_wageLevel_2019 
-pdslasso wage_level_2019 severe_divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001) if cp == 1, rob loption(prestd)
-eststo PDS_wageLevel_2019_s
+* Outcome Table
+esttab university_7 university_8 university_9, p num star(* 0.10 ** 0.05 *** 0.01)
+esttab master_7 master_8 master_9, p num star(* 0.10 ** 0.05 *** 0.01)
+esttab public_7 public_8 public_9, p num star(* 0.10 ** 0.05 *** 0.01)
+esttab work_year_7 work_year_8 work_year_9, p num star(* 0.10 ** 0.05 *** 0.01)
 
-* pdslasso for work_year_2019
-pdslasso work_year_2019 divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001) if cp == 1, rob loption(prestd)
-eststo PDS_workyear_2019
-pdslasso work_year_2019 severe_divorce (i.faedu i.moedu $stud_info $cf_p_2001 $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001) if cp == 1, rob loption(prestd)
-eststo PDS_workyear_2019_s
 
+/*
 * save the results as tex
-esttab university_1 university_2 university_3 university_4 using "$do\table_tex\CP_table.tex", p num tex replace
-esttab public_1 public_2 public_3 public_4 using "$do\table_tex\CP_table.tex", p num rtf append
-esttab wage_level_2013_1 wage_level_2013_2 wage_level_2013_3 wage_level_2013_4 using "$do\table_tex\CP_table.tex", p num tex append
-esttab wage_level_2019_1 wage_level_2019_2 wage_level_2019_3 wage_level_2019_4 using "$do\table_tex\CP_table.tex", p num tex append
-esttab work_year_2013_1 work_year_2013_2 work_year_2013_3 work_year_2013_4 using "$do\table_tex\CP_table.tex", p num tex append
-esttab work_year_2019_1 work_year_2019_2 work_year_2019_3 work_year_2019_4 using "$do\table_tex\CP_table.tex", p num tex append
-esttab PDS_university PDS_university_s using "$do\table_tex\CP_table.tex", p num tex append
-esttab PDS_public PDS_public_s using "$do\table_tex\CP_table.tex", p num tex append
-esttab PDS_wageLevel_2013 PDS_wageLevel_2013_s PDS_wageLevel_2019 PDS_wageLevel_2019_s using "$do\table_tex\CP_table.tex", p num tex append
-esttab PDS_workyear_2013 PDS_workyear_2013_s PDS_workyear_2019 PDS_workyear_2019_s using "$do\table_tex\CP_table.tex", p num tex append
-
-
-********************************************
-***  Post Double Selection for CP & NP   ***
-********************************************
-
-* pdslasso for university
-pdslasso university divorce (i.faedu i.moedu $stud_info $cf_p_2005 $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
-eststo PDS_university
-pdslasso university severe_divorce (i.faedu i.moedu $stud_info $cf_p_2005 $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
-eststo PDS_university_s
-
-* pdslasso for public
-pdslasso public divorce (i.faedu i.moedu $stud_info $cf_p_2005 $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
-eststo PDS_public
-pdslasso public severe_divorce (i.faedu i.moedu $stud_info $cf_p_2005 $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
-eststo PDS_public_s
-
-* pdslasso for wage_level_2013
-pdslasso wage_level_2013 divorce (i.faedu i.moedu $stud_info $cf_p_2005 $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
-eststo PDS_wageLevel_2013
-pdslasso wage_level_2013 severe_divorce (i.faedu i.moedu $stud_info $cf_p_2005 $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
-eststo PDS_wageLevel_2013_s
-
-* pdslasso for work_year_2013
-pdslasso work_year_2013 divorce (i.faedu i.moedu $stud_info $cf_p_2005 $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
-eststo PDS_workyear_2013
-pdslasso work_year_2013 severe_divorce (i.faedu i.moedu $stud_info $cf_p_2005 $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
-eststo PDS_workyear_2013_s
-
-
-* save the results as tex
-esttab PDS_university PDS_university_s using "$do\table_tex\CPNP_table.tex", p num tex replace
-esttab PDS_public PDS_public_s using "$do\table_tex\CPNP_table.tex", p num tex append
-esttab PDS_wageLevel_2013 PDS_wageLevel_2013_s PDS_wageLevel_2019 PDS_wageLevel_2019_s using "$do\table_tex\CPNP_table.tex", p num tex append
-esttab PDS_workyear_2013 PDS_workyear_2013_s PDS_workyear_2019 PDS_workyear_2019_s using "$do\table_tex\CPNP_table.tex", p num tex append
+esttab PDS_university PDS_university_s using "$do\table_tex\CPNP_table.tex", p num star(* 0.10 ** 0.05 *** 0.01) tex replace
+esttab PDS_public PDS_public_s using "$do\table_tex\CPNP_table.tex", p num star(* 0.10 ** 0.05 *** 0.01) tex append
+esttab PDS_wageLevel_2013 PDS_wageLevel_2013_s PDS_wageLevel_2019 PDS_wageLevel_2019_s using "$do\table_tex\CPNP_table.tex", p num star(* 0.10 ** 0.05 *** 0.01) tex append
+esttab PDS_workyear_2013 PDS_workyear_2013_s PDS_workyear_2019 PDS_workyear_2019_s using "$do\table_tex\CPNP_table.tex", p num star(* 0.10 ** 0.05 *** 0.01) tex append
+*/
 
 

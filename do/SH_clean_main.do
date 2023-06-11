@@ -23,13 +23,13 @@ if "`c(username)'" == "jwutw" {
 ***         SH 2001 & 2003 Data          ***
 ********************************************
 
-* Import Dataset (2001 & 2003)
+* Import SH Dataset (2001 & 2003) and merge with parents' dataa
 cd "$rawData"
 use "SH\SH_2001_A_student.dta", clear
 merge 1:1 stud_id using "SH\SH_2001_G_parent.dta",  keepusing(w1p103) nogenerate
 merge 1:1 stud_id using "SH\SH_2003_G_parent.dta",  keepusing(w2p103) nogenerate
 
-* Main Variable: `sp' and `severe_sp'
+* Main Variable: `sp', `sp_comply' and `sp_severe'
 recode w1p103 w2p103 (5/99 = .)
 gen sp        = (w1p103 != 1 | w2p103 != 1) if !missing(w1p103, w2p103)  // one-time single parent
 gen sp_comply = (w1p103 != 1 & w2p103 != 1) if !missing(w1p103, w2p103)  // all-time single parent
