@@ -41,3 +41,4 @@ graph bar (percent) master, over(sp, relabel(1 "non-sp" 2 "sp")) over(NPCP, rela
 graph export "$pic\master_sp.png", replace
 
 
+*
