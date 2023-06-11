@@ -3,8 +3,8 @@ entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**comparison_univ
-(./comparison_univ.tex
+**comparison_master
+(./comparison_master.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-07> (c:/texlive/2022/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
@@ -29,8 +29,8 @@ File: l3backend-xetex.def 2023-01-16 L3 backend support: XeTeX
 \g__pdf_backend_object_int=\count190
 \g__pdf_backend_annotation_int=\count191
 \g__pdf_backend_link_int=\count192
-) (./comparison_univ.aux)
-\openout1 = `comparison_univ.aux'.
+) (./comparison_master.aux)
+\openout1 = `comparison_master.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
@@ -53,35 +53,35 @@ LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 9.
+(Font)              <10.95> on input line 7.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 9.
+(Font)              <8> on input line 7.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 9.
+(Font)              <6> on input line 7.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 37.
+(Font)              <9> on input line 36.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 37.
+(Font)              <5> on input line 36.
 
-Overfull \hbox (70.83377pt too wide) in paragraph at lines 9--40
+Overfull \hbox (88.20676pt too wide) in paragraph at lines 7--39
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9--40
+Underfull \hbox (badness 10000) in paragraph at lines 7--39
 
  []
 
 [1
 
-] (./comparison_univ.aux) ) 
+] (./comparison_master.aux) ) 
 Here is how much of TeX's memory you used:
  493 strings out of 478635
- 10031 string characters out of 5847854
+ 10053 string characters out of 5847854
  1853001 words of memory out of 5000000
  20679 multiletter control sequences out of 15000+600000
  515962 words of font info for 47 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 33i,8n,38p,218b,222s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 33i,8n,38p,196b,210s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on comparison_univ.pdf (1 page).
+Output written on comparison_master.pdf (1 page).
