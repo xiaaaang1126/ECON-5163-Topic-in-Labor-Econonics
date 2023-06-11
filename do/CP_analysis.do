@@ -128,7 +128,6 @@ foreach i in "c" "d" "e" "m"{
 }
 
 merge 1:1 stud_id using "$workData\NPCP_teacher_dc_2005.dta", nogenerate
-save "$workData\CP_pds.dta", replace
 
 
 * define control variables
@@ -142,6 +141,7 @@ foreach i in "c" "d" "e" "m"{
 
 vl create tc_dc_2005 = (w3dtc02 w3dtc03 w3dtc04 w3dtc05 w3dtc06 w3dtc07 w3dtc08)
 
+save "$workData\CP_pds.dta", replace
 
 
 ********************************************

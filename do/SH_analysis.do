@@ -107,10 +107,10 @@ qui reg work_year sp_comply female hs_private hs_urban general_high paedu, r    
 est sto work_year_6
 
 * Outcome Table
-esttab university_4 university_5 university_6, p num
-esttab master_4 master_5 master_6, p num
-esttab public_4 public_5 public_6, p num
-esttab work_year_4 work_year_5 work_year_6, p num
+esttab university_4 university_5 university_6, p num star(* 0.10 ** 0.05 *** 0.01)
+esttab master_4 master_5 master_6, p num star(* 0.10 ** 0.05 *** 0.01)
+esttab public_4 public_5 public_6, p num star(* 0.10 ** 0.05 *** 0.01)
+esttab work_year_4 work_year_5 work_year_6, p num star(* 0.10 ** 0.05 *** 0.01)
 
 
 
@@ -134,6 +134,7 @@ foreach i in "c" "d" "e" "m"{
             w1t319_`i' w1t320_`i' w1t325_`i' w1t326_`i')
 }
 
+save "$workData\SH_pds.dta", replace
 
 * Outcome Variable (1): University
 qui pdslasso university sp (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001), rob loption(prestd)
@@ -168,10 +169,10 @@ qui pdslasso work_year sp_comply (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2
 eststo work_year_9
 
 * Outcome Table
-esttab university_7 university_8 university_9, p num
-esttab master_7 master_8 master_9, p num
-esttab public_7 public_8 public_9, p num
-esttab work_year_7 work_year_8 work_year_9, p num
+esttab university_7 university_8 university_9, p num star(* 0.10 ** 0.05 *** 0.01)
+esttab master_7 master_8 master_9, p num star(* 0.10 ** 0.05 *** 0.01)
+esttab public_7 public_8 public_9, p num star(* 0.10 ** 0.05 *** 0.01)
+esttab work_year_7 work_year_8 work_year_9, p num star(* 0.10 ** 0.05 *** 0.01)
 
 
 
