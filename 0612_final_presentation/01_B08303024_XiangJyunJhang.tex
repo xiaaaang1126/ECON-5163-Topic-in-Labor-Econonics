@@ -137,6 +137,7 @@
                 \item each teacher's evalutaion 
                 \item etc. 
             \end{itemize}
+        \item It's important to not include \textbf{bad control} in the model, hence we use very few covariates in parent's dataset
     \end{itemize}
 
 \end{frame}
@@ -147,7 +148,6 @@
 \framesubtitle{Post-Double Selection}
 
     \begin{itemize}
-        \item It's important to not include \textbf{bad control} in the model, hence we use very few covariates in parent's dataset
         \item With PDS, we can detect the confounders in roughly \textbf{80 selected covariates} and identify the causal relationship
         \[
         Y_i = \beta_0 + \beta_1 \textit{SP}_i + \bigcup_{j \in A \cup B} \pi_j W_i^j + \epsilon_i
