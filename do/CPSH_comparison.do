@@ -47,10 +47,10 @@ graph export "$pic\master_sp.png", replace
 ********************************************
 * Regression Table comparison
 ********************************************
-* Change the SH dataset: drop 2015 survey in SH
+* Change the SH dataset: include 2015 survey in SH
 do "$do\SH_clean_main.do"
 do "$do\SH_clean_confounder.do"
-do "SH_analysis.do"
+do "$do\SH_analysis.do"
 
 * merge two pds data
 use "$workData\SH_pds.dta", clear

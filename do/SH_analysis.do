@@ -187,17 +187,3 @@ esttab work_year_7 work_year_8 work_year_9, p num star(* 0.10 ** 0.05 *** 0.01)
 
 
 
-* save table as tex
-* Outcome Table
-esttab university_1 university_2 university_3 university_4 using "$do\table_tex\SH_table.tex", p num replace
-esttab public_1 public_2 public_3 public_4 using "$do\table_tex\SH_table.tex", p num append
-esttab wage_level_2009_1 wage_level_2009_2 wage_level_2009_3 wage_level_2009_4 using "$do\table_tex\SH_table.tex", p num append
-esttab wage_level_2015_1 wage_level_2015_2 wage_level_2015_3 wage_level_2015_4 using "$do\table_tex\SH_table.tex", p num append
-esttab work_year_1 work_year_2 work_year_2015_1 work_year_2015_2 using "$do\table_tex\SH_table.tex", p num append
-esttab PDS_university PDS_university_s using "$do\table_tex\SH_table.tex", p num append
-esttab PDS_public PDS_public_s using "$do\table_tex\SH_table.tex", p num append
-esttab PDS_wageLevel_2009 PDS_wageLevel_2009_s using "$do\table_tex\SH_table.tex", p num append
-esttab PDS_wageLevel_2015 PDS_wageLevel_2015_s using "$do\table_tex\SH_table.tex", p num append
-esttab PDS_workyear_2009 PDS_workyear_2009_s using "$do\table_tex\SH_table.tex", p num append
-esttab PDS_workyear_2015 PDS_workyear_2015_s using "$do\table_tex\SH_table.tex", p num append
-
