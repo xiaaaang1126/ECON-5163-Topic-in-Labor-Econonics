@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  11 JUN 2023 12:57
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  12 JUN 2023 00:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -541,40 +541,127 @@ Package: amsthm 2020/05/29 v2.20.6
 ) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerbasethemes.sty)) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerthemedefault.sty (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerfontthemedefault.sty) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamercolorthemedefault.sty) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerinnerthemedefault.sty
 \beamer@dima=\dimen292
 \beamer@dimb=\dimen293
-) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerthemeBoadilla.sty (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamercolorthemerose.sty) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerinnerthemerounded.sty) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamercolorthemedolphin.sty) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerouterthemeinfolines.sty)) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamercolorthemespruce.sty) (c:/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty))) (c:/texlive/2022/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count333
+\float@exts=\toks45
+\float@box=\box77
+\@float@everytoks=\toks46
+\@floatcapt=\box78
+) (c:/texlive/2022/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip65
+\subfigcapskip=\skip66
+\subfigcaptopadj=\dimen294
+\subfigbottomskip=\skip67
+\subfigcapmargin=\dimen295
+\subfiglabelskip=\skip68
+\c@subfigure=\count334
+\c@lofdepth=\count335
+\c@subtable=\count336
+\c@lotdepth=\count337
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(c:/texlive/2022/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip69
+\subfig@bottom=\skip70
+) (c:/texlive/2022/texmf-dist/tex/latex/siunitx/siunitx.sty
+Package: siunitx 2023-01-03 v3.2.0 A comprehensive (SI) units package
+\l__siunitx_angle_tmp_dim=\dimen296
+\l__siunitx_angle_marker_box=\box79
+\l__siunitx_angle_unit_box=\box80
+\l__siunitx_compound_count_int=\count338
+ (c:/texlive/2022/texmf-dist/tex/latex/translations/translations.sty
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
+)
+\l__siunitx_number_exponent_fixed_int=\count339
+\l__siunitx_number_min_decimal_int=\count340
+\l__siunitx_number_min_integer_int=\count341
+\l__siunitx_number_round_precision_int=\count342
+\l__siunitx_number_lower_threshold_int=\count343
+\l__siunitx_number_upper_threshold_int=\count344
+\l__siunitx_number_group_first_int=\count345
+\l__siunitx_number_group_size_int=\count346
+\l__siunitx_number_group_minimum_int=\count347
+\l__siunitx_table_tmp_box=\box81
+\l__siunitx_table_tmp_dim=\dimen297
+\l__siunitx_table_column_width_dim=\dimen298
+\l__siunitx_table_integer_box=\box82
+\l__siunitx_table_decimal_box=\box83
+\l__siunitx_table_uncert_box=\box84
+\l__siunitx_table_before_box=\box85
+\l__siunitx_table_after_box=\box86
+\l__siunitx_table_before_dim=\dimen299
+\l__siunitx_table_carry_dim=\dimen300
+\l__siunitx_unit_tmp_int=\count348
+\l__siunitx_unit_position_int=\count349
+\l__siunitx_unit_total_int=\count350
+ (c:/texlive/2022/texmf-dist/tex/latex/tools/array.sty
+Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen301
+\ar@mcellbox=\box87
+\extrarowheight=\dimen302
+\NC@list=\toks47
+\extratabsurround=\skip71
+\backup@length=\skip72
+\ar@cellbox=\box88
+)) (c:/texlive/2022/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen303
+\lightrulewidth=\dimen304
+\cmidrulewidth=\dimen305
+\belowrulesep=\dimen306
+\belowbottomsep=\dimen307
+\aboverulesep=\dimen308
+\abovetopsep=\dimen309
+\cmidrulesep=\dimen310
+\cmidrulekern=\dimen311
+\defaultaddspace=\dimen312
+\@cmidla=\count351
+\@cmidlb=\count352
+\@aboverulesep=\dimen313
+\@belowrulesep=\dimen314
+\@thisruleclass=\count353
+\@lastruleclass=\count354
+\@thisrulewidth=\dimen315
+) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerthemeBoadilla.sty (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamercolorthemerose.sty) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerinnerthemerounded.sty) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamercolorthemedolphin.sty) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamerouterthemeinfolines.sty)) (c:/texlive/2022/texmf-dist/tex/latex/beamer/beamercolorthemespruce.sty)
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 28.
+ (c:/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2023-01-16 L3 backend support: XeTeX
-\g__graphics_track_int=\count333
-\l__pdf_internal_box=\box77
-\g__pdf_backend_object_int=\count334
-\g__pdf_backend_annotation_int=\count335
-\g__pdf_backend_link_int=\count336
+\g__graphics_track_int=\count355
+\l__pdf_internal_box=\box89
+\g__pdf_backend_object_int=\count356
+\g__pdf_backend_annotation_int=\count357
+\g__pdf_backend_link_int=\count358
 ) (./11_B08303024_XiangJyunJhang.aux)
 \openout1 = `11_B08303024_XiangJyunJhang.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 28.
  (c:/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -610,53 +697,53 @@ LaTeX Font Info:    ... okay on input line 19.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 19.
+Package hyperref Info: Link coloring OFF on input line 28.
 (./11_B08303024_XiangJyunJhang.out) (./11_B08303024_XiangJyunJhang.out)
 \@outlinefile=\write5
 \openout5 = `11_B08303024_XiangJyunJhang.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 19.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 28.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 19.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 28.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmr/m/n on input line 19.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 19.
+(Font)                  OT1/cmss/m/n --> TU/lmr/m/n on input line 28.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmss/b/n on input line 19.
+(Font)                  OT1/cmr/bx/n --> TU/lmss/b/n on input line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmss/b/n on input line 19.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 19.
+(Font)                  OT1/cmr/bx/n --> TU/lmss/b/n on input line 28.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 19.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/m/n on input line 19.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 19.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/m/n on input line 28.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmss/m/it on input line 19.
+(Font)                  OT1/cmr/m/it --> TU/lmss/m/it on input line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmss/m/it on input line 19.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 19.
+(Font)                  OT1/cmr/bx/it --> TU/lmss/m/it on input line 28.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 19.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 19.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 28.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  TU/lmss/m/n --> TU/lmss/b/n on input line 19.
+(Font)                  TU/lmss/m/n --> TU/lmss/b/n on input line 28.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  TU/lmss/m/it --> TU/lmss/b/it on input line 19.
+(Font)                  TU/lmss/m/it --> TU/lmss/b/it on input line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> TU/lmr/b/n on input line 19.
+(Font)                  OT1/cmss/b/n --> TU/lmr/b/n on input line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  TU/lmss/b/n --> TU/lmss/b/n on input line 19.
+(Font)                  TU/lmss/b/n --> TU/lmss/b/n on input line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  TU/lmss/m/n --> TU/lmss/b/n on input line 19.
+(Font)                  TU/lmss/m/n --> TU/lmss/b/n on input line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  TU/lmss/m/it --> TU/lmss/b/it on input line 19.
+(Font)                  TU/lmss/m/it --> TU/lmss/b/it on input line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  TU/lmtt/m/n --> TU/lmtt/b/n on input line 19.
+(Font)                  TU/lmtt/m/n --> TU/lmtt/b/n on input line 28.
  (c:/texlive/2022/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (c:/texlive/2022/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
@@ -669,27 +756,31 @@ Dictionary: translator-months-dictionary, Language: English
 Dictionary: translator-numbers-dictionary, Language: English 
 ) (c:/texlive/2022/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-) (./11_B08303024_XiangJyunJhang.nav)
-Overfull \hbox (81.61938pt too wide) in paragraph at lines 19--19
+) (c:/texlive/2022/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 28.
+ (./11_B08303024_XiangJyunJhang.nav)
+Overfull \hbox (81.61938pt too wide) in paragraph at lines 28--28
  [][][][]  
  []
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 20.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 29.
 (c:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 20.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 29.
  (c:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 20.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 29.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 20.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 29.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <6> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 20.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 29.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <5> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 20.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 29.
 
 Overfull \hbox (81.61938pt too wide) has occurred while \output is active
  [][][][]  
@@ -719,11 +810,89 @@ Overfull \hbox (81.61938pt too wide) has occurred while \output is active
 [4
 
 ]
+File: C:/Users/Administrator/Desktop/LaborTopicTermPaper/pic/university_sp.png Graphic file (type bmp)
+<C:/Users/Administrator/Desktop/LaborTopicTermPaper/pic/university_sp.png>
+
 Overfull \hbox (81.61938pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [5
+
+]
+File: C:/Users/Administrator/Desktop/LaborTopicTermPaper/pic/master_sp.png Graphic file (type bmp)
+<C:/Users/Administrator/Desktop/LaborTopicTermPaper/pic/master_sp.png>
+
+Overfull \hbox (81.61938pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[6
+
+]
+File: C:/Users/Administrator/Desktop/LaborTopicTermPaper/pic/public_sp.png Graphic file (type bmp)
+<C:/Users/Administrator/Desktop/LaborTopicTermPaper/pic/public_sp.png>
+
+Overfull \hbox (81.61938pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[7
+
+]
+Overfull \hbox (81.61938pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[8
+
+]
+Overfull \hbox (81.61938pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[9
+
+]
+LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <9> not available
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 199.
+
+Overfull \hbox (81.61938pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[10
+
+]
+Overfull \hbox (81.61938pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[11
+
+]
+Overfull \hbox (81.61938pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[12
+
+]
+LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10> not available
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 303.
+
+Overfull \hbox (81.61938pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[13
+
+]
+Overfull \hbox (81.61938pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[14
 
 ]
 \tf@nav=\write6
@@ -740,12 +909,12 @@ Package rerunfilecheck Info: File `11_B08303024_XiangJyunJhang.out' has not chan
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 21683 strings out of 478635
- 428831 string characters out of 5847854
- 1856001 words of memory out of 5000000
- 41337 multiletter control sequences out of 15000+600000
- 518349 words of font info for 68 fonts, out of 8000000 for 9000
+ 25710 strings out of 478635
+ 549213 string characters out of 5847854
+ 1868001 words of memory out of 5000000
+ 45319 multiletter control sequences out of 15000+600000
+ 519933 words of font info for 78 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 128i,15n,122p,455b,573s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,15n,122p,436b,776s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 11_B08303024_XiangJyunJhang.pdf (5 pages).
+Output written on 11_B08303024_XiangJyunJhang.pdf (14 pages).

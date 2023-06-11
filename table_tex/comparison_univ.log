@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  11 JUN 2023 18:06
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  11 JUN 2023 20:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -29,7 +29,8 @@ File: l3backend-xetex.def 2023-01-16 L3 backend support: XeTeX
 \g__pdf_backend_object_int=\count190
 \g__pdf_backend_annotation_int=\count191
 \g__pdf_backend_link_int=\count192
-) (./comparison_univ.aux)
+)
+No file comparison_univ.aux.
 \openout1 = `comparison_univ.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
@@ -42,7 +43,7 @@ LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4.
- (c:/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd
+(c:/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 4.
@@ -53,35 +54,51 @@ LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 9.
+(Font)              <10.95> on input line 10.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 9.
+(Font)              <8> on input line 10.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 9.
+(Font)              <6> on input line 10.
+
+./comparison_univ.tex:12: Undefined control sequence.
+<recently read> \cmidrule 
+                          
+l.12     \cmidrule
+                  (lr){2-4}\cmidrule(lr){5-7}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./comparison_univ.tex:12: Undefined control sequence.
+l.12     \cmidrule(lr){2-4}\cmidrule
+                                    (lr){5-7}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 37.
+(Font)              <9> on input line 39.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 37.
+(Font)              <5> on input line 39.
 
-Overfull \hbox (70.83377pt too wide) in paragraph at lines 9--40
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9--40
-
+Overfull \hbox (70.83377pt too wide) in paragraph at lines 10--42
+ [][] 
  []
 
 [1
 
 ] (./comparison_univ.aux) ) 
 Here is how much of TeX's memory you used:
- 493 strings out of 478635
- 10031 string characters out of 5847854
+ 492 strings out of 478635
+ 9999 string characters out of 5847854
  1853001 words of memory out of 5000000
- 20679 multiletter control sequences out of 15000+600000
+ 20680 multiletter control sequences out of 15000+600000
  515962 words of font info for 47 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 33i,8n,38p,218b,222s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 33i,8n,38p,218b,210s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on comparison_univ.pdf (1 page).
