@@ -31,7 +31,7 @@
 
 \begin{frame} % 1.
 \frametitle{Quick Recap}
-\framesubtitle{What's out research focused on?}
+\framesubtitle{What's our research focused on?}
 
     \begin{itemize}
         \item Motivation
@@ -71,7 +71,7 @@
         \[
             \textit{SP}_i =
             \left\{\begin{aligned}
-            &1,\quad\text{if individual $i$ once under SP family in senior high} \\
+            &1,\quad\text{if individual $i$ under SP family in senior high} \\
             &0,\quad\text{o.w}
             \end{aligned}\right.
         \]
@@ -79,7 +79,6 @@
         \[
             Y_i = \{\text{University Degree, Master Degree, Public University}\}  
         \]
-        \item To begin an analysis, it's always good by looking at the graph 
     \end{itemize}
 
 \end{frame}
@@ -127,7 +126,7 @@
 \framesubtitle{How to pick up potential confounders?}
 
     \begin{itemize}
-        \item To perform PDS analysis, We pick an abundance of covariates, including 
+        \item To perform PDS analysis, we pick an abundance of covariates, including 
             \begin{itemize}
                 \item student's background information
                 \begin{itemize}
@@ -148,11 +147,11 @@
 \framesubtitle{Post-Double Selection}
 
     \begin{itemize}
-        \item With PDS, we can detect the confounders in roughly \textbf{80 selected covariates} and identify the causal relationship
+        \item With PDS, we can pick up the confounders in roughly \textbf{80 selected covariates} and identify the causal relationship
         \[
-        Y_i = \beta_0 + \beta_1 \textit{SP}_i + \bigcup_{j \in A \cup B} \pi_j W_i^j + \epsilon_i
+        Y_i = \beta_0 + \beta_1 \textit{SP}_i + \bigcup_{j\, \in \mathcal{A} \cup \mathcal{B}} \pi_j W_i^{\,j} + \epsilon_i
         \]
-        where $A,B$ are the Lasso-selected covariates at step 1 \& 2 in PDS.
+        where $\mathcal{A},\mathcal{B}$ are the Lasso-selected covariates at step 1 \& 2 in PDS.
     \end{itemize}
 
 \end{frame}
@@ -170,7 +169,7 @@
     &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)} \\
     &\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University} \\
     \midrule
-    sp & -0.0799\sym{***}& -0.0318\sym{***}& -0.0136     & -0.0989\sym{***}& -0.0230\sym{**} & -0.0264\sym{**} \\
+    SP & -0.0799\sym{***}& -0.0318\sym{***}& -0.0136     & -0.0989\sym{***}& -0.0230\sym{**} & -0.0264\sym{**} \\
     & (0.000)     & (0.008)     & (0.402)     & (0.000)     & (0.022)     & (0.041)     \\
     [1em]
     female  &   & 0.00945     &   &   &    0.000753     &   \\
@@ -211,7 +210,7 @@
     &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)} \\
     &\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University} \\
     \midrule
-    sp          &     -0.0753\sym{***}&     -0.0481\sym{***}&     -0.0405\sym{**} &     -0.0714\sym{***}&     -0.0404\sym{***}&     -0.0465\sym{**} \\
+    SP          &     -0.0753\sym{***}&     -0.0481\sym{***}&     -0.0405\sym{**} &     -0.0714\sym{***}&     -0.0404\sym{***}&     -0.0465\sym{**} \\
                 &     (0.000)         &     (0.000)         &     (0.024)         &     (0.000)         &     (0.000)         &     (0.015)         \\
     [1em]
     female      &                     &     -0.0981\sym{***}&     -0.0597\sym{***}&                     &      -0.101\sym{***}&     -0.0558\sym{***}\\
@@ -253,7 +252,7 @@
     &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)} \\
     &\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University} \\
     \midrule
-    sp          &     -0.0331\sym{***}&    -0.00861         &     0.01000         &     -0.0696\sym{***}&     -0.0374\sym{***}&     -0.0443\sym{**} \\
+    SP          &     -0.0331\sym{***}&    -0.00861         &     0.01000         &     -0.0696\sym{***}&     -0.0374\sym{***}&     -0.0443\sym{**} \\
                 &     (0.006)         &     (0.450)         &     (0.553)         &     (0.000)         &     (0.001)         &     (0.020)         \\
     [1em]
     female      &                     &    -0.00220         &                     &                     &     -0.0278\sym{***}&                     \\
@@ -283,14 +282,14 @@
 
 
 \begin{frame} % 5-1.
-\frametitle{Concluding and Future Prospect}
-\framesubtitle{What do PDS tells us?}
+\frametitle{Concluding and Future Plan}
+\framesubtitle{What do PDS tell us?}
 
     \begin{itemize}
-        \item There're many unexpected variables PDS selected, like
+        \item There're many unexpected variables PDS selected, like...
         \begin{itemize}
         \item \textsl{"How many years had the teacher taught in school?"}
-        \item \textit{"What's the score/performance for this class?"}
+        \item \textit{"What's the score/performance of this class?"}
         \item \textit{"Does the teacher hold extra class in the weekend?"}
         \item \textit{"How many student's parents the teacher had met with in this semester?"}
         \end{itemize}
@@ -304,18 +303,18 @@
     
 
 \begin{frame} % 5-2.
-\frametitle{Concluding and Future Prospect}
+\frametitle{Concluding and Future Plan}
 \framesubtitle{What and How can we dive deeper?}
 
     \begin{itemize}
-        \item Focus on the difference between SH and CPNP
+        \item Try to explain the difference between SH and CPNP
         \begin{itemize}
-        \item high education reform in 2000s
+            \item high education reform in 2000s
         \end{itemize}
-        \item Explain the negative effect channel (Mediation Analysis)
+        \item Figure out the negative effect channel (Mediation Analysis)
         \begin{itemize}
-        \item accompanying time
-        \item economic condition
+            \item accompanying time
+            \item economic condition
         \end{itemize}
     \end{itemize}
 

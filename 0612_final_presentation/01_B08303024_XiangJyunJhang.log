@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  12 JUN 2023 00:58
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  12 JUN 2023 09:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -855,7 +855,7 @@ Overfull \hbox (81.61938pt too wide) has occurred while \output is active
 
 ]
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <9> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 199.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 198.
 
 Overfull \hbox (81.61938pt too wide) has occurred while \output is active
  [][][][]  
@@ -879,7 +879,7 @@ Overfull \hbox (81.61938pt too wide) has occurred while \output is active
 
 ]
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 303.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 302.
 
 Overfull \hbox (81.61938pt too wide) has occurred while \output is active
  [][][][]  
