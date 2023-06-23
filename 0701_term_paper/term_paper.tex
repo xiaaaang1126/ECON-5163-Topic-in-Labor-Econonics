@@ -30,19 +30,16 @@
 \begin{document}
 
 \title{How does Single Parent Family Affect Children's Human Capital Investment}
-\shortTitle{Short title for running head}
-\author{Author1 and Author2\thanks{Surname1: affiliation1, address1, email1. 
-Surname2: affiliation2, address2, email2. Acknowledgements}}
+\shortTitle{SP family effect}
+\author{Yi Jie Wu, Xiang Jyun Jhang\thanks{Wu: Department of Economics, National Taiwan University, b08302129@ntu.edu.tw; Jhang: Department of Economics, National Taiwan University, b08303024@ntu.edu.tw.  We are sincerely grateful for comments and advices from prof. Tzu-Ting Yang}}
 \date{\today}
-\pubMonth{Month}
-\pubYear{Year}
-\pubVolume{Vol}
-\pubIssue{Issue}
+\pubMonth{JULY}
+\pubYear{2023}
 \JEL{}
 \Keywords{}
 
 \begin{abstract}
-Your abstract here.
+    We estimate the impact of living in the single parent family on the children's future educational attainment by using a comprehensive panel survey data in Taiwan (TEPS).  By conducting PDS method, it's found that the experience of living under single parent family will decrease the probability of attaining bachelor degree by  percent, and master degree by  percents also.  We also finds that there is a gap between the probability for two different groups of sample, which we suggest is resulted from the Taiwan Educational Reform in 2000s.
 \end{abstract}
 
 
@@ -80,39 +77,33 @@ above. Note: you can't use both packages at once or compile-time errors will res
 
 \end{itemize}
 
-\section{First Section in Body}
+\section{Data and Sample} % first paragraph: how the sample is built from the dataset?
 
-Sample figure:
+    The dataset we use are Taiwan Education Panel Survey (TEPS) and Taiwan Education Panel Survey and Beyond (TEPS-B), in which two group of children are being surveyed consistently until 2020. The former dataset contains the in-school performance and characteristics of each children by surveying on their parents, teachers and themselves. The latter dataset contains the characteristics after the children entered into the labor market, which usually heppens when they age above 23.  In the whole dataset, there are two main group of sample, \textit{\textbf{senior high (SH)}} group and \textit{\textbf{core population (CP)}} group.  The only difference between these two groups is the born year: the born year for SH group is 1984-1985, but for CP group is 1988-1989.
 
-\begin{figure}
-Figure here.
+    Since our goal is to estimate the causal effect of living in single parent family on children's future educational attainment, we first start on defining \textbf{living in single parent family}.  The treatment variable is proposed so as to help us to indicate whether the children is under single parent family in his school age:
 
-\caption{Caption for figure below.}
-\begin{figurenotes}
-Figure notes without optional leadin.
-\end{figurenotes}
-\begin{figurenotes}[Source]
-Figure notes with optional leadin (Source, in this case).
-\end{figurenotes}
-\end{figure}
+    \[
+        \textit{SP}_i =
+        \left\{\begin{aligned}
+        &1,\quad\text{if child $i$ under SP family in junior/senior high} \\
+        &0,\quad\text{o.w}
+        \end{aligned}\right.
+    \]
 
-Sample table:
+    
 
-\begin{table}
-\caption{Caption for table above.}
+\section{empirical Method} % Second paragraph: what's the assumption and the specification?
 
-\begin{tabular}{lll}
-& Heading 1 & Heading 2 \\ 
-Row 1 & 1 & 2 \\ 
-Row 2 & 3 & 4%
-\end{tabular}
-\begin{tablenotes}
-Table notes environment without optional leadin.
-\end{tablenotes}
-\begin{tablenotes}[Source]
-Table notes environment with optional leadin (Source, in this case).
-\end{tablenotes}
-\end{table}
+
+
+
+\section{Result}
+
+
+\section{Discussion and Conclusion}
+
+
 
 References here (manual or bibTeX). If you are using bibTeX, add your bib file 
 name in place of BibFile in the bibliography command.
@@ -122,8 +113,6 @@ name in place of BibFile in the bibliography command.
 
 % The appendix command is issued once, prior to all appendices, if any.
 \appendix
-
-\section{Mathematical Appendix}
 
 \end{document}
 

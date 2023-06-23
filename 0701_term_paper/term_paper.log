@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  13 JUN 2023 11:12
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  22 JUN 2023 19:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -188,24 +188,18 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
 LaTeX Font Info:    ... okay on input line 30.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
 LaTeX Font Info:    ... okay on input line 30.
+ [1
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+]
 No file term_paper.bbl.
-[1
-
-] [2] (./term_paper.aux) ) 
+[2] (./term_paper.aux) ) 
 Here is how much of TeX's memory you used:
- 1515 strings out of 478635
- 25069 string characters out of 5847854
- 1853001 words of memory out of 5000000
+ 1517 strings out of 478635
+ 25141 string characters out of 5847854
+ 1854001 words of memory out of 5000000
  21663 multiletter control sequences out of 15000+600000
  516031 words of font info for 58 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 69i,8n,76p,203b,295s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 69i,13n,76p,811b,243s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on term_paper.pdf (2 pages).
