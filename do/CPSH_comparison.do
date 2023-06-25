@@ -18,18 +18,14 @@ if "`c(username)'" == "jwutw" {
 	global pic = "C:\Users\jwutw\OneDrive\桌面\大四下資料\勞動經濟學\Git\LaborTopicTermPaper\pic"
 }
 
-* Change the SH dataset: drop 2015 survey in SH
-do "$do\SH_clean_main_copy.do"
-do "$do\SH_clean_confounder.do"
-do "$do\SH_analysis.do"
 
 * Import SH & NPCP Dataset
-use "$workData\SH_sp_outcome2009_outcome2015.dta", clear
+use "$workData\SH_pds.dta", clear
 destring(stud_id), replace
 replace stud_id = stud_id + 100000
 keep stud_id sp sp_comply sp_severe university master public work_year
 tostring(stud_id), replace
-merge 1:1 stud_id using "$workData\NPCP_sp_outcome2009_outcome2013", nogenerate
+merge 1:1 stud_id using "$workData\CP_pds.dta", nogenerate
 
 
 * Divide into two group and graph
@@ -47,18 +43,14 @@ graph export "$pic\master_sp.png", replace
 ********************************************
 * Regression Table comparison
 ********************************************
-* Change the SH dataset: include 2015 survey in SH
-do "$do\SH_clean_main.do"
-do "$do\SH_clean_confounder.do"
-do "$do\SH_analysis.do"
 
 * merge two pds data
-use "$workData\SH_pds.dta", clear
+use "$workData\SH_pds_drop.dta", clear
 gen SH = 1
 destring(stud_id), replace
 replace stud_id = stud_id + 100000
 tostring(stud_id), replace
-append using "$workData\CP_pds.dta"
+append using "$workData\CP_pds_drop.dta"
 replace SH = 0 if SH == .
 
 
