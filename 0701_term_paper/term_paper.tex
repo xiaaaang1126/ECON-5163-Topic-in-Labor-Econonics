@@ -2,6 +2,11 @@
 \documentclass[]{AEA}
 \usepackage{amsmath}
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\usepackage{graphicx} %插入圖片的宏包
+\usepackage{float} %設定圖片浮動位置的宏包
+\usepackage{subfigure} %插入多圖時用子圖顯示的宏包
+\usepackage{siunitx} % used for regression table
+\usepackage{booktabs} % used for regression table
 
 %%%%%% NOTE FROM OVERLEAF: The mathtime package is no longer publicly available nor distributed. We recommend using a different font package e.g. mathptmx if you'd like to use a Times font.
 % \usepackage{mathptmx}
@@ -122,6 +127,7 @@ above. Note: you can't use both packages at once or compile-time errors will res
     Accordingly, we perform the three different kinds of regression model, so as to gradually eliminate the omitted variable bias.  The first model is the single variable OLS, which gives us some interpretation of the correlation, the second model is the extension, in which we add some controlled variable related to the student's background; and the last model is the PDS regression, where we put in all the possible confounders and awaits for machine's selection.  We should first show our result on the first outcome variable: university degree
 
     \centering
+    \setlength{\tabcolsep}{0.5mm}
     \begin{tabular}{l*{6}c}
     \toprule
     &\multicolumn{3}{c}{SH} &\multicolumn{3}{c}{CP/NP} \\
@@ -148,6 +154,7 @@ above. Note: you can't use both packages at once or compile-time errors will res
     &   & (0.000)     & (0.000)     &   & (0.000)     & (0.000)     \\
     [1em]
     PDS\_control  &   &  &  Yes    &  &    &  Yes \\
+    &   &      &      &   &      &      \\
     \hline
     \(N\)   &   11132     &   11050     &    5230     &   12576     &   12386     &    5766     \\
     \bottomrule
