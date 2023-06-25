@@ -1,5 +1,6 @@
 % AER-Article.tex for AEA last revised 22 June 2011
-\documentclass[AER]{AEA}
+\documentclass[]{AEA}
+\usepackage{amsmath}
 
 %%%%%% NOTE FROM OVERLEAF: The mathtime package is no longer publicly available nor distributed. We recommend using a different font package e.g. mathptmx if you'd like to use a Times font.
 % \usepackage{mathptmx}
@@ -30,13 +31,12 @@
 \begin{document}
 
 \title{How does Single Parent Family Affect Children's Human Capital Investment}
-\shortTitle{SP family effect}
+\shortTitle{Single Parent family effect}
 \author{Yi Jie Wu, Xiang Jyun Jhang\thanks{Wu: Department of Economics, National Taiwan University, b08302129@ntu.edu.tw; Jhang: Department of Economics, National Taiwan University, b08303024@ntu.edu.tw.  We are sincerely grateful for comments and advices from prof. Tzu-Ting Yang}}
 \date{\today}
 \pubMonth{JULY}
 \pubYear{2023}
-\JEL{}
-\Keywords{}
+\Keywords{Single Parent, Labor, Education}
 
 \begin{abstract}
     We estimate the impact of living in the single parent family on the children's future educational attainment by using a comprehensive panel survey data in Taiwan (TEPS).  By conducting PDS method, it's found that the experience of living under single parent family will decrease the probability of attaining bachelor degree by  percent, and master degree by  percents also.  We also finds that there is a gap between the probability for two different groups of sample, which we suggest is resulted from the Taiwan Educational Reform in 2000s.
@@ -79,26 +79,46 @@ above. Note: you can't use both packages at once or compile-time errors will res
 
 \section{Data and Sample} % first paragraph: how the sample is built from the dataset?
 
-    The dataset we use are Taiwan Education Panel Survey (TEPS) and Taiwan Education Panel Survey and Beyond (TEPS-B), in which two group of children are being surveyed consistently until 2020. The former dataset contains the in-school performance and characteristics of each children by surveying on their parents, teachers and themselves. The latter dataset contains the characteristics after the children entered into the labor market, which usually heppens when they age above 23.  In the whole dataset, there are two main group of sample, \textit{\textbf{senior high (SH)}} group and \textit{\textbf{core population (CP)}} group.  The only difference between these two groups is the born year: the born year for SH group is 1984-1985, but for CP group is 1988-1989.
+    The dataset we use are Taiwan Education Panel Survey (TEPS) and Taiwan Education Panel Survey and Beyond (TEPS-B), in which there are two group of children being surveyed consistently from their schoold age (16-18) to their working age (25-30) and each contains roughly 20,000 samples. The former dataset contains the in-school performance and characteristics of each children by surveying on their parents, teacher of each subject and children themselves. The latter dataset contains the characteristics and working status after the children entered into the labor market, and tracking down the sample for several years.  In the whole dataset, there are two main groups of sample, \textit{\textbf{senior high (SH)}} group and \textit{\textbf{core population (CP)}} group.  The only difference between these two groups is the born year: the born year for SH group is 1984-1985, but for CP group is 1988-1989.  But this unneglected difference leads us to divide them into two groups and perform the same analysis, and it shows us some unexpected result which should be revealed later.
 
-    Since our goal is to estimate the causal effect of living in single parent family on children's future educational attainment, we first start on defining \textbf{living in single parent family}.  The treatment variable is proposed so as to help us to indicate whether the children is under single parent family in his school age:
+    Since our goal is to estimate the causal effect of living in single parent family on children's future educational attainment, we first start on clarifying the condition of \textbf{living in single parent family}.  As we restricted the period we concerned to high-school age, which is usually the rapidly changing period in life, we define our treatment variable as below:
 
     \[
         \textit{SP}_i =
         \left\{\begin{aligned}
-        &1,\quad\text{if child $i$ under SP family in junior/senior high} \\
+        &1,\quad\text{if child $i$ once under SP family in senior high} \\
         &0,\quad\text{o.w}
         \end{aligned}\right.
     \]
 
-    
+    On the other hand, for identifying the children's future educational attainment, we choose three different kinds of outcome variable, which are \textbf{bachelor degree, master degree and public university}.   The first and second variable are straight-forward, that is whether they obtain the degree when data recoreded.  The last one is more about the academic performance measured at the end of their high school age, since the entrance of public university is more competitive than private ones.  All these covariates are defined by using the data from TEPS-B, which provides the educational degree and whether the children enter job market after they're above 23-24 years old, so we can identify their final educational attainment.
 
-\section{empirical Method} % Second paragraph: what's the assumption and the specification?
+    Finally, the comprehensive dataset also includes the survey data on their parent and teachers, in which the evaluation and observation on the children in their school age are detaily recorded.  We consider these dataset as the cure to omitted variable bias, so we look at each teacher's data thoroughly and pick every potential confounding variable that either relates to treatment or outcome variable.  Besides, it's worth mentioning that since we want to reduce biasedness, we pay a lot of attention to not include a covariate regarded as \textbf{bad control} by us.  As the following setup is done, we can move forward to the PDS analysis.
 
 
+\section{Empirical Method} % Second paragraph: what's the assumption and the specification?
+
+    The Post-Double Selection (PDS) method combining causal inference and machine learning is a very powerful and convenient method when we face this kind of huge and comprehensive dataset.  Usually, it's the \textbf{curse of dimensionality} problem we will encounter when we include more covariates and try to reduce the underlying omitted variable bias; however, the PDS method tackle with this problem with introducing Lasso (Least Absolute Shrinkage and Selection Operator) and regression with multiple stages.
+
+    There are two assumptions supporting PDS method: conditional independence assumption and approximate sparsity, and three regression stages in PDS.  The first and second stage use Lasso to conduct regression on different dependent variable, that is, treatment variable and outcome variable, which can be formulated as below
+
+    \begin{align}
+    \text{SP}_i = \theta_0 + \sum_{i=1}^n \theta_j X_i^j + \lambda_\theta\sum_{i=1}^n \lvert \theta_j \rvert + \epsilon_i \\
+    Y_i         = \eta_0   + \sum_{i=1}^n \eta_j X_i^j   + \lambda_\eta\sum_{i=1}^n \lvert \eta_j   \rvert + \delta_i
+    \end{align}
+
+    where the $X^j$ is the covariate we choose from the dataset, and $\{\lambda_\theta,\lambda_\eta\}$ are tuning parameter in the Lasso regression.  After the stages, we will have two different sets of selected covariates, denoted as $\Lambda_\theta,\ \Lambda_\eta$, and their union represents all the potential confounders.  So we can conduct the third stage OLS regression to identify the causal effect in the presence of CIA:
+
+    \begin{align}
+        Y_i = \beta_0 + \beta_{\text{PDS}}\text{SP}_i + \sum_{j \,\in\, \Lambda_\theta \cup \Lambda_\eta} \beta_j X_i^j + \epsilon_i
+    \end{align}
+
+    After we follow the same analysis process for each group, SH and CP, we obtain the estimated effect and discover the unexpected result which we will show in next part.
 
 
 \section{Result}
+
+
 
 
 \section{Discussion and Conclusion}
