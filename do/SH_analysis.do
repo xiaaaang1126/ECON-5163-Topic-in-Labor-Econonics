@@ -150,7 +150,7 @@ esttab work_year_4 work_year_5 work_year_6, p num star(* 0.10 ** 0.05 *** 0.01)
 ********************************************
 
 * Outcome Variable (1): University
-qui pdslasso university sp (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001), rob loption(prestd)
+pdslasso university sp (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001), rob loption(prestd)
 eststo university_7
 qui pdslasso university sp_severe (paedu $stud_info $tc_c_2001 $tc_d_2001 $tc_e_2001 $tc_m_2001 $tc_dc_2001), rob loption(prestd)
 eststo university_8

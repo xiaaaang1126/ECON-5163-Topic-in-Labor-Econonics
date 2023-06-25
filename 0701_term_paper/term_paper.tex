@@ -126,7 +126,9 @@ above. Note: you can't use both packages at once or compile-time errors will res
 
     Accordingly, we perform the three different kinds of regression model, so as to gradually eliminate the omitted variable bias.  The first model is the single variable OLS, which gives us some interpretation of the correlation, the second model is the extension, in which we add some controlled variable related to the student's background; and the last model is the PDS regression, where we put in all the possible confounders and awaits for machine's selection.  We should first show our result on the first outcome variable: university degree
 
-    \centering
+    \begin{center}
+    \begin{table}
+    \caption{Regression on University for SH and CP group}
     \setlength{\tabcolsep}{0.5mm}
     \begin{tabular}{l*{6}c}
     \toprule
@@ -135,36 +137,127 @@ above. Note: you can't use both packages at once or compile-time errors will res
     &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)} \\
     &\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University} \\
     \midrule
-    SP & -0.0799\sym{***}& -0.0318\sym{***}& -0.0136     & -0.0989\sym{***}& -0.0230\sym{**} & -0.0264\sym{**} \\
-    & (0.000)     & (0.008)     & (0.402)     & (0.000)     & (0.022)     & (0.041)     \\
+    sp          &     -0.0935\sym{***}&     -0.0262         &     -0.0136         &     -0.0340\sym{**} &     -0.0322\sym{**} &     -0.0264\sym{**} \\
+                &     (0.000)         &     (0.116)         &     (0.402)         &     (0.011)         &     (0.015)         &     (0.041)         \\
     [1em]
-    female  &   & 0.00945     &   &   &    0.000753     &   \\
-    &   & (0.180)     &   &   & (0.902)     &   \\
+    female      &                     &      0.0187\sym{**} &                     &                     &      0.0198\sym{***}&                     \\
+                &                     &     (0.048)         &                     &                     &     (0.004)         &                     \\
     [1em]
-    hs\_private  &   & -0.0762\sym{***}& -0.0386\sym{***}&   & -0.0896\sym{***}&   \\
-    &   & (0.000)     & (0.000)     &   & (0.000)     &   \\
+    hs\_private  &                     &     -0.0785\sym{***}&     -0.0386\sym{***}&                     &     -0.0474\sym{***}&                     \\
+                &                     &     (0.000)         &     (0.000)         &                     &     (0.000)         &                     \\
     [1em]
-    hs\_urban    &   &  0.0711\sym{***}&   &   &  0.0294\sym{***}&  0.0124     \\
-    &   & (0.000)     &   &   & (0.000)     & (0.159)     \\
+    hs\_urban    &                     &      0.0459\sym{***}&                     &                     &      0.0466\sym{***}&      0.0124         \\
+                &                     &     (0.000)         &                     &                     &     (0.000)         &     (0.159)         \\
     [1em]
-    general\_high&   &   0.556\sym{***}&   0.514\sym{***}&   &   0.635\sym{***}&   \\
-    &   & (0.000)     & (0.000)     &   & (0.000)     &   \\
+    general\_high&                     &       0.607\sym{***}&       0.514\sym{***}&                     &           0         &                     \\
+                &                     &     (0.000)         &     (0.000)         &                     &         (.)         &                     \\
     [1em]
-    paedu   &   &   0.101\sym{***}&  0.0739\sym{***}&   &  0.0829\sym{***}&  0.0330\sym{***}\\
-    &   & (0.000)     & (0.000)     &   & (0.000)     & (0.000)     \\
+    paedu       &                     &      0.0991\sym{***}&      0.0739\sym{***}&                     &      0.0448\sym{***}&      0.0330\sym{***}\\
+                &                     &     (0.000)         &     (0.000)         &                     &     (0.000)         &     (0.000)         \\
     [1em]
     PDS\_control  &   &  &  Yes    &  &    &  Yes \\
     &   &      &      &   &      &      \\
     \hline
-    \(N\)   &   11132     &   11050     &    5230     &   12576     &   12386     &    5766     \\
+    \(N\)       &        5230         &        5230         &        5230         &        5766         &        5766         &        5766         \\
     \bottomrule
-    \multicolumn{7}{l}{\footnotesize \textit{p}-values in parentheses} \\
-    \multicolumn{7}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)} \\
+    \multicolumn{3}{l}{\footnotesize \textit{p}-values in parentheses} & \multicolumn{4}{r}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
     \end{tabular}
+    \begin{tablenotes}
+        The "PDS control" indicates whether we include covariates to perform PDS.  The number of total covariates we include is 98 for SH group, and 77 for CP group; the number of selected covariates is 22 for SH group, and 8 for CP group.
+    \end{tablenotes}
+    \end{table}
+    \end{center}
 
+    From above table, it matches our intuition that there is a strongly negative correlation between living in single parent family and obtaining university degree in future; however, it also shows that when considering the PDS regression for SH group, the causal relationship is not significant, while for CP group it's significant.  
+
+    \begin{center}
+    \begin{table}
+    \caption{Regression on Master for SH and CP group}
+    \setlength{\tabcolsep}{0.5mm}
+    \begin{tabular}{l*{6}c}
+    \toprule
+    &\multicolumn{3}{c}{SH} &\multicolumn{3}{c}{CP/NP} \\
+    \cmidrule(l){2-4}\cmidrule(l){5-7}
+    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)} \\
+    &\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University} \\
+    \midrule
+    sp          &     -0.0787\sym{***}&     -0.0462\sym{**} &     -0.0405\sym{**} &     -0.0635\sym{***}&     -0.0549\sym{***}&     -0.0465\sym{**} \\
+            &     (0.000)         &     (0.011)         &     (0.024)         &     (0.001)         &     (0.005)         &     (0.015)         \\
+    [1em]
+    female      &                     &     -0.0831\sym{***}&     -0.0597\sym{***}&                     &      -0.111\sym{***}&     -0.0558\sym{***}\\
+                &                     &     (0.000)         &     (0.000)         &                     &     (0.000)         &     (0.000)         \\
+    [1em]
+    hs\_private  &                     &     -0.0649\sym{***}&                     &                     &     -0.0494\sym{***}&                     \\
+                &                     &     (0.000)         &                     &                     &     (0.001)         &                     \\
+    [1em]
+    hs\_urban    &                     &      0.0526\sym{***}&                     &                     &      0.0833\sym{***}&      0.0570\sym{***}\\
+                &                     &     (0.000)         &                     &                     &     (0.000)         &     (0.000)         \\
+    [1em]
+    general\_high&                     &       0.246\sym{***}&       0.156\sym{***}&                     &           0         &                     \\
+                &                     &     (0.000)         &     (0.000)         &                     &         (.)         &                     \\
+    [1em]
+    paedu       &                     &       0.147\sym{***}&       0.129\sym{***}&                     &       0.102\sym{***}&      0.0813\sym{***}\\
+            &                     &     (0.000)         &     (0.000)         &                     &     (0.000)         &     (0.000)         \\
+    [1em]
+    PDS\_control  &   &  &  Yes    &  &    &  Yes \\
+    &   &      &      &   &      &      \\
+    \hline
+    \(N\)       &        4848         &        4848         &        4848         &        5600         &        5600         &        5600         \\
+    \bottomrule
+    \multicolumn{3}{l}{\footnotesize \textit{p}-values in parentheses} & \multicolumn{4}{r}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+    \end{tabular}
+    \begin{tablenotes}
+        The "PDS control" indicates whether we include covariates to perform PDS.  The number of total covariates we include is 98 for SH group, and 77 for CP group; the number of selected covariates is 11 for SH group, and 8 for CP group.
+        % puclic: SH is 16, CP is 20
+    \end{tablenotes}
+    \end{table}
+    \end{center}
+
+    This result is very strong, recoomending that living under single parent family will reduce the probabilty of finishing master degress by 4 percent.
+
+    \begin{center}
+    \begin{table}
+    \caption{Regression on Public University for SH and CP group}
+    \setlength{\tabcolsep}{0.5mm}
+    \begin{tabular}{l*{6}c}
+    \toprule
+    &\multicolumn{3}{c}{SH} &\multicolumn{3}{c}{CP/NP} \\
+    \cmidrule(l){2-4}\cmidrule(l){5-7}
+    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)} \\
+    &\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University} \\
+    \midrule
+    sp          &     -0.0935\sym{***}&     -0.0262         &     -0.0136         &     -0.0340\sym{**} &     -0.0322\sym{**} &     -0.0264\sym{**} \\
+            &     (0.000)         &     (0.116)         &     (0.402)         &     (0.011)         &     (0.015)         &     (0.041)         \\
+    [1em]
+    female      &                     &      0.0187\sym{**} &                     &                     &      0.0198\sym{***}&                     \\
+                &                     &     (0.048)         &                     &                     &     (0.004)         &                     \\
+    [1em]
+    hs\_private  &                     &     -0.0785\sym{***}&     -0.0386\sym{***}&                     &     -0.0474\sym{***}&                     \\
+                &                     &     (0.000)         &     (0.000)         &                     &     (0.000)         &                     \\
+    [1em]
+    hs\_urban    &                     &      0.0459\sym{***}&                     &                     &      0.0466\sym{***}&      0.0124         \\
+                &                     &     (0.000)         &                     &                     &     (0.000)         &     (0.159)         \\
+    [1em]
+    general\_high&                     &       0.607\sym{***}&       0.514\sym{***}&                     &           0         &                     \\
+                &                     &     (0.000)         &     (0.000)         &                     &         (.)         &                     \\
+    [1em]
+    paedu       &                     &      0.0991\sym{***}&      0.0739\sym{***}&                     &      0.0448\sym{***}&      0.0330\sym{***}\\
+            &                     &     (0.000)         &     (0.000)         &                     &     (0.000)         &     (0.000)         \\
+    [1em]
+    PDS\_control  &   &  &  Yes    &  &    &  Yes \\
+    &   &      &      &   &      &      \\
+    \hline
+    \(N\)       &        5230         &        5230         &        5230         &        5766         &        5766         &        5766         \\
+    \bottomrule
+    \multicolumn{3}{l}{\footnotesize \textit{p}-values in parentheses} & \multicolumn{4}{r}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+    \end{tabular}
+    \begin{tablenotes}
+        The "PDS control" indicates whether we include covariates to perform PDS.  The number of total covariates we include is 98 for SH group, and 77 for CP group; the number of selected covariates is 16 for SH group, and 20 for CP group.
+    \end{tablenotes}
+    \end{table}
+    \end{center}
 
 \section{Discussion and Conclusion}
-
 
 
 References here (manual or bibTeX). If you are using bibTeX, add your bib file 

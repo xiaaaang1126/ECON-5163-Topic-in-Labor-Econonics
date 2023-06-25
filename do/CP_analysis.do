@@ -57,7 +57,7 @@ vl create tc_dc_2005 = (w3dtc02 w3dtc03 w3dtc04 w3dtc05 w3dtc06 w3dtc07 w3dtc08)
 * Keep the non-missing sample to fix sample size and save for graphing
 save "$workData\CP_pds.dta", replace
 keep if !missing(paedu, female, general_high, hs_private, hs_urban, hs_capital, hs_science, hs_scarea_north, hs_scarea_middle, hs_scarea_south, w3t101_c, w3t110_c, w3t117_c, w3t203_c, w3t204_c, w3t206_c, w3t209_c, w3t210_c, w3t211_c, w3t212_c, w3t314_c, w3t316_c, w3t317_c, w3t323_c, w3t324_c, w3t101_d, w3t110_d, w3t117_d, w3t203_d, w3t204_d, w3t206_d, w3t209_d, w3t210_d, w3t211_d, w3t212_d, w3t314_d, w3t316_d, w3t317_d, w3t323_d, w3t324_d, w3t101_e, w3t110_e, w3t117_e, w3t203_e, w3t204_e, w3t206_e, w3t209_e, w3t210_e, w3t211_e, w3t212_e, w3t314_e, w3t316_e, w3t317_e, w3t323_e, w3t324_e, w3t101_m, w3t110_m, w3t117_m, w3t203_m, w3t204_m, w3t206_m, w3t209_m, w3t210_m, w3t211_m, w3t212_m, w3t314_m, w3t316_m, w3t317_m, w3t323_m, w3t324_m, w3dtc02, w3dtc03, w3dtc04, w3dtc05, w3dtc06, w3dtc07, w3dtc08)
-save "$workData\CP_pds_drop.dta"
+save "$workData\CP_pds_drop.dta", replace
 
 
 ********************************************
@@ -153,7 +153,7 @@ esttab work_year_4 work_year_5 work_year_6, p num star(* 0.10 ** 0.05 *** 0.01)
 ********************************************
 
 * Outcome Variable (1): University
-pdslasso university sp (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
+qui pdslasso university sp (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
 eststo university_7
 qui pdslasso university sp_severe (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
 eststo university_8
