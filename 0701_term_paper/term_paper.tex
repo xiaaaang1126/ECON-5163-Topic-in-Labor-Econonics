@@ -168,7 +168,7 @@ above. Note: you can't use both packages at once or compile-time errors will res
     \end{table}
     \end{center}
 
-    From above table, it matches our intuition that there is a strongly negative correlation between living in single parent family and obtaining university degree in future; however, it also shows that when considering the PDS regression for SH group, the causal relationship is not significant, while for CP group it's significant.  
+    From table I, the single variable OLS result matches our intuition with a strongly negative correlation between living in single parent family and obtaining university degree in future; however, it also shows that when considering the PDS regression for SH group, the causal relationship is not significant, while for CP group it's significant.  This is the most interesting point in our analysis, because it's very peculiar as we expect the negative causal effect holds for these two different groups, but how does it differ?  We wiil explain when we dig deeper, that is, analyzing the other outcome variable.
 
     \begin{center}
     \begin{table}
@@ -213,7 +213,7 @@ above. Note: you can't use both packages at once or compile-time errors will res
     \end{table}
     \end{center}
 
-    This result is very strong, recoomending that living under single parent family will reduce the probabilty of finishing master degress by 4 percent.
+    In the table II, we see all the coefficient are significant under 1\% significant level, which indicates the effect is very strong.  As the PDS regression result shows, living in single parent family will reduce the probability of obtaining master degree by 4\% and 4.6\%, respectively for SH and CP group.  We regard the impact as very prodigious and suggest that the underlying channels, economics situation and mental support, play a crucial role in the process.
 
     \begin{center}
     \begin{table}
@@ -226,28 +226,29 @@ above. Note: you can't use both packages at once or compile-time errors will res
     &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)} \\
     &\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University} \\
     \midrule
-    sp          &     -0.0935\sym{***}&     -0.0262         &     -0.0136         &     -0.0340\sym{**} &     -0.0322\sym{**} &     -0.0264\sym{**} \\
-            &     (0.000)         &     (0.116)         &     (0.402)         &     (0.011)         &     (0.015)         &     (0.041)         \\
+    sp          &     -0.0229         &     0.00651         &     0.01000         &     -0.0768\sym{***}&     -0.0739\sym{***}&     -0.0443\sym{**} \\
+            &     (0.212)         &     (0.705)         &     (0.553)         &     (0.000)         &     (0.000)         &     (0.020)         \\
     [1em]
-    female      &                     &      0.0187\sym{**} &                     &                     &      0.0198\sym{***}&                     \\
-                &                     &     (0.048)         &                     &                     &     (0.004)         &                     \\
+    female      &                     &      0.0157         &                     &                     &     -0.0319\sym{**} &                     \\
+                &                     &     (0.154)         &                     &                     &     (0.012)         &                     \\
     [1em]
-    hs\_private  &                     &     -0.0785\sym{***}&     -0.0386\sym{***}&                     &     -0.0474\sym{***}&                     \\
-                &                     &     (0.000)         &     (0.000)         &                     &     (0.000)         &                     \\
+    hs\_private  &                     &      -0.117\sym{***}&     -0.0675\sym{***}&                     &      -0.182\sym{***}&     -0.0860\sym{***}\\
+                &                     &     (0.000)         &     (0.000)         &                     &     (0.000)         &     (0.000)         \\
     [1em]
-    hs\_urban    &                     &      0.0459\sym{***}&                     &                     &      0.0466\sym{***}&      0.0124         \\
-                &                     &     (0.000)         &                     &                     &     (0.000)         &     (0.159)         \\
+    hs\_urban    &                     &      0.0591\sym{***}&                     &                     &       0.131\sym{***}&      0.0968\sym{***}\\
+                &                     &     (0.000)         &                     &                     &     (0.000)         &     (0.000)         \\
     [1em]
-    general\_high&                     &       0.607\sym{***}&       0.514\sym{***}&                     &           0         &                     \\
+    general\_high&                     &       0.229\sym{***}&       0.184\sym{***}&                     &           0         &                     \\
                 &                     &     (0.000)         &     (0.000)         &                     &         (.)         &                     \\
     [1em]
-    paedu       &                     &      0.0991\sym{***}&      0.0739\sym{***}&                     &      0.0448\sym{***}&      0.0330\sym{***}\\
+    paedu       &                     &       0.123\sym{***}&      0.0978\sym{***}&                     &       0.110\sym{***}&      0.0641\sym{***}\\
+            &                     &     (0.000)         &     (0.000)         &                     &     (0.000)         &     (0.000)         \\
             &                     &     (0.000)         &     (0.000)         &                     &     (0.000)         &     (0.000)         \\
     [1em]
     PDS\_control  &   &  &  Yes    &  &    &  Yes \\
     &   &      &      &   &      &      \\
     \hline
-    \(N\)       &        5230         &        5230         &        5230         &        5766         &        5766         &        5766         \\
+    \(N\)       &        5027         &        5027         &        5027         &        5576         &        5576         &        5576         \\
     \bottomrule
     \multicolumn{3}{l}{\footnotesize \textit{p}-values in parentheses} & \multicolumn{4}{r}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
     \end{tabular}
@@ -256,6 +257,10 @@ above. Note: you can't use both packages at once or compile-time errors will res
     \end{tablenotes}
     \end{table}
     \end{center}
+
+    Now let's look at table III, where the PDS regression result looks similar to the first table.  But compared with significantly negative impact for CP group, the impact nearly exist for SH group.  So why is there an unneglected difference between these two group?  Since the only different characteristic for these groups are born year, we suggest the difference might by attributed to the Taiwan Education Reform in 2000s, when the number of university skyrocketed in order to increase the education degree of general people.  
+    
+    Although the competition for children to get into university is reduced; however, we thinks the policy may enlarge the gap between those with good/bad economic condition, or in other words, living in single parent/nuclear family.  The policy may do provide more opportunities for children to enter the university, but failing to cover the money shortage of those with bad economic condition, as a consequence, they would tend to suspend their educational investment after high school and enter labor market for finding work.  This sounds like a possible stroy, with some table, we can make the argument more credible.
 
 \section{Discussion and Conclusion}
 
