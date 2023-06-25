@@ -20,9 +20,43 @@ if "`c(username)'" == "jwutw" {
 }
 
 
-* Prepare the dataset
-//do "$do/CP_clean.do"
+********************************************
+***          Merge the Dataset           ***
+********************************************
+
+* do "$do/CP_clean.do"
 use "$workData\NPCP_sp_outcome2009_outcome2013.dta", clear
+merge 1:1 stud_id using "$workData\CP_parent2001.dta", nogenerate
+merge 1:1 stud_id using "$workData\NP_parent2005.dta", replace update
+
+* Merge data with 2005 teacher data (CP & NP)
+foreach i in "c" "d" "e" "m"{
+    merge 1:1 stud_id using "$workData\NPCP_teacher_`i'_2005.dta", nogenerate
+}
+
+merge 1:1 stud_id using "$workData\NPCP_teacher_dc_2005.dta", nogenerate
+
+
+
+********************************************
+***    Define Varlist and Fix Sample     ***
+********************************************
+
+* define control variables
+vl create stud_info = (female general_high hs_private hs_urban hs_capital hs_science      ///
+                       hs_scarea_north hs_scarea_middle hs_scarea_south)
+
+foreach i in "c" "d" "e" "m"{
+    vl create tc_`i'_2005 = (w3t101_`i' w3t110_`i' w3t117_`i' w3t203_`i' w3t204_`i' w3t206_`i' w3t209_`i' w3t210_`i'   ///
+                             w3t211_`i' w3t212_`i' w3t314_`i' w3t316_`i' w3t317_`i' w3t323_`i' w3t324_`i')
+}
+
+vl create tc_dc_2005 = (w3dtc02 w3dtc03 w3dtc04 w3dtc05 w3dtc06 w3dtc07 w3dtc08)
+
+
+* Keep the non-missing sample to fix sample size and save for graphing
+save "$workData\CP_pds.dta", replace
+keep if !missing(paedu, female, general_high, hs_private, hs_urban, hs_capital, hs_science, hs_scarea_north, hs_scarea_middle, hs_scarea_south, w3t101_c, w3t110_c, w3t117_c, w3t203_c, w3t204_c, w3t206_c, w3t209_c, w3t210_c, w3t211_c, w3t212_c, w3t314_c, w3t316_c, w3t317_c, w3t323_c, w3t324_c, w3t101_d, w3t110_d, w3t117_d, w3t203_d, w3t204_d, w3t206_d, w3t209_d, w3t210_d, w3t211_d, w3t212_d, w3t314_d, w3t316_d, w3t317_d, w3t323_d, w3t324_d, w3t101_e, w3t110_e, w3t117_e, w3t203_e, w3t204_e, w3t206_e, w3t209_e, w3t210_e, w3t211_e, w3t212_e, w3t314_e, w3t316_e, w3t317_e, w3t323_e, w3t324_e, w3t101_m, w3t110_m, w3t117_m, w3t203_m, w3t204_m, w3t206_m, w3t209_m, w3t210_m, w3t211_m, w3t212_m, w3t314_m, w3t316_m, w3t317_m, w3t323_m, w3t324_m, w3dtc02, w3dtc03, w3dtc04, w3dtc05, w3dtc06, w3dtc07, w3dtc08)
 
 
 
@@ -74,10 +108,6 @@ esttab work_year_1 work_year_2 work_year_3, p num star(* 0.10 ** 0.05 *** 0.01)
 ***           Adding Confounder          ***
 ********************************************
 
-* Import data
-merge 1:1 stud_id using "$workData\CP_parent2001.dta", nogenerate
-merge 1:1 stud_id using "$workData\NP_parent2005.dta", replace update
-
 * Outcome Variable (1): University
 qui reg university sp female hs_private hs_urban general_high paedu, r               // t = -3.20 √
 est sto university_4
@@ -119,37 +149,11 @@ esttab work_year_4 work_year_5 work_year_6, p num star(* 0.10 ** 0.05 *** 0.01)
 
 
 ********************************************
-***  Post-Double Selection - Data Merge  ***
-********************************************
-
-* Merge data with 2005 teacher data (CP & NP)
-foreach i in "c" "d" "e" "m"{
-    merge 1:1 stud_id using "$workData\NPCP_teacher_`i'_2005.dta", nogenerate
-}
-
-merge 1:1 stud_id using "$workData\NPCP_teacher_dc_2005.dta", nogenerate
-
-
-* define control variables
-vl create stud_info = (female general_high hs_private hs_urban hs_capital hs_science      ///
-                       hs_scarea_north hs_scarea_middle hs_scarea_south)
-
-foreach i in "c" "d" "e" "m"{
-    vl create tc_`i'_2005 = (w3t101_`i' w3t110_`i' w3t117_`i' w3t203_`i' w3t204_`i' w3t206_`i' w3t209_`i' w3t210_`i'   ///
-                             w3t211_`i' w3t212_`i' w3t314_`i' w3t316_`i' w3t317_`i' w3t323_`i' w3t324_`i')
-}
-
-vl create tc_dc_2005 = (w3dtc02 w3dtc03 w3dtc04 w3dtc05 w3dtc06 w3dtc07 w3dtc08)
-
-save "$workData\CP_pds.dta", replace
-
-
-********************************************
 ***        Post-Double Selection         ***
 ********************************************
 
 * Outcome Variable (1): University
-qui pdslasso university sp (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
+pdslasso university sp (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
 eststo university_7
 qui pdslasso university sp_severe (paedu $stud_info $tc_c_2005 $tc_d_2005 $tc_e_2005 $tc_m_2005 $tc_dc_2005), rob loption(prestd)
 eststo university_8

@@ -1,6 +1,7 @@
 % AER-Article.tex for AEA last revised 22 June 2011
 \documentclass[]{AEA}
 \usepackage{amsmath}
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 
 %%%%%% NOTE FROM OVERLEAF: The mathtime package is no longer publicly available nor distributed. We recommend using a different font package e.g. mathptmx if you'd like to use a Times font.
 % \usepackage{mathptmx}
@@ -39,7 +40,7 @@
 \Keywords{Single Parent, Labor, Education}
 
 \begin{abstract}
-    We estimate the impact of living in the single parent family on the children's future educational attainment by using a comprehensive panel survey data in Taiwan (TEPS).  By conducting PDS method, it's found that the experience of living under single parent family will decrease the probability of attaining bachelor degree by  percent, and master degree by  percents also.  We also finds that there is a gap between the probability for two different groups of sample, which we suggest is resulted from the Taiwan Educational Reform in 2000s.
+    We estimate the impact of living in the single parent family on the children's future educational attainment by using a comprehensive panel survey data in Taiwan (TEPS).  By conducting PDS method, it's found that the experience of living under single parent family will decrease the probability of attaining university degree by  percent, and master degree by  percents also.  We also finds that there is a gap between the probability for two different groups of sample, which we suggest is resulted from the Taiwan Educational Reform in 2000s.
 \end{abstract}
 
 
@@ -91,7 +92,7 @@ above. Note: you can't use both packages at once or compile-time errors will res
         \end{aligned}\right.
     \]
 
-    On the other hand, for identifying the children's future educational attainment, we choose three different kinds of outcome variable, which are \textbf{bachelor degree, master degree and public university}.   The first and second variable are straight-forward, that is whether they obtain the degree when data recoreded.  The last one is more about the academic performance measured at the end of their high school age, since the entrance of public university is more competitive than private ones.  All these covariates are defined by using the data from TEPS-B, which provides the educational degree and whether the children enter job market after they're above 23-24 years old, so we can identify their final educational attainment.
+    On the other hand, for identifying the children's future educational attainment, we choose three different kinds of outcome variable, which are \textbf{university degree, master degree and public university}.   The first and second variable are straight-forward, that is whether they obtain the degree when data recoreded.  The last one is more about the academic performance measured at the end of their high school age, since the entrance of public university is more competitive than private ones.  All these covariates are defined by using the data from TEPS-B, which provides the educational degree and whether the children enter job market after they're above 23-24 years old, so we can identify their final educational attainment.
 
     Finally, the comprehensive dataset also includes the survey data on their parent and teachers, in which the evaluation and observation on the children in their school age are detaily recorded.  We consider these dataset as the cure to omitted variable bias, so we look at each teacher's data thoroughly and pick every potential confounding variable that either relates to treatment or outcome variable.  Besides, it's worth mentioning that since we want to reduce biasedness, we pay a lot of attention to not include a covariate regarded as \textbf{bad control} by us.  As the following setup is done, we can move forward to the PDS analysis.
 
@@ -118,7 +119,41 @@ above. Note: you can't use both packages at once or compile-time errors will res
 
 \section{Result}
 
+    Accordingly, we perform the three different kinds of regression model, so as to gradually eliminate the omitted variable bias.  The first model is the single variable OLS, which gives us some interpretation of the correlation, the second model is the extension, in which we add some controlled variable related to the student's background; and the last model is the PDS regression, where we put in all the possible confounders and awaits for machine's selection.  We should first show our result on the first outcome variable: university degree
 
+    \centering
+    \begin{tabular}{l*{6}c}
+    \toprule
+    &\multicolumn{3}{c}{SH} &\multicolumn{3}{c}{CP/NP} \\
+    \cmidrule(l){2-4}\cmidrule(l){5-7}
+    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)} \\
+    &\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University} \\
+    \midrule
+    SP & -0.0799\sym{***}& -0.0318\sym{***}& -0.0136     & -0.0989\sym{***}& -0.0230\sym{**} & -0.0264\sym{**} \\
+    & (0.000)     & (0.008)     & (0.402)     & (0.000)     & (0.022)     & (0.041)     \\
+    [1em]
+    female  &   & 0.00945     &   &   &    0.000753     &   \\
+    &   & (0.180)     &   &   & (0.902)     &   \\
+    [1em]
+    hs\_private  &   & -0.0762\sym{***}& -0.0386\sym{***}&   & -0.0896\sym{***}&   \\
+    &   & (0.000)     & (0.000)     &   & (0.000)     &   \\
+    [1em]
+    hs\_urban    &   &  0.0711\sym{***}&   &   &  0.0294\sym{***}&  0.0124     \\
+    &   & (0.000)     &   &   & (0.000)     & (0.159)     \\
+    [1em]
+    general\_high&   &   0.556\sym{***}&   0.514\sym{***}&   &   0.635\sym{***}&   \\
+    &   & (0.000)     & (0.000)     &   & (0.000)     &   \\
+    [1em]
+    paedu   &   &   0.101\sym{***}&  0.0739\sym{***}&   &  0.0829\sym{***}&  0.0330\sym{***}\\
+    &   & (0.000)     & (0.000)     &   & (0.000)     & (0.000)     \\
+    [1em]
+    PDS\_control  &   &  &  Yes    &  &    &  Yes \\
+    \hline
+    \(N\)   &   11132     &   11050     &    5230     &   12576     &   12386     &    5766     \\
+    \bottomrule
+    \multicolumn{7}{l}{\footnotesize \textit{p}-values in parentheses} \\
+    \multicolumn{7}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)} \\
+    \end{tabular}
 
 
 \section{Discussion and Conclusion}
