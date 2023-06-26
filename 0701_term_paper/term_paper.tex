@@ -113,7 +113,7 @@ above. Note: you can't use both packages at once or compile-time errors will res
     Y_i         = \eta_0   + \sum_{i=1}^n \eta_j X_i^j   + \lambda_\eta\sum_{i=1}^n \lvert \eta_j   \rvert + \delta_i
     \end{align}
 
-    where the $X^j$ is the covariate we choose from the dataset, and $\{\lambda_\theta,\lambda_\eta\}$ are tuning parameter in the Lasso regression.  After the stages, we will have two different sets of selected covariates, denoted as $\Lambda_\theta,\ \Lambda_\eta$, and their union represents all the potential confounders.  So we can conduct the third stage OLS regression to identify the causal effect in the presence of CIA:
+    where the $X^j$ is the covariate we choose from the dataset, and $\{\lambda_\theta,\lambda_\eta\}$ are tuning parameters in the Lasso regression.  After the stages, we will have two different sets of selected covariates, denoted as $\Lambda_\theta,\ \Lambda_\eta$, and their union represents all the potential confounders.  So we can conduct the third stage OLS regression to identify the causal effect in the presence of CIA:
 
     \begin{align}
         Y_i = \beta_0 + \beta_{\text{PDS}}\text{SP}_i + \sum_{j \,\in\, \Lambda_\theta \cup \Lambda_\eta} \beta_j X_i^j + \epsilon_i
@@ -168,7 +168,7 @@ above. Note: you can't use both packages at once or compile-time errors will res
     \end{table}
     \end{center}
 
-    From table I, the single variable OLS result matches our intuition with a strongly negative correlation between living in single parent family and obtaining university degree in future; however, it also shows that when considering the PDS regression for SH group, the causal relationship is not significant, while for CP group it's significant.  This is the most interesting point in our analysis, because it's very peculiar as we expect the negative causal effect holds for these two different groups, but how does it differ?  We wiil explain when we dig deeper, that is, analyzing the other outcome variable.
+    From table 1, the single variable OLS result matches our intuition with a strongly negative correlation between living in single parent family and obtaining university degree in future; however, it also shows that when considering the PDS regression for SH group, the causal relationship is not significant, while for CP group it's significant.  This is the most interesting point in our analysis, because it's very peculiar as we expect the negative causal effect holds for these two different groups, but how does it differ?  We wiil explain when we dig deeper, that is, analyzing the other outcome variables.
 
     \begin{center}
     \begin{table}
@@ -213,7 +213,7 @@ above. Note: you can't use both packages at once or compile-time errors will res
     \end{table}
     \end{center}
 
-    In the table II, we see all the coefficient are significant under 1\% significant level, which indicates the effect is very strong.  As the PDS regression result shows, living in single parent family will reduce the probability of obtaining master degree by 4\% and 4.6\%, respectively for SH and CP group.  We regard the impact as very prodigious and suggest that the underlying channels, economics situation and mental support, play a crucial role in the process.
+    In table 2, we see all the coefficient are significant under 1\% significant level, which indicates the effect is very strong.  As the PDS regression result shows, living in single parent family will reduce the probability of obtaining master degree by 4\% and 4.6\%, respectively for SH and CP group.  We regard the impact as very prodigious and suggest that the underlying channels, economics situation and mental support, play a crucial role in the process.
 
     \begin{center}
     \begin{table}
@@ -258,9 +258,9 @@ above. Note: you can't use both packages at once or compile-time errors will res
     \end{table}
     \end{center}
 
-    Now let's look at table III, where the PDS regression result looks similar to the first table.  But compared with significantly negative impact for CP group, the impact nearly exist for SH group.  So why is there an unneglected difference between these two group?  Since the only different characteristic for these groups are born year, we suggest the difference might by attributed to the Taiwan Education Reform in 2000s, when the number of university skyrocketed in order to increase the education degree of general people.  
+    Now let's look at table 3, where the PDS regression result looks similar to the first table.  Compared with significantly negative impact for CP group, it's noticeable the impact nearly exist for SH group.  So why is there an unneglected difference between these two group?  Since the only different characteristic for these groups are born year, we suggest the difference might by attributed to the Taiwan Education Reform in 2000s, when the number of university skyrocketed in order to increase the general education degree of people.  
     
-    Although the competition for children to get into university is reduced; however, we thinks the policy may enlarge the gap between those with good/bad economic condition, or in other words, living in single parent/nuclear family.  The policy may do provide more opportunities for children to enter the university, but failing to cover the money shortage of those with bad economic condition, as a consequence, they would tend to suspend their educational investment after high school and enter labor market for finding work.  This sounds like a possible stroy, with some table, we can make the argument more credible.
+    Although the reform made competition for children to get into university be reduced; however, we thinks the policy may enlarge the gap between those with good/bad economic condition, or in other words, living in single parent/nuclear family.  The policy may do provide more opportunities for children to enter the university, but failing to cover the money shortage of those with bad economic condition, as a consequence, they would tend to suspend their educational investment after high school and enter labor market for finding work.  This sounds like a plausible story, with some evidence, we can make the argument more credible.
 
 \section{Discussion and Conclusion}
 
