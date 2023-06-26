@@ -73,6 +73,11 @@ est sto public_1_sh
 qui reg public sp if SH == 0, r              
 est sto public_1_cp
 
+* Outcome Variable (4): Working 4 Years after graduate from Univ 
+qui reg work_year sp if SH == 1, r  
+est sto work_year_1_sh
+qui reg work_year sp if SH == 0, r  
+est sto work_year_1_cp
 
 ***        Adding Control Variable       ***
 * Outcome Variable (1): University
@@ -92,6 +97,12 @@ qui reg public sp female hs_private hs_urban general_high paedu if SH == 1, r
 est sto public_4_sh
 qui reg public sp female hs_private hs_urban general_high paedu if SH == 0, r              
 est sto public_4_cp
+
+* Outcome Variable (4): Working 4 Years after graduate from Univ 
+qui reg work_year sp female hs_private hs_urban general_high paedu if SH == 1, r  
+est sto work_year_4_sh
+qui reg work_year sp female hs_private hs_urban general_high paedu if SH == 0, r  
+est sto work_year_4_cp
 
 ***            PDS method                 ***
 * define NPCP control variables
@@ -125,3 +136,4 @@ eststo public_7_cp
 esttab university_1_sh university_4_sh university_7_sh university_1_cp university_4_cp university_7_cp using "$do\table_tex\comparison_univ.tex", p num star(* 0.10 ** 0.05 *** 0.01) tex replace
 esttab public_1_sh public_4_sh public_7_sh public_1_cp public_4_cp public_7_cp using "$do\table_tex\comparison_public.tex", p num star(* 0.10 ** 0.05 *** 0.01) tex replace
 esttab master_1_sh master_4_sh master_7_sh master_1_cp master_4_cp master_7_cp using "$do\table_tex\comparison_master.tex", p num star(* 0.10 ** 0.05 *** 0.01) tex replace
+esttab work_year_1_sh work_year_4_sh work_year_1_cp work_year_4_cp using "$do\table_tex\comparison_workyear.tex", p num star(* 0.10 ** 0.05 *** 0.01) tex replace
