@@ -7,6 +7,9 @@
 \usepackage{subfigure} %插入多圖時用子圖顯示的宏包
 \usepackage{siunitx} % used for regression table
 \usepackage{booktabs} % used for regression table
+\usepackage{natbib}
+\setcitestyle{authoryear, round}
+
 
 %%%%%% NOTE FROM OVERLEAF: The mathtime package is no longer publicly available nor distributed. We recommend using a different font package e.g. mathptmx if you'd like to use a Times font.
 % \usepackage{mathptmx}
@@ -179,7 +182,7 @@ above. Note: you can't use both packages at once or compile-time errors will res
     &\multicolumn{3}{c}{SH} &\multicolumn{3}{c}{CP/NP} \\
     \cmidrule(l){2-4}\cmidrule(l){5-7}
     &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)} \\
-    &\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University} \\
+    &\multicolumn{1}{c}{Master}&\multicolumn{1}{c}{Master}&\multicolumn{1}{c}{Master}&\multicolumn{1}{c}{Master}&\multicolumn{1}{c}{Master}&\multicolumn{1}{c}{Master} \\
     \midrule
     sp          &     -0.0787\sym{***}&     -0.0462\sym{**} &     -0.0405\sym{**} &     -0.0635\sym{***}&     -0.0549\sym{***}&     -0.0465\sym{**} \\
             &     (0.000)         &     (0.011)         &     (0.024)         &     (0.001)         &     (0.005)         &     (0.015)         \\
@@ -224,7 +227,7 @@ above. Note: you can't use both packages at once or compile-time errors will res
     &\multicolumn{3}{c}{SH} &\multicolumn{3}{c}{CP/NP} \\
     \cmidrule(l){2-4}\cmidrule(l){5-7}
     &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)} \\
-    &\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University}&\multicolumn{1}{c}{University} \\
+    &\multicolumn{1}{c}{Public}&\multicolumn{1}{c}{Public}&\multicolumn{1}{c}{Public}&\multicolumn{1}{c}{Public}&\multicolumn{1}{c}{Public}&\multicolumn{1}{c}{Public} \\
     \midrule
     sp          &     -0.0229         &     0.00651         &     0.01000         &     -0.0768\sym{***}&     -0.0739\sym{***}&     -0.0443\sym{**} \\
             &     (0.212)         &     (0.705)         &     (0.553)         &     (0.000)         &     (0.000)         &     (0.020)         \\
@@ -264,21 +267,77 @@ above. Note: you can't use both packages at once or compile-time errors will res
 
 \section{Discussion and Conclusion}
 
-    To confirm that the difference between SH and CP group is truely induce by family's economic background, we show another dependent variable -- $work\_year$ further. The variable $work\_year$ is defined as how many years these students enter the labor market when they are 25 years old. If single parent family do influence the students' economic situation, it is possible that students in single parent family will enter the labor market earlier. Thus, we simply run the regression of single parent family on working year.
+    Overall, we find out that single parent family has the significant negative effect on academic degrees, especially in master degree. We also observe the different impact of single parent family. However, the channel is still unknown. The different effects between two groups might be related to the economic conditions of the students. 
 
-    Table 
+    To confirm that the difference between SH and CP group is truely induced by family's economic background, we show another dependent variable -- $work\_year$ further. The variable $work\_year$ is defined as how many years these students enter the labor market when they are 25 years old. If single parent families do influence the students' economic situation, it is possible that students in single parent family will enter the labor market earlier, rather than getting the higher educational degree. Thus, we simply run the regression of single parent family on working year.
+
+    In table 4, the single regression with some control variables we selected shows that single parent families have significant effect on CP group, while it is not significant in SH group, which directly confirm our suppose about bad economic conditions in single parent families. Although the scale is only 0.2 year, we believe single parent families somehow force their children to enter the labor market earlier than general students, which might influence their highest level of education.
+
+    Besides, our results is consistent to the previous paper.  \citet{Luoh2004}  also prove the educational reform around 2000s does not benefit some economic vulnerable groups. He analyzes the probability change of entering Taiwan universities. Due to the educational reform in 1987, the amount of university in Taiwan abruptly increased. The total number of universities was 60 in 1995, but 135 in 2001, which allowed more students to attend the university.  \citet{Luoh2004} point out that when the proportion of school attendance is low, the increase of school opportunities will increase the influence of family background on the probability of individual school attendance, which means students from bad economic backgrounds family will have more negative impact on the probability of attaining the bachelor degree. 
+   
+    In our cases, single parent family do have some economic situation. The negative effect of single parent family is not really obvious until the educational reform enhance the total probability of entering universities,which somehow croud out the children from single parent family, making the coefficient of CP group to be significant.
+    
+    \begin{center}
+        \begin{table}
+        \caption{Regression on Working Year for SH and CP group}
+        \setlength{\tabcolsep}{0.5mm}
+        \begin{tabular}{l*{4}c}
+        \toprule
+        &\multicolumn{2}{c}{SH} &\multicolumn{2}{c}{CP/NP} \\
+        \cmidrule(l){2-3}\cmidrule(l){4-5}
+        &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+        &\multicolumn{1}{c}{Work\_year}&\multicolumn{1}{c}{Work\_year}&\multicolumn{1}{c}{Work\_year}&\multicolumn{1}{c}{Work\_year}\\
+        \midrule
+        sp          &       0.257\sym{**} &       0.153         &       0.214\sym{***}&       0.200\sym{***}\\
+                    &     (0.032)         &     (0.180)         &     (0.006)         &     (0.009)         \\
+        [1em]
+        female      &                     &      0.0312         &                     &       0.437\sym{***}\\
+                    &                     &     (0.675)         &                     &     (0.000)         \\
+        [1em]
+        hs\_private  &                     &       0.380\sym{***}&                     &       0.139\sym{**} \\
+                    &                     &     (0.000)         &                     &     (0.010)         \\
+        [1em]
+        hs\_urban    &                     &      -0.112\sym{*}  &                     &      -0.167\sym{***}\\
+                    &                     &     (0.093)         &                     &     (0.000)         \\
+        [1em]
+        general\_high&                     &      -1.012\sym{***}&                     &           0         \\
+                    &                     &     (0.000)         &                     &         (.)         \\
+        [1em]
+        paedu       &                     &      -0.400\sym{***}&                     &      -0.290\sym{***}\\
+                    &                     &     (0.000)         &                     &     (0.000)         \\
+        [1em]
+        \_cons      &       2.959\sym{***}&       3.465\sym{***}&       2.940\sym{***}&       2.815\sym{***}\\
+                    &     (0.000)         &     (0.000)         &     (0.000)         &     (0.000)         \\
+        \hline
+        \(N\)       &        2685         &        2685         &        3548         &        3548         \\
+        \hline\hline
+        \multicolumn{2}{l}{\footnotesize \textit{p}-values in parentheses} & \multicolumn{3}{r}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+        \end{tabular}
+        \begin{tablenotes}
+            We only run the simple regression with some control variables since the PDS method would drop most of the samples. The data quality doesn't allow us to utilize PDS method in this case.
+        \end{tablenotes}
+        \end{table}
+        \end{center}
+    
+   
 
 
 
 
-References here (manual or bibTeX). If you are using bibTeX, add your bib file 
-name in place of BibFile in the bibliography command.
+
 % Remove or comment out the next two lines if you are not using bibtex.
 \bibliographystyle{aea}
 \bibliography{BibFile}
 
 % The appendix command is issued once, prior to all appendices, if any.
 \appendix
+
+
+
+\bibliographystyle{unsrt}
+\bibliography{reference}
+
+
 
 \end{document}
 
