@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  28 JUN 2023 22:11
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  28 JUN 2023 22:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -324,56 +324,27 @@ Package color Info: Driver file: xetex.def on input line 149.
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 40.
- [1
 
-]
+
+Package natbib Warning: Citation `)' on page 1 undefined on input line 91.
+
+[1
+
+] [2]
 File: university_sp.png Graphic file (type bmp)
 <university_sp.png>
 File: master_sp.png Graphic file (type bmp)
 <master_sp.png>
 File: public_sp.png Graphic file (type bmp)
 <public_sp.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[2] [3]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+ [3]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [4]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[5] [6]
-Underfull \vbox (badness 2376) has occurred while \output is active []
-
- [7]
-
-Package natbib Warning: Citation `Luoh2004' on page 8 undefined on input line 284.
-
-
-Package natbib Warning: Citation `Luoh2004' on page 8 undefined on input line 284.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-No file term_paper.bbl.
-No file term_paper.bbl.
-
-Package natbib Warning: There were undefined citations.
-
-[8] [9] (./term_paper.aux) ) 
-Here is how much of TeX's memory you used:
- 6995 strings out of 478635
- 165134 string characters out of 5847854
- 1875001 words of memory out of 5000000
- 27056 multiletter control sequences out of 15000+600000
- 516039 words of font info for 59 fonts, out of 8000000 for 9000
- 36 hyphenation exceptions out of 8191
- 71i,13n,77p,1240b,398s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-Output written on term_paper.pdf (9 pages).
+./term_paper.tex:210: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   e
+l.210     [1e[1em]
+                  
+Dimensions can be in units of em, ex, i

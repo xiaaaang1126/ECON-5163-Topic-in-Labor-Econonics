@@ -19,6 +19,10 @@ if "`c(username)'" == "jwutw" {
 }
 
 
+do "$do\SH_clean_main_copy.do"
+do "$do\SH_clean_confounder.do"
+do "$do\SH_analysis.do"
+
 * Import SH & NPCP Dataset
 use "$workData\SH_pds.dta", clear
 destring(stud_id), replace
@@ -44,7 +48,6 @@ graph export "$pic\master_sp.png", replace
 * Regression Table comparison
 ********************************************
 
-do "C:\Users\Administrator\Desktop\LaborTopicTermPaper\do\SH_clean_main_copy.do"
 
 * merge two pds data
 use "$workData\SH_pds_drop.dta", clear
