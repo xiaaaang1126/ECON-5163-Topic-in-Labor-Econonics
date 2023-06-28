@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  27 JUN 2023 16:31
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  28 JUN 2023 22:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -158,11 +158,18 @@ Mode Selected: final
 \abovecaptionskip=\skip55
 \belowcaptionskip=\skip56
 \bibindent=\dimen158
+) (c:/texlive/2022/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count277
+\float@exts=\toks21
+\float@box=\box98
+\@float@everytoks=\toks22
+\@floatcapt=\box99
 ) (c:/texlive/2022/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
  (c:/texlive/2022/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks21
+\KV@toks@=\toks23
 ) (c:/texlive/2022/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
  (c:/texlive/2022/texmf-dist/tex/latex/graphics/trig.sty
@@ -176,13 +183,6 @@ File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
 ))
 \Gin@req@height=\dimen159
 \Gin@req@width=\dimen160
-) (c:/texlive/2022/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count277
-\float@exts=\toks22
-\float@box=\box98
-\@float@everytoks=\toks23
-\@floatcapt=\box99
 ) (c:/texlive/2022/texmf-dist/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfigtopskip=\skip57
@@ -327,9 +327,20 @@ Package translations Info: loading dictionary `translations-basic-dictionary' fo
  [1
 
 ]
-Underfull \vbox (badness 2932) has occurred while \output is active []
+File: university_sp.png Graphic file (type bmp)
+<university_sp.png>
+File: master_sp.png Graphic file (type bmp)
+<master_sp.png>
+File: public_sp.png Graphic file (type bmp)
+<public_sp.png>
 
- [2] [3]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[2] [3]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -338,11 +349,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [5] [6]
+Underfull \vbox (badness 2376) has occurred while \output is active []
 
-Package natbib Warning: Citation `Luoh2004' on page 7 undefined on input line 276.
+ [7]
+
+Package natbib Warning: Citation `Luoh2004' on page 8 undefined on input line 284.
 
 
-Package natbib Warning: Citation `Luoh2004' on page 7 undefined on input line 276.
+Package natbib Warning: Citation `Luoh2004' on page 8 undefined on input line 284.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -352,14 +366,14 @@ No file term_paper.bbl.
 
 Package natbib Warning: There were undefined citations.
 
-[7] [8] (./term_paper.aux) ) 
+[8] [9] (./term_paper.aux) ) 
 Here is how much of TeX's memory you used:
- 6968 strings out of 478635
- 164663 string characters out of 5847854
- 1868001 words of memory out of 5000000
- 27034 multiletter control sequences out of 15000+600000
+ 6995 strings out of 478635
+ 165134 string characters out of 5847854
+ 1875001 words of memory out of 5000000
+ 27056 multiletter control sequences out of 15000+600000
  516039 words of font info for 59 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 71i,13n,77p,1128b,398s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 71i,13n,77p,1240b,398s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on term_paper.pdf (8 pages).
+Output written on term_paper.pdf (9 pages).

@@ -2,9 +2,9 @@
 \documentclass[]{AEA}
 \usepackage{amsmath}
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\usepackage{graphicx} %插入圖片的宏包
 \usepackage{float} %設定圖片浮動位置的宏包
-\usepackage{subfigure} %插入多圖時用子圖顯示的宏包
+\usepackage{graphicx} %插入圖片
+\usepackage{subfigure} %插入多圖時用子圖顯示
 \usepackage{siunitx} % used for regression table
 \usepackage{booktabs} % used for regression table
 \usepackage{natbib}
@@ -39,16 +39,16 @@
 
 \begin{document}
 
+
 \title{How does Single Parent Family Affect Children's Human Capital Investment}
 \shortTitle{Single Parent family effect}
 \author{Yi Jie Wu, Xiang Jyun Jhang\thanks{Wu: Department of Economics, National Taiwan University, b08302129@ntu.edu.tw; Jhang: Department of Economics, National Taiwan University, b08303024@ntu.edu.tw.  We are sincerely grateful for comments and advices from prof. Tzu-Ting Yang}}
 \date{\today}
 \pubMonth{JULY}
 \pubYear{2023}
-\Keywords{Single Parent, Labor, Education}
 
 \begin{abstract}
-    We estimate the impact of living in the single parent family on the children's future educational attainment by using a comprehensive panel survey data in Taiwan (TEPS).  By conducting PDS method, it's found that the experience of living under single parent family will decrease the probability of attaining university degree by  percent, and master degree by  percents also.  We also finds that there is a gap between the probability for two different groups of sample, which we suggest is resulted from the Taiwan Educational Reform in 2000s.
+    We estimate the impact of living in the single parent family on the children's future educational attainment by using a comprehensive panel survey data on students in Taiwan (TEPS).  By conducting PDS method, it's found that the experience of living under single parent family will decrease the probability of attaining university degree by 2.6 percent, and master degree by 4.6 percents also.  We also finds that there is a gap between the probability for two different groups of sample, which we provides some evidence to show it is attributed to the Taiwan Educational Reform in 2000s.
 \end{abstract}
 
 
@@ -88,7 +88,7 @@ above. Note: you can't use both packages at once or compile-time errors will res
 
 \section{Data and Sample} % first paragraph: how the sample is built from the dataset?
 
-    The dataset we use are Taiwan Education Panel Survey (TEPS) and Taiwan Education Panel Survey and Beyond (TEPS-B), in which there are two group of children being surveyed consistently from their schoold age (16-18) to their working age (25-30) and each contains roughly 20,000 samples. The former dataset contains the in-school performance and characteristics of each children by surveying on their parents, teacher of each subject and children themselves. The latter dataset contains the characteristics and working status after the children entered into the labor market, and tracking down the sample for several years.  In the whole dataset, there are two main groups of sample, \textit{\textbf{senior high (SH)}} group and \textit{\textbf{core population (CP)}} group.  The only difference between these two groups is the born year: the born year for SH group is 1984-1985, but for CP group is 1988-1989.  But this unneglected difference leads us to divide them into two groups and perform the same analysis, and it shows us some unexpected result which should be revealed later.
+    The dataset we use are Taiwan Education Panel Survey (TEPS) and Taiwan Education Panel Survey and Beyond (TEPS-B), in which there are two group of children being surveyed consistently from their schoold age (16-18) to their working age (25-30) and each contains roughly 20,000 samples. The former dataset contains the in-school performance and characteristics of each children by surveying on their parents, teacher of each subject and children themselves. The latter dataset contains the characteristics and working status after the children entered into the labor market, and tracking down the sample for several years.  In the whole dataset, there are two main groups of sample, \textit{\textbf{senior high (SH)}} group and \textit{\textbf{core population (CP)}} group (sometimes, we also call it \textit{\textbf{NPCP}} group since there are some newly added sample in this group).  The only difference between these two groups is the born year: the born year for SH group is 1984-1985, but for CP group is 1988-1989.  But this unneglected difference leads us to divide them into two groups and perform the same analysis, and it shows us some unexpected result which should be revealed later.
 
     Since our goal is to estimate the causal effect of living in single parent family on children's future educational attainment, we first start on clarifying the condition of \textbf{living in single parent family}.  As we restricted the period we concerned to high-school age, which is usually the rapidly changing period in life, we define our treatment variable as below:
 
@@ -100,7 +100,16 @@ above. Note: you can't use both packages at once or compile-time errors will res
         \end{aligned}\right.
     \]
 
-    On the other hand, for identifying the children's future educational attainment, we choose three different kinds of outcome variable, which are \textbf{university degree, master degree and public university}.   The first and second variable are straight-forward, that is whether they obtain the degree when data recoreded.  The last one is more about the academic performance measured at the end of their high school age, since the entrance of public university is more competitive than private ones.  All these covariates are defined by using the data from TEPS-B, which provides the educational degree and whether the children enter job market after they're above 23-24 years old, so we can identify their final educational attainment.
+    On the other hand, for identifying the children's future educational attainment, we choose three different kinds of outcome variable, which are \textbf{university degree, master degree and public university}.   The first and second variable are straight-forward, that is whether they obtain the degree when data recoreded.  The last one is more about the academic performance measured at the end of their high school age, since the entrance of public university is more competitive than private ones.  All these covariates are defined by using the data from TEPS-B, which provides the educational degree and whether the children enter job market after they're above 24-25 years old, so we can identify their final educational attainment.  
+    
+    To grasp the intuition, we present the ratio of each outcome variable by living in single parent family or not in figure 1.  It's not surprising that in both group, the educational outcome of children living in single parent family is lower than those who are not.  
+
+    \begin{figure}
+        \caption{Ratio of different outcome variables for each group}
+        \includegraphics[scale=0.13]{university_sp.png}
+        \includegraphics[scale=0.13]{master_sp.png}
+        \includegraphics[scale=0.13]{public_sp.png}
+    \end{figure}
 
     Finally, the comprehensive dataset also includes the survey data on their parent and teachers, in which the evaluation and observation on the children in their school age are detaily recorded.  We consider these dataset as the cure to omitted variable bias, so we look at each teacher's data thoroughly and pick every potential confounding variable that either relates to treatment or outcome variable.  Besides, it's worth mentioning that since we want to reduce biasedness, we pay a lot of attention to not include a covariate regarded as \textbf{bad control} by us.  As the following setup is done, we can move forward to the PDS analysis.
 
@@ -245,7 +254,6 @@ above. Note: you can't use both packages at once or compile-time errors will res
                 &                     &     (0.000)         &     (0.000)         &                     &         (.)         &                     \\
     [1em]
     paedu       &                     &       0.123\sym{***}&      0.0978\sym{***}&                     &       0.110\sym{***}&      0.0641\sym{***}\\
-            &                     &     (0.000)         &     (0.000)         &                     &     (0.000)         &     (0.000)         \\
             &                     &     (0.000)         &     (0.000)         &                     &     (0.000)         &     (0.000)         \\
     [1em]
     PDS\_control  &   &  &  Yes    &  &    &  Yes \\
