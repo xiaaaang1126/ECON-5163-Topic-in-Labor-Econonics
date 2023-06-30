@@ -9,7 +9,7 @@
 \usepackage{booktabs} % used for regression table
 \usepackage{natbib}
 \usepackage{xeCJK} %中文包，正常显示中文
-\usepackage{ctex} %支持中文，不加这个包，参考文献几个大字显示为英文且出警告
+%\usepackage{ctex} %支持中文，不加这个包，参考文献几个大字显示为英文且出警告
 %\setcitestyle{authoryear, round}
 
 
@@ -58,25 +58,25 @@
 
 \section{Introduction}
 
-    Over the past decade, a bunch of literatures investigated the impact of family background on children's futrure performance. The influence of single parent family is also a popular subtopic. The general trend is that students from single parent families are scored lower than those from normal families.\citep{barajas2011} 
+    Over the past decade, a bunch of literatures investigated the impact of family background on children's future performance; the influence of single parent family, also, is a very popular subtopic. The general trend is that students from single parent families would score lower than those from normal families.\citep{barajas2011} 
 
-    \cite{krein1988} has shown that the the negative impact of single parent families intensify when the period students staying in this type of family is longer. \cite{pong2003} compared the math and science achievement of third and fourth graders across 11 countries, and the results indicate that there's significant nagative effect of single parent families in 9 countries, except Australia and New Zealand, since these two countries have the entire family policies, reduce the negative effect of single parent families.
+    \cite{krein1988} has shown that the negative impact of single parent families intensify when the period students staying in this type of family is longer. \cite{pong2003} compared the math and science achievement of third and fourth graders across 11 countries, and the results indicate that there's significant negative effect of single parent families in 9 countries, except Australia and New Zealand, since these two countries have the entire family policies, reduce the negative effect of single parent families.
 
-    Most research focus on the impact on scores or GPA, while less research talk about the long-term socioeconomic outcomes, like the degree of education. \cite{bernardi2014} use several countries data and find that children in seperated family have lower probability of achieving the university degree. Moreover, children living in higher education level family are more affected by the divorce event. The probability of obtaining the University degree is significantly affected by single parent family and their parents' education level.
+    Most researches focus on the impact on scores or GPA, while less researches talk about the long-term socioeconomic outcomes, like the degree of education. \cite{bernardi2014} use several countries' data and find that children in separated family have lower probability of achieving the university degree.  Moreover, children living in higher education level family are more affected by the divorce event. The probability of obtaining the university degree is significantly affected by single parent family and their parents' education level.
 
-    So why the single parent family has negative effect on their children? \cite{pong2003} form a possible system. There're two possible channels: one is financial capital channel, the other is social capital channel. The first channel indicates that single parent families only have one income source, which is less stable than two parent families. The second channel is that single parent has less time to accompany children, the parent absense during the children's learning period might also have some negative effect.
+    So why does the single parent family have negative effect on their children?  \cite{pong2003} propose a plausible system, in which there are two possible channels: one is financial capital channel, and the other is social capital channel. The first channel indicates that single parent families only have one income source, which is less stable than two parent families; while the second channel is that single parent has less time to accompany children, so the parent absence during the children's learning period might also have some negative effect.
 
-    In this article, we are interested in the probability of getting the higher education degree. We will include the university degree and master degree as main dependent variables. Furthermore, because the top public universities in Taiwan have much resources and lower tuition, it is popular for students with higher grades to choose top public university.\citep{luoh2018} Thus, we'll also see the public university degree as a important dependent variables, and try to observe how the single parent families influence children's attainment of higher education degree.
+    In this article, we are interested in the probability of getting the higher education degree.  We will include the university degree and master degree as main dependent variables.  Furthermore, because the top public universities in Taiwan have much resources and lower tuition, it is popular for students with higher grades to choose top public university.\citep{luoh2018} Consequently, we'll also treat the public university degree as an important dependent variables, and try to observe how the single parent families influence children's attainment of higher education degree.
 
-    Our data shows that single parent families have quite different effect in different periods. For the group born later, single parent families always have significant negative impact on university, master, and public university degrees, while for the group born earlier, the negative effect is less pronounced. After showing the whole analysis, we'll give our explaination for these difference.
+    Our data shows that single parent families have quite different effect in different periods. For the group born later, single parent families always have significant negative impact on university, master, and public university degrees, while for the group born earlier, the negative effect is less pronounced.  After showing the whole analysis, we'll give our explanation for these difference.
 
-    The empirical results are presented in the following four parts: the second part is about our dataset; the third part describes how we build the model. the fourth part presents the empirical results for three main dependent variables and single parent families; the fifth part discusses our interpretation of the results and links them to the policy changes.
+    The empirical results are presented in the following four parts: the second part is about our dataset; the third part describes how we build the model. the fourth part presents the empirical results for three main dependent variables and single parent family; the fifth part discusses our interpretation of the results and links them to the policy changes.
     
 
 
 \section{Data and Sample} % first paragraph: how the sample is built from the dataset?
 
-    The datasets we use are Taiwan Education Panel Survey (TEPS) and Taiwan Education Panel Survey and Beyond (TEPS-B), in which there are two groups of children being surveyed consistently from their schoold age (16-18) to their working age (25-30) and each contains roughly 20,000 samples. The former dataset contains the in-school performance and characteristics of each child by surveying on their parents, teacher of each subject and children themselves. The latter dataset contains the characteristics and working status after the children entered into the labor market, and tracking down the sample for several years.  In the whole dataset, there are two main groups of sample, senior high (SH) group and core population (CP) group (sometimes, we also call it NPCP group since there are some newly added sample in this group).  The only difference between these two groups is the year of birth: the birth for SH group is 1984-1985, but for CP group is 1988-1989.  However, this unnoticed difference leads us to divide them into two groups and perform the same analysis, and it shows us some unexpected results which will be revealed later.
+    The datasets we use are Taiwan Education Panel Survey (TEPS) and Taiwan Education Panel Survey and Beyond (TEPS-B), in which there are two groups of children being surveyed consistently from their school age (16-18) to their working age (25-30) and each contains roughly 20,000 samples. The former dataset contains the in-school performance and characteristics of each child by surveying on their parents, teacher of each subject and children themselves. The latter dataset contains the characteristics and working status after the children entered into the labor market, and tracking down the sample for several years.  In the whole dataset, there are two main groups of sample, senior high (SH) group and core population (CP) group (sometimes, we also call it NPCP group since there are some newly added sample in this group).  The only difference between these two groups is the year of birth: the birth for SH group is 1984-1985, but for CP group is 1988-1989.  However, this unnoticed difference leads us to divide them into two groups and perform the same analysis, and it shows us some unexpected results which will be revealed later.
 
     Since our aim is to estimate the causal effect of living in single parent family on children's future educational attainment, we start by clarifying the condition of living in single parent family.  As we restricted the period we concerned to high-school age, which is usually the rapidly changing period in life, we define our treatment variable as below:
 
@@ -88,10 +88,8 @@
         \end{aligned}\right.
     \]
 
-    On the other hand, to identify the children's future educational attainment, we choose three different kinds of outcome variable, which are \textbf{university degree, master degree and public university}.   The first and second variable are straight-forward, that is whether they obtain the degree when the data are recoreded.  The last one is more about the academic performance measured at the end of their high school age, since the entrance of public university is more competitive than private ones.  All these covariates are defined by using the data from TEPS-B, which provides the educational degree and whether the children enter job market after they're above 24-25 years old, so we can identify their final educational attainment.  
+    On the other hand, to identify the children's future educational attainment, we choose three different kinds of outcome variable, which are \textbf{university degree, master degree and public university}.   The first and second variable are straight-forward, that is whether they obtain the degree when the data are recorded.  The last one is more about the academic performance measured at the end of their high school age, since the entrance of public university is more competitive than private ones.  All these covariates are defined by using the data from TEPS-B, which provides the educational degree and whether the children enter job market after they're above 24-25 years old, so we can identify their final educational attainment.  
     
-    To grasp the intuition, we present the ratio of each outcome variable by living in single parent family or not in figure 1.  It's not surprising that in both group, the educational outcome of children living in single parent family is lower than those who are not.  
-
     \begin{figure}
         \caption{Ratio of different outcome variables for each group}
         \includegraphics[scale=0.13]{university_sp.png}
@@ -99,7 +97,9 @@
         \includegraphics[scale=0.13]{public_sp.png}
     \end{figure}
 
-    Finally, the comprehensive dataset also includes the survey data on their parent and teachers, in which the evaluation and observation on the children in their school age are detaily recorded.  We consider these dataset as the cure to omitted variable bias, so we look at each teacher's data thoroughly and pick out every potential confounding variable that either relates to treatment or outcome variable.  Besides, it's worth mentioning that since we want to reduce bias, we take great care not to include a covariate regarded as bad control by us.  As the following setup is done, we can proceed with the PDS analysis.
+    To grasp the intuition, we present the ratio of each outcome variable by living in single parent family or not in figure 1.  It's not surprising that in both groups, the educational outcome of children living in single parent family is lower than those who are not.  Besides, one more thing catches our attention is the significantly increasing trend in the public university, which reflecting the policy changes which we will focus on in later analysis.
+
+    Finally, the comprehensive dataset also includes the survey data on their parent and teachers, in which the evaluation and observation on the children in their school age are detailly recorded.  We consider these dataset as the cure to omitted variable bias, so we look at each teacher's data thoroughly and pick out every potential confounding variable that either relates to treatment or outcome variable.  Besides, it's worth mentioning that since we want to reduce bias, we take great care not to include a covariate regarded as bad control by us.  As the following setup is done, we can proceed with the PDS analysis.
 
 
 \section{Empirical Method} % Second paragraph: what's the assumption and the specification?
@@ -113,7 +113,7 @@
     Y_i         = \eta_0   + \sum_{i=1}^n \eta_j X_i^j   + \lambda_\eta\sum_{i=1}^n \lvert \eta_j   \rvert + \delta_i
     \end{align}
 
-    where the $X^j$ is the covariate we choose from the dataset, and $\{\lambda_\theta,\lambda_\eta\}$ are tuning parameters in the Lasso regression.  After the stages, we will have two different sets of selected covariates, denoted as $\Lambda_\theta,\ \Lambda_\eta$, and their union represents all the potential confounders.  So we can conduct the third stage OLS regression to identify the causal effect in the presence of CIA:
+    where $X^j$ are the covariates we choose from the dataset, and $\{\lambda_\theta,\lambda_\eta\}$ are tuning parameters in the Lasso regression.  After the two stages, we will have two different sets of selected covariates, denoted as $\Lambda_\theta,\ \Lambda_\eta$, and their union represents all the potential confounders.  So we can conduct the third stage OLS regression to identify the causal effect in the presence of CIA:
 
     \begin{align}
         Y_i = \beta_0 + \beta_{\text{PDS}}\text{SP}_i + \sum_{j \,\in\, \Lambda_\theta \cup \Lambda_\eta} \beta_j X_i^j + \epsilon_i
@@ -168,7 +168,7 @@
     \end{table}
     \end{center}
 
-    From Table 1, the single variable OLS result matches our intuition with a strong negative correlation between living in single parent family and obtaining university degree in future; however, it also shows that if we look at the PDS regression for the SH group, the causal relationship isn't significant, while it is for the CP group. This is the most interesting point in our analysis, because it's very peculiar as we expect the negative causal effect holds for these two different groups, but how does it differ?  We will explain when we dig deeper, that is, analyzing the other outcome variables.
+    From table 1, the single variable OLS result matches our intuition with a strong negative correlation between living in single parent family and obtaining university degree in future; however, it also shows that if we look at the PDS regression for the SH group, the causal relationship isn't significant, while it is for the CP group. This is the most interesting point in our analysis, because it's very peculiar as we expect the negative causal effect holds for these two different groups, but how does it differ?  We will explain when we dig deeper, that is, analyzing the other outcome variables.
 
     \begin{center}
     \begin{table}
@@ -257,63 +257,65 @@
     \end{table}
     \end{center}
 
-    Now let's look at table 3, where the PDS regression result looks similar to the first table.  Compared with significantly negative impact for CP group, it's noticeable the impact nearly exist for SH group. So why is there an unneglected difference between these two group?  Since the only different characteristic for these groups is the year of birth, we suggest that the difference could be attributed to Taiwan's education reform in the 2000s, when the number of universities skyrocketed to raise people's general education level. 
+    Now let's look at table 3, where the PDS regression result looks similar to the first table.  Compared with significantly negative impact for CP group (\textit{p}-value is 0.02), it's noticeable the impact is only significant at 10\% level for SH group (\textit{p}-value is 0.093).  So why is there an unneglected difference between these two groups?  Since the only different characteristic for these groups is the year of birth, we suggest that the difference could be attributed to Taiwan's education reform in the 2000s, when the number of universities skyrocketed to raise people's general education level. 
     
-    Although the reform has reduced the competition for children to enter university, we believe that the policy may widen the gap between those with good/bad economic condition, or in other words, living in single parent/nuclear family. The policy may do provide more opportunities for children to get into the university, but failing to cover the money shortage of those with bad economic condition, as a consequence, they would tend to suspend their educational investment after high school and enter labor market for finding work.  This sounds like a plausible story, with some evidence, we can make the argument more credible.
+    Although the reform has reduced the competition for children to enter university, we believe that the policy may widen the gap between those with good/bad economic condition, or in other words, living in single parent/nuclear family. The policy may do provide more opportunities for children to get into the university, but failing to cover the money shortage of those with bad economic condition, as a consequence, they would tend to suspend their educational investment after high school and enter labor market for finding work.  This sounds like a plausible story, and with some evidence, we can make the argument more credible.
 
 \section{Discussion and Conclusion}
 
     Overall, we find out that single parent family has the significant negative effect on academic degrees, especially in master degree. We also observe the different impact of single parent family. However, the channel is still unknown. The different effects between two groups might be related to the economic conditions of the students. 
 
-    To confirm that the difference between SH and CP group is truely induced by family's economic background, we show another dependent variable -- $work\_year$ further. The variable $work\_year$ is defined as how many years these students enter the labor market when they are 25 years old. If single parent families do influence the students' economic situation, it is possible that students in single parent family will enter the labor market earlier, rather than getting the higher educational degree. Thus, we simply run the regression of single parent family on working year.
+    To confirm that the difference between SH and CP group is truly induced by family's economic background, we can consider another outcome variable $work\_year$.  The variable $work\_year$ is defined as how many years had these students entered labor market when they are 25 years old. If single parent families do influence the students' economic situation, it is possible that students in single parent family will enter the labor market earlier, rather than getting the higher educational degree.  Therefore, we simply run the regression of single parent family on working year.
 
-    In table 4, the single regression with some of our selected control variables shows that single parent families have significant effect on CP group, while it is not significant in SH group, which directly confirm our suppose about bad economic conditions in single parent families. Although the scale is only 0.2 years, we believe single parent families somehow force their children to enter the labor market earlier than general students, which might influence their highest level of education.
+    In table 4, the single regression with some of our selected control variables shows that single parent families have significant effect on CP group, while it is not significant in SH group, which directly confirm our suppose about bad economic conditions in single parent families. Although the scale is only 0.2 years, we believe single parent families somehow force their children to enter the labor market earlier than general students, which might influence their decision of getting highest level of education.
+
     \begin{center}
-        \begin{table}
-        \caption{Regression on Working Year for SH and CP group}
-        \setlength{\tabcolsep}{0.5mm}
-        \begin{tabular}{l*{4}c}
-        \toprule
-        &\multicolumn{2}{c}{SH} &\multicolumn{2}{c}{CP/NP} \\
-        \cmidrule(l){2-3}\cmidrule(l){4-5}
-        &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
-        &\multicolumn{1}{c}{Work\_year}&\multicolumn{1}{c}{Work\_year}&\multicolumn{1}{c}{Work\_year}&\multicolumn{1}{c}{Work\_year}\\
-        \midrule
-        sp          &       0.257\sym{**} &       0.153         &       0.214\sym{***}&       0.200\sym{***}\\
-                    &     (0.032)         &     (0.180)         &     (0.006)         &     (0.009)         \\
-        [1em]
-        female      &                     &      0.0312         &                     &       0.437\sym{***}\\
-                    &                     &     (0.675)         &                     &     (0.000)         \\
-        [1em]
-        hs\_private  &                     &       0.380\sym{***}&                     &       0.139\sym{**} \\
-                    &                     &     (0.000)         &                     &     (0.010)         \\
-        [1em]
-        hs\_urban    &                     &      -0.112\sym{*}  &                     &      -0.167\sym{***}\\
-                    &                     &     (0.093)         &                     &     (0.000)         \\
-        [1em]
-        general\_high&                     &      -1.012\sym{***}&                     &           0         \\
-                    &                     &     (0.000)         &                     &         (.)         \\
-        [1em]
-        paedu       &                     &      -0.400\sym{***}&                     &      -0.290\sym{***}\\
-                    &                     &     (0.000)         &                     &     (0.000)         \\
-        [1em]
-        \_cons      &       2.959\sym{***}&       3.465\sym{***}&       2.940\sym{***}&       2.815\sym{***}\\
-                    &     (0.000)         &     (0.000)         &     (0.000)         &     (0.000)         \\
-        \hline
-        \(N\)       &        2685         &        2685         &        3548         &        3548         \\
-        \hline\hline
-        \multicolumn{2}{l}{\footnotesize \textit{p}-values in parentheses} & \multicolumn{3}{r}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
-        \end{tabular}
-        \begin{tablenotes}
-            We only run the simple regression with some control variables since the PDS method would drop most of the samples. The data quality doesn't allow us to utilize PDS method in this case.
-        \end{tablenotes}
-        \end{table}
-        \end{center}
+    \begin{table}
+    \caption{Regression on Working Year for SH and CP group}
+    \setlength{\tabcolsep}{0.5mm}
+    \begin{tabular}{l*{4}c}
+    \toprule
+    &\multicolumn{2}{c}{SH} &\multicolumn{2}{c}{CP/NP} \\
+    \cmidrule(l){2-3}\cmidrule(l){4-5}
+    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+    &\multicolumn{1}{c}{Work\_year}&\multicolumn{1}{c}{Work\_year}&\multicolumn{1}{c}{Work\_year}&\multicolumn{1}{c}{Work\_year}\\
+    \midrule
+    sp          &       0.257\sym{**} &       0.153         &       0.214\sym{***}&       0.200\sym{***}\\
+                &     (0.032)         &     (0.180)         &     (0.006)         &     (0.009)         \\
+    [1em]
+    female      &                     &      0.0312         &                     &       0.437\sym{***}\\
+                &                     &     (0.675)         &                     &     (0.000)         \\
+    [1em]
+    hs\_private  &                     &       0.380\sym{***}&                     &       0.139\sym{**} \\
+                &                     &     (0.000)         &                     &     (0.010)         \\
+    [1em]
+    hs\_urban    &                     &      -0.112\sym{*}  &                     &      -0.167\sym{***}\\
+                &                     &     (0.093)         &                     &     (0.000)         \\
+    [1em]
+    general\_high&                     &      -1.012\sym{***}&                     &           0         \\
+                &                     &     (0.000)         &                     &         (.)         \\
+    [1em]
+    paedu       &                     &      -0.400\sym{***}&                     &      -0.290\sym{***}\\
+                &                     &     (0.000)         &                     &     (0.000)         \\
+    [1em]
+    \_cons      &       2.959\sym{***}&       3.465\sym{***}&       2.940\sym{***}&       2.815\sym{***}\\
+                &     (0.000)         &     (0.000)         &     (0.000)         &     (0.000)         \\
+    \hline
+    \(N\)       &        2685         &        2685         &        3548         &        3548         \\
+    \hline\hline
+    \multicolumn{2}{l}{\footnotesize \textit{p}-values in parentheses} & \multicolumn{3}{r}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+    \end{tabular}
+    \begin{tablenotes}
+        We only run the simple regression with some control variables since the PDS method would drop most of the samples. The data quality doesn't allow us to utilize PDS method in this case.
+    \end{tablenotes}
+    \end{table}
+    \end{center}
+
     Besides, our results are consistent with the previous paper.  \cite{Luoh2004}  also proves that the educational reform around 2000s does not benefit some economically vulnerable groups. He analyses the probability change of entering Taiwan universities. Due to the educational reform in 1987, the number of university in Taiwan abruptly increased. The total number of universities was 60 in 1995, but 135 in 2001, which allowed more students to attend the university.  \cite{Luoh2004} point out that when the proportion of school attendance is low, the increase of school opportunities will increase the influence of family background on the probability of individual school attendance, which means students from poor economic family will have more negative impact on the probability of attaining the bachelor degree. 
    
-    In our case, single parent family do have some economic situation. The negative effect of single parent family was not really obvious until the educational reform enhanced the total probability of entering universities, which somehow crowded out the children from single parent family, making the coefficient of CP group to be significant. In other words, in Taiwan, after the reform amplified the total probability of entering university, the nagative impact of single parent family started to worsen.
+    In our case, single parent family do have some economic situation. The negative effect of single parent family was not really obvious until the educational reform enhanced the total probability of entering universities, which somehow crowded out the children from single parent family, making the coefficient of CP group to be significant. In other words, in Taiwan, after the reform amplified the total probability of entering university, the negative impact of single parent family started to worsen.
 
-    Some previous papers highlight the timeline of when parents divorced is also important. Unfortunately, the dataset we used can't covered this,so we just focus on children who ever go through the parent divorce experience. Another limitation is that we only provide the children's working year to support our assumption of bad economic conditions in single parent families. The future studies can dig into whether sociol capital channel also significantly affects the children's degree of education.
+    Some previous papers highlight the timeline of when parents divorced is also important; but unfortunately, the dataset we used can't help us specifying the divorce time point while keeping large enough observation.  So we can just focus on children who ever go through the parent divorce experience.  Another limitation is that we only provide the children's working year to support our assumption of bad economic conditions in single parent families.  We think the future studies can dig into whether social capital channel also significantly affects children's degree of education, and if possible, try to measure the effect and shed a light on the complete structure of the channel.
 
 
 
