@@ -8,6 +8,9 @@
 \usepackage{siunitx} % used for regression table
 \usepackage{booktabs} % used for regression table
 \usepackage{natbib}
+
+\usepackage{xeCJK}
+\setCJKmainfont{NotoSansCJKtc-Regular.otf}
 %\setcitestyle{authoryear, round}
 
 
@@ -26,11 +29,8 @@
 % Note: you may use either harvard or natbib (but not both) to provide a wider
 % variety of citation commands than latex supports natively. See below.
 
-% Uncomment the next line to use the natbib package with bibtex 
-%\usepackage{natbib}
-
 % Uncomment the next line to use the harvard package with bibtex
-%\usepackage[abbr]{harvard}
+\usepackage[abbr]{harvard}
 
 % This command determines the leading (vertical space between lines) in draft mode
 % with 1.5 corresponding to "double" spacing.
@@ -48,7 +48,7 @@
 \pubYear{2023}
 
 \begin{abstract}
-    We estimate the impact of living in the single parent family on the children's future educational attainment by using a comprehensive panel survey data on students in Taiwan (TEPS).  By conducting PDS method, it's found that the experience of living under single parent family will decrease the probability of attaining university degree by 2.6 percent, and master degree by 4.6 percents also.  We also finds that there is a gap between the probability for two different groups of sample, which we provides some evidence to show it is attributed to the Taiwan Educational Reform in 2000s.
+    We estimate the impact of living in the single parent family on the children's future educational attainment by using a comprehensive panel survey data on students in Taiwan (TEPS).  By conducting PDS method, it's found that the experience of living in single parent family will decrease the probability of attaining university degree by 2.6 percent, and master degree by 4.6 percents also.  We also finds that there is a gap between the probability for two different groups of sample, which we provides some evidence to show it is attributed to the Taiwan Educational Reform in 2000s.
 \end{abstract}
 
 
@@ -56,7 +56,7 @@
 
 \section{Introduction}
 
-    Over the past decade, a bunch of literatures investigated the impact of family background on children's futrure performance. The influence of single parent family is also a popular subtopic. The general trend is that students from single parent families are scored lower than those from normal families.\citep{barajas2011} 
+    Over the past decade, a bunch of literatures investigated the impact of family background on children's futrure performance. The influence of single parent family is also a popular subtopic. The general trend is that students from single parent families are scored lower than those from normal families.\cite{barajas2011} 
 
     \cite{krein1988} has shown that the the negative impact of single parent families intensify when the period students staying in this type of family is longer. \cite{pong2003} compared the math and science achievement of third and fourth graders across 11 countries, and the results indicate that there's significant nagative effect of single parent families in 9 countries, except Australia and New Zealand, since these two countries have the entire family policies, reduce the negative effect of single parent families.
 
@@ -318,8 +318,9 @@
 \section*{References}
 
 % Remove or comment out the next two lines if you are not using bibtex.
-\bibliographystyle{aea}
+
 \bibliography{reference}
+\bibliographystyle{plain}
 
 
 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  29 JUN 2023 22:29
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  30 JUN 2023 14:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -143,7 +143,7 @@ LaTeX Info: Redefining \Relbar on input line 971.
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 )
-Journal Selected: THE AMERICAN ECONOMIC REVIEW
+Journal Selected: 
 Mode Selected: final
 \abstractIndent=\skip53
 \abstractWidth=\skip54
@@ -282,8 +282,8 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip66
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count300
-)
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 40.
+) (c:/texlive/2022/texmf-dist/tex/xelatex/xecjk/xeCJK.sty (c:/texlive/2022/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2023-02-07 L3 programming layer (loader) 
  (c:/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2023-01-16 L3 backend support: XeTeX
 \g__graphics_track_int=\count301
@@ -291,7 +291,235 @@ File: l3backend-xetex.def 2023-01-16 L3 backend support: XeTeX
 \g__pdf_backend_object_int=\count302
 \g__pdf_backend_annotation_int=\count303
 \g__pdf_backend_link_int=\count304
-) (./term_paper.aux)
+))
+Package: xeCJK 2022/08/05 v3.9.1 Typesetting CJK scripts with XeLaTeX
+ (c:/texlive/2022/texmf-dist/tex/latex/ctex/ctexhook.sty
+Package: ctexhook 2022/07/14 v2.5.10 Document and package hooks (CTEX)
+) (c:/texlive/2022/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
+Package: xtemplate 2023-02-02 L3 Experimental prototype document functions
+\l__xtemplate_tmp_dim=\dimen183
+\l__xtemplate_tmp_int=\count305
+\l__xtemplate_tmp_muskip=\muskip17
+\l__xtemplate_tmp_skip=\skip67
+)
+\l__xeCJK_tmp_int=\count306
+\l__xeCJK_tmp_box=\box111
+\l__xeCJK_tmp_dim=\dimen184
+\l__xeCJK_tmp_skip=\skip68
+\g__xeCJK_space_factor_int=\count307
+\l__xeCJK_begin_int=\count308
+\l__xeCJK_end_int=\count309
+\c__xeCJK_CJK_class_int=\XeTeXcharclass1
+\c__xeCJK_FullLeft_class_int=\XeTeXcharclass2
+\c__xeCJK_FullRight_class_int=\XeTeXcharclass3
+\c__xeCJK_HalfLeft_class_int=\XeTeXcharclass4
+\c__xeCJK_HalfRight_class_int=\XeTeXcharclass5
+\c__xeCJK_NormalSpace_class_int=\XeTeXcharclass6
+\c__xeCJK_CM_class_int=\XeTeXcharclass7
+\c__xeCJK_HangulJamo_class_int=\XeTeXcharclass8
+\l__xeCJK_last_skip=\skip69
+\c__xeCJK_none_node=\count310
+\g__xeCJK_node_int=\count311
+\c__xeCJK_CJK_node_dim=\dimen185
+\c__xeCJK_CJK-space_node_dim=\dimen186
+\c__xeCJK_default_node_dim=\dimen187
+\c__xeCJK_CJK-widow_node_dim=\dimen188
+\c__xeCJK_normalspace_node_dim=\dimen189
+\c__xeCJK_default-space_node_skip=\skip70
+\l__xeCJK_ccglue_skip=\skip71
+\l__xeCJK_ecglue_skip=\skip72
+\l__xeCJK_punct_kern_skip=\skip73
+\l__xeCJK_indent_box=\box112
+\l__xeCJK_last_penalty_int=\count312
+\l__xeCJK_last_bound_dim=\dimen190
+\l__xeCJK_last_kern_dim=\dimen191
+\l__xeCJK_widow_penalty_int=\count313
+
+Package xtemplate Info: Declaring object type 'xeCJK/punctuation' taking 0
+(xtemplate)             argument(s) on line 2396.
+
+\l__xeCJK_fixed_punct_width_dim=\dimen192
+\l__xeCJK_mixed_punct_width_dim=\dimen193
+\l__xeCJK_middle_punct_width_dim=\dimen194
+\l__xeCJK_fixed_margin_width_dim=\dimen195
+\l__xeCJK_mixed_margin_width_dim=\dimen196
+\l__xeCJK_middle_margin_width_dim=\dimen197
+\l__xeCJK_bound_punct_width_dim=\dimen198
+\l__xeCJK_bound_margin_width_dim=\dimen199
+\l__xeCJK_margin_minimum_dim=\dimen256
+\l__xeCJK_kerning_total_width_dim=\dimen257
+\l__xeCJK_same_align_margin_dim=\dimen258
+\l__xeCJK_different_align_margin_dim=\dimen259
+\l__xeCJK_kerning_margin_width_dim=\dimen260
+\l__xeCJK_kerning_margin_minimum_dim=\dimen261
+\l__xeCJK_bound_dim=\dimen262
+\l__xeCJK_reverse_bound_dim=\dimen263
+\l__xeCJK_margin_dim=\dimen264
+\l__xeCJK_minimum_bound_dim=\dimen265
+\l__xeCJK_kerning_margin_dim=\dimen266
+\g__xeCJK_family_int=\count314
+\l__xeCJK_fam_int=\count315
+\g__xeCJK_fam_allocation_int=\count316
+\l__xeCJK_verb_case_int=\count317
+\l__xeCJK_verb_exspace_skip=\skip74
+ (c:/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec.sty (c:/texlive/2022/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2023-02-02 L3 Experimental document command parser
+)
+Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
+ (c:/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
+\l__fontspec_script_int=\count318
+\l__fontspec_language_int=\count319
+\l__fontspec_strnum_int=\count320
+\l__fontspec_tmp_int=\count321
+\l__fontspec_tmpa_int=\count322
+\l__fontspec_tmpb_int=\count323
+\l__fontspec_tmpc_int=\count324
+\l__fontspec_em_int=\count325
+\l__fontspec_emdef_int=\count326
+\l__fontspec_strong_int=\count327
+\l__fontspec_strongdef_int=\count328
+\l__fontspec_tmpa_dim=\dimen267
+\l__fontspec_tmpb_dim=\dimen268
+\l__fontspec_tmpc_dim=\dimen269
+ (c:/texlive/2022/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (c:/texlive/2022/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (c:/texlive/2022/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
+File: xeCJK.cfg 2022/08/05 v3.9.1 Configuration file for xeCJK package
+))
+
+Package fontspec Info: Font family 'NotoSansCJKtc-Regular.otf(0)' created for
+(fontspec)             font 'NotoSansCJKtc-Regular.otf' with options
+(fontspec)             [Script={CJK}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[NotoSansCJKtc-Regular.otf]/OT:script=hani;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+
+ (c:/texlive/2022/texmf-dist/tex/latex/harvard/harvard.sty
+Package: harvard 
+ (c:/texlive/2022/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+
+c:/texlive/2022/texmf-dist/tex/latex/harvard/harvard.sty:29: LaTeX Error: Command \harvardurl already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 }
+      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/texlive/2022/texmf-dist/tex/latex/harvard/harvard.sty:67: LaTeX Error: Command \harvarditem already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.67 }
+      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/texlive/2022/texmf-dist/tex/latex/harvard/harvard.sty:191: LaTeX Error: Command \citename already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.191 }
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/texlive/2022/texmf-dist/tex/latex/harvard/harvard.sty:208: LaTeX Error: Command \citeyear already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.208 ...ar}{\@ifstar{\HAR@citeyrnb}{\HAR@citeyr}}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/texlive/2022/texmf-dist/tex/latex/harvard/harvard.sty:252: LaTeX Error: Command \harvardleft already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.252 \newcommand{\harvardleft}{\HAR@bl@round}
+                                              
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/texlive/2022/texmf-dist/tex/latex/harvard/harvard.sty:253: LaTeX Error: Command \harvardright already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.253 \newcommand{\harvardright}{\HAR@br@round}
+                                               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/texlive/2022/texmf-dist/tex/latex/harvard/harvard.sty:260: LaTeX Error: Command \harvardyearleft already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.260 \newcommand{\harvardyearleft}{\HAR@bl@round}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/texlive/2022/texmf-dist/tex/latex/harvard/harvard.sty:261: LaTeX Error: Command \harvardyearright already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.261 ...command{\harvardyearright}{\HAR@br@round}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+)
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 40.
+
+No file term_paper.aux.
 \openout1 = `term_paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
@@ -304,7 +532,7 @@ LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
 LaTeX Font Info:    ... okay on input line 40.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 40.
- (c:/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd
+(c:/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 40.
@@ -325,20 +553,82 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 40.
 
+Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
+(fontspec)             this).
 
-Package natbib Warning: Citation `barajas2011' on page 1 undefined on input line 59.
+\symlegacymaths=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 40.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 40.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 40.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 40.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 40.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 40.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 40.
+LaTeX Font Info:    Redeclaring math accent \check on input line 40.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 40.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 40.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 40.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 40.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 40.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 40.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 40.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 40.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 40.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 40.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 40.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 40.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 40.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 40.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 40.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 40.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 40.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 40.
 
 
-Package natbib Warning: Citation `krein1988' on page 1 undefined on input line 61.
+Package xeCJK Warning: Unknown CJK family `\CJKsfdefault' is being ignored.
+(xeCJK)                
+(xeCJK)                Try to use `\setCJKsansfont[<...>]{<...>}' to define
+(xeCJK)                it.
 
 
-Package natbib Warning: Citation `pong2003' on page 1 undefined on input line 61.
+LaTeX Warning: Citation 'barajas2011' on page 1 undefined on input line 59.
 
 
-Package natbib Warning: Citation `bernardi2014' on page 1 undefined on input line 63.
+LaTeX Warning: Citation 'krein1988' on page 1 undefined on input line 61.
 
 
-Package natbib Warning: Citation `pong2003' on page 1 undefined on input line 65.
+LaTeX Warning: Citation 'pong2003' on page 1 undefined on input line 61.
+
+
+LaTeX Warning: Citation 'bernardi2014' on page 1 undefined on input line 63.
+
+
+LaTeX Warning: Citation 'pong2003' on page 1 undefined on input line 65.
 
 [1
 
@@ -364,10 +654,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Package natbib Warning: Citation `Luoh2004' on page 8 undefined on input line 310.
+LaTeX Warning: Citation 'Luoh2004' on page 8 undefined on input line 310.
 
 
-Package natbib Warning: Citation `Luoh2004' on page 8 undefined on input line 310.
+LaTeX Warning: Citation 'Luoh2004' on page 8 undefined on input line 310.
 
 [8]
 No file term_paper.bbl.
@@ -376,12 +666,12 @@ Package natbib Warning: There were undefined citations.
 
 [9] (./term_paper.aux) ) 
 Here is how much of TeX's memory you used:
- 6993 strings out of 478635
- 165048 string characters out of 5847854
- 1867001 words of memory out of 5000000
- 27056 multiletter control sequences out of 15000+600000
- 516031 words of font info for 58 fonts, out of 8000000 for 9000
+ 11309 strings out of 478635
+ 306343 string characters out of 5847854
+ 1870001 words of memory out of 5000000
+ 31326 multiletter control sequences out of 15000+600000
+ 516613 words of font info for 63 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 71i,13n,77p,1178b,398s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 71i,13n,81p,1187b,396s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on term_paper.pdf (9 pages).
