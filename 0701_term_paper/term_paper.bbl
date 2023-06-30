@@ -1,0 +1,38 @@
+
+
+% Bibstyle aea.bst version 2009.05.20
+
+\begin{thebibliography}{xx}
+
+\harvarditem[Barajas]{Mark~S Barajas}{2011}{barajas2011}
+{\bf Barajas, Mark~S.} 2011. ``Academic achievement of children in single
+  parent homes: A critical review.'' {\em The Hilltop Review}, 5(1):~4.
+
+\harvarditem[Bernardi \harvardand\ Radl]{Fabrizio Bernardi \harvardand\ Jonas
+  Radl}{2014}{bernardi2014}
+{\bf Bernardi, Fabrizio, and Jonas Radl.} 2014. ``The long-term consequences of
+  parental divorce for children’s educational attainment.'' {\em Demographic
+  research}, 30:~1653--1680.
+
+\harvarditem[Krein \harvardand\ Beller]{Sheila~Fitzgerald Krein \harvardand\
+  Andrea~H Beller}{1988}{krein1988}
+{\bf Krein, Sheila~Fitzgerald, and Andrea~H Beller.} 1988. ``Educational
+  attainment of children from single-parent families: Differences by exposure,
+  gender, and race.'' {\em Demography}, 25(2):~221--234.
+
+\harvarditem[Luoh]{Ming-Ching Luoh}{2004}{Luoh2004}
+{\bf Luoh, Ming-Ching.} 2004. ``升學機會與家庭背景.'' {\em
+  經濟論文叢刊}, 32(4):~417--445.
+
+\harvarditem[Luoh]{Ming-Ching Luoh}{2018}{luoh2018}
+{\bf Luoh, Ming-Ching.} 2018.
+  ``誰是台大學生?(2001-2014)-多元入學的影響.'' {\em Jing Ji Lun
+  Wen Cong Kan}, 46(1):~47--95.
+
+\harvarditem[Pong, Dronkers \harvardand\ Hampden-Thompson]{Suet-ling Pong, Jaap
+  Dronkers \harvardand\ Gillian Hampden-Thompson}{2003}{pong2003}
+{\bf Pong, Suet-ling, Jaap Dronkers, and Gillian Hampden-Thompson.} 2003.
+  ``Family policies and children's school achievement in single-versus
+  two-parent families.'' {\em Journal of marriage and family}, 65(3):~681--699.
+
+\end{thebibliography}
